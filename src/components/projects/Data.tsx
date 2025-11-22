@@ -441,7 +441,7 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
 export const data = [
   {
     category: 'Startup Project',
-    title: 'Synto',
+    title: 'CyberCodex.io',
     src: '/syntopreview.png',
     content: <ProjectContent project={{ title: 'Synto' }} />,
   },

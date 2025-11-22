@@ -1,17 +1,12 @@
 import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { HomeButton } from '@/components/home-button';
 import { Toaster } from '@/components/ui/sonner';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
-
-// Load Inter font for non-Apple devices
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-});
 
 export const metadata: Metadata = {
   title: 'Toukoum Portfolio',
@@ -86,16 +81,16 @@ export default function RootLayout({
         ></Script>
       </head>
       <body
-        className={cn(
-          'bg-background min-h-screen font-sans antialiased',
-          inter.variable
-        )}
+        className={cn('bg-background min-h-screen font-sans antialiased')}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem={false}
+          enableSystem={true}
+          disableTransitionOnChange
         >
+          <ThemeToggle />
+          <HomeButton />
           <main className="flex min-h-screen flex-col">{children}</main>
           <Toaster />
         </ThemeProvider>

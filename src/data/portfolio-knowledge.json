@@ -1,0 +1,132 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi",
+        "hello",
+        "hey",
+        "what's up",
+        "howdy",
+        "greetings"
+      ],
+      "responses": [
+        "Hey! I'm here to help you learn more about this portfolio. Ask me anything!",
+        "Hi there! What would you like to know?",
+        "Hello! Feel free to ask about projects, skills, or anything else."
+      ],
+      "navigate_to": null
+    },
+    {
+      "tag": "about_me",
+      "patterns": [
+        "who are you",
+        "tell me about yourself",
+        "who am i",
+        "about you",
+        "your background",
+        "introduce yourself",
+        "what's your story"
+      ],
+      "responses": [
+        "Let me show you the about section.",
+        "Here's everything about me.",
+        "Check out my background and experience."
+      ],
+      "navigate_to": "/me"
+    },
+    {
+      "tag": "projects",
+      "patterns": [
+        "what projects have you worked on",
+        "show me your projects",
+        "your work",
+        "what have you built",
+        "portfolio projects",
+        "show projects",
+        "tell me about your projects"
+      ],
+      "responses": [
+        "Here are the projects I've worked on.",
+        "Let me show you my work.",
+        "Check out these projects I've built."
+      ],
+      "navigate_to": "/projects"
+    },
+    {
+      "tag": "skills",
+      "patterns": [
+        "what are your skills",
+        "what do you know",
+        "technologies you use",
+        "your tech stack",
+        "programming languages",
+        "what can you do",
+        "your expertise"
+      ],
+      "responses": [
+        "Here's my skillset.",
+        "Let me show you what I can do.",
+        "Check out my technical skills."
+      ],
+      "navigate_to": "/skills"
+    },
+    {
+      "tag": "contact",
+      "patterns": [
+        "how can i contact you",
+        "get in touch",
+        "reach out",
+        "your email",
+        "contact information",
+        "how to contact",
+        "talk to you"
+      ],
+      "responses": [
+        "Here's how you can reach me.",
+        "Let's get in touch.",
+        "Here's my contact info."
+      ],
+      "navigate_to": "/contact"
+    },
+    {
+      "tag": "fun",
+      "patterns": [
+        "what do you do for fun",
+        "hobbies",
+        "free time",
+        "interests outside work",
+        "what do you like to do",
+        "fun activities",
+        "personal interests"
+      ],
+      "responses": [
+        "Here's what I do in my free time.",
+        "Let me show you my hobbies and interests.",
+        "Check out the fun stuff I enjoy."
+      ],
+      "navigate_to": "/fun"
+    },
+    {
+      "tag": "help",
+      "patterns": [
+        "help",
+        "what can you do",
+        "how does this work",
+        "what can i ask",
+        "commands"
+      ],
+      "responses": [
+        "I can tell you about projects, skills, background, hobbies, or how to get in touch!",
+        "Ask me about work experience, projects, technical skills, or personal interests.",
+        "I'm here to help you explore this portfolio. Try asking about projects or skills!"
+      ],
+      "navigate_to": null
+    }
+  ],
+  "fallback_responses": [
+    "I'm not sure about that. Try asking about projects, skills, or background.",
+    "Hmm, I don't understand. Ask me about work, hobbies, or how to get in touch.",
+    "Not sure what you mean. Try 'show me projects' or 'what are your skills'?"
+  ]
+}

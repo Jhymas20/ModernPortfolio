@@ -1,6 +1,5 @@
 'use client';
 
-import { FastfolioCTA } from '@/components/fastfolio-cta';
 import FluidCursor from '@/components/FluidCursor';
 import { Button } from '@/components/ui/button';
 import WelcomeModal from '@/components/welcome-modal';
@@ -17,14 +16,14 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
-/* ---------- quick-question data ---------- */
-const questions = {
-  Me: 'Who are you? I want to know more about you.',
-  Projects: 'What are your projects? What are you working on right now?',
-  Skills: 'What are your skills? Give me a list of your soft and hard skills.',
-  Fun: 'What’s the craziest thing you’ve ever done? What are your hobbies?',
-  Contact: 'How can I contact you?',
+const pageRoutes = {
+  Me: '/me',
+  Projects: '/projects',
+  Skills: '/skills',
+  Fun: '/fun',
+  Contact: '/contact',
 } as const;
+type RouteKey = keyof typeof pageRoutes;
 
 const questionConfig = [
   { key: 'Me', color: '#329696', icon: Laugh },
@@ -32,7 +31,7 @@ const questionConfig = [
   { key: 'Skills', color: '#856ED9', icon: Layers },
   { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
   { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
-] as const;
+] as const satisfies { key: RouteKey; color: string; icon: typeof Laugh }[];
 
 /* ---------- component ---------- */
 export default function Home() {
@@ -40,8 +39,32 @@ export default function Home() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const goToChat = (query: string) =>
-    router.push(`/chat?query=${encodeURIComponent(query)}`);
+  const handleSectionNavigation = (key: RouteKey) => {
+    router.push(pageRoutes[key]);
+  };
+
+  const handleQueryNavigation = (query: string) => {
+    const normalized = query.trim().toLowerCase();
+    if (!normalized) return;
+
+    if (normalized.includes('project') || normalized.includes('portfolio')) {
+      router.push(pageRoutes.Projects);
+      return;
+    }
+    if (normalized.includes('skill')) {
+      router.push(pageRoutes.Skills);
+      return;
+    }
+    if (normalized.includes('contact') || normalized.includes('email')) {
+      router.push(pageRoutes.Contact);
+      return;
+    }
+    if (normalized.includes('fun') || normalized.includes('hobby')) {
+      router.push(pageRoutes.Fun);
+      return;
+    }
+    router.push(pageRoutes.Me);
+  };
 
   /* hero animations (unchanged) */
   const topElementVariants = {
@@ -49,7 +72,7 @@ export default function Home() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: 'ease', duration: 0.8 },
+      transition: { type: 'tween' as const, ease: 'easeOut' as const, duration: 0.8 },
     },
   };
   const bottomElementVariants = {
@@ -57,16 +80,15 @@ export default function Home() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: 'ease', duration: 0.8, delay: 0.2 },
+      transition: { type: 'tween' as const, ease: 'easeOut' as const, duration: 0.8, delay: 0.2 },
     },
   };
 
   useEffect(() => {
-    // Précharger les assets du chat en arrière-plan
+    // Précharger les assets visuels en arrière-plan
     const img = new window.Image();
     img.src = '/landing-memojis.png';
 
-    // Précharger les vidéos aussi
     const linkWebm = document.createElement('link');
     linkWebm.rel = 'preload'; // Note: prefetch au lieu de preload
     linkWebm.as = 'video';
@@ -83,21 +105,22 @@ export default function Home() {
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-10 md:pb-20">
       {/* big blurred footer word */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden">
-        <div
-          className="hidden bg-gradient-to-b from-neutral-500/10 to-neutral-500/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem]"
-          style={{ marginBottom: '-2.5rem' }}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center overflow-hidden">
+      <div
+          className="hidden whitespace-nowrap bg-gradient-to-b from-neutral-400/70 via-neutral-400/55 to-neutral-400/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem] dark:from-neutral-400/10 dark:via-neutral-400/8 dark:to-neutral-400/0"
+          style={{
+            marginBottom: '-2.5rem',
+            WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
+          }}
         >
-          Toukoum
+          Jordan Hymas
         </div>
       </div>
-
-      <FastfolioCTA/>
 
       {/* header */}
       <motion.div
         className="z-1 mt-24 mb-8 flex flex-col items-center text-center md:mt-4 md:mb-12"
-        variants={topElementVariants}
+        variants={topElementVariants as any}
         initial="hidden"
         animate="visible"
       >
@@ -105,10 +128,10 @@ export default function Home() {
           <WelcomeModal />
         </div>
 
-        <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl">
-          Hey, I'm Raphael 👋
+        <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl dark:text-neutral-300">
+          Hey, I'm Jordan 👋
         </h2>
-        <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
           AI Portfolio
         </h1>
       </motion.div>
@@ -127,7 +150,7 @@ export default function Home() {
 
       {/* input + quick buttons */}
       <motion.div
-        variants={bottomElementVariants}
+        variants={bottomElementVariants as any}
         initial="hidden"
         animate="visible"
         className="z-10 mt-4 flex w-full flex-col items-center justify-center md:px-0"
@@ -136,7 +159,7 @@ export default function Home() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            if (input.trim()) goToChat(input.trim());
+            if (input.trim()) handleQueryNavigation(input);
           }}
           className="relative w-full max-w-lg"
         >
@@ -146,7 +169,7 @@ export default function Home() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask me anything…"
+              placeholder="Jump to portfolio, skills, contact…"
               className="w-full border-none bg-transparent text-base text-neutral-800 placeholder:text-neutral-500 focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-500"
             />
             <button
@@ -165,11 +188,11 @@ export default function Home() {
           {questionConfig.map(({ key, color, icon: Icon }) => (
             <Button
               key={key}
-              onClick={() => goToChat(questions[key])}
+              onClick={() => handleSectionNavigation(key)}
               variant="outline"
-              className="border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-white/30 py-8 shadow-none backdrop-blur-lg active:scale-95 md:p-10"
+              className="border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-white/30 py-8 shadow-none backdrop-blur-lg active:scale-95 dark:border-neutral-700 dark:bg-neutral-800/50 dark:hover:bg-neutral-700/50 md:p-10"
             >
-              <div className="flex h-full flex-col items-center justify-center gap-1 text-gray-700">
+              <div className="flex h-full flex-col items-center justify-center gap-1 text-gray-700 dark:text-neutral-200">
                 <Icon size={22} strokeWidth={2} color={color} />
                 <span className="text-xs font-medium sm:text-sm">{key}</span>
               </div>

@@ -39,6 +39,9 @@ export const Carousel = ({
   initialScroll?: number;
 }) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
+  const isPointerDown = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartScroll = useRef(0);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -105,6 +108,27 @@ export const Carousel = ({
     return window && window.innerWidth < 768;
   };
 
+  const startDrag = (clientX: number) => {
+    if (!carouselRef.current) return;
+    isPointerDown.current = true;
+    dragStartX.current = clientX;
+    dragStartScroll.current = carouselRef.current.scrollLeft;
+    // Prevent text selection while dragging
+    document.body.style.userSelect = 'none';
+  };
+
+  const handlePointerMove = (clientX: number) => {
+    if (!isPointerDown.current || !carouselRef.current) return;
+    const delta = clientX - dragStartX.current;
+    carouselRef.current.scrollLeft = dragStartScroll.current - delta;
+    checkScrollability();
+  };
+
+  const endDrag = () => {
+    isPointerDown.current = false;
+    document.body.style.userSelect = '';
+  };
+
   return (
     <CarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
@@ -114,6 +138,24 @@ export const Carousel = ({
           className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none]"
           ref={carouselRef}
           onScroll={checkScrollability}
+          onMouseDown={(e) => startDrag(e.clientX)}
+          onMouseMove={(e) => {
+            if (isPointerDown.current) {
+              e.preventDefault();
+              handlePointerMove(e.clientX);
+            }
+          }}
+          onMouseLeave={endDrag}
+          onMouseUp={endDrag}
+          onTouchStart={(e) => {
+            if (e.touches[0]) startDrag(e.touches[0].clientX);
+          }}
+          onTouchMove={(e) => {
+            if (e.touches[0]) {
+              handlePointerMove(e.touches[0].clientX);
+            }
+          }}
+          onTouchEnd={endDrag}
         >
           <div
             className={cn(
@@ -139,8 +181,7 @@ export const Carousel = ({
                   transition: {
                     duration: 0.5,
                     delay: 0.2 * index,
-                    ease: 'easeOut',
-                    once: true,
+                    ease: 'easeOut' as const,
                   },
                 }}
                 key={'card' + index}
