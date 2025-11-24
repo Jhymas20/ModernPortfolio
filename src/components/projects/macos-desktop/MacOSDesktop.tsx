@@ -9,18 +9,20 @@ import { INITIAL_DESKTOP_ICONS, WINDOW_Z_INDEX_START, calculateIconPositions } f
 import { DesktopIconData, OpenWindow } from './types';
 import { data as projectsData } from '../Data';
 import NavigationPrompt from '@/components/navigation-prompt';
+import { NotesContent } from './NotesContent';
+import { PhotosContent } from './PhotosContent';
 
 export function MacOSDesktop() {
   // Icons with responsive positions
   const [icons, setIcons] = useState<DesktopIconData[]>(INITIAL_DESKTOP_ICONS);
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([]);
   const [nextZIndex, setNextZIndex] = useState(WINDOW_Z_INDEX_START);
-  const [showQuickQuestions, setShowQuickQuestions] = useState(true);
+  const [showQuickQuestions, setShowQuickQuestions] = useState(false); // Default to hidden
 
-  // Calculate icon positions based on viewport size and handle resize
+  // Calculate icon positions based on viewport size, handle resize, and quick questions state
   useEffect(() => {
     const updateIconPositions = () => {
-      const newPositions = calculateIconPositions(window.innerWidth, window.innerHeight);
+      const newPositions = calculateIconPositions(window.innerWidth, window.innerHeight, showQuickQuestions);
       setIcons(newPositions);
     };
 
@@ -33,7 +35,7 @@ export function MacOSDesktop() {
     return () => {
       window.removeEventListener('resize', updateIconPositions);
     };
-  }, []);
+  }, [showQuickQuestions]); // Re-calculate when quick questions toggle
 
   const handleIconOpen = useCallback(
     (icon: DesktopIconData, position: { x: number; y: number }) => {
@@ -91,6 +93,62 @@ export function MacOSDesktop() {
     []
   );
 
+  const handleNotesClick = useCallback(() => {
+    // Check if Notes window is already open
+    const existingWindow = openWindows.find((w) => w.id === 'notes');
+
+    if (existingWindow) {
+      // Bring to front
+      setOpenWindows((prev) =>
+        prev.map((w) =>
+          w.id === 'notes' ? { ...w, zIndex: nextZIndex } : w
+        )
+      );
+      setNextZIndex((prev) => prev + 1);
+    } else {
+      // Open new Notes window
+      setOpenWindows((prev) => [
+        ...prev,
+        {
+          id: 'notes',
+          title: 'Notes',
+          projectIndex: -1, // Special value for non-project windows
+          zIndex: nextZIndex,
+          position: { x: 150, y: 100 },
+        },
+      ]);
+      setNextZIndex((prev) => prev + 1);
+    }
+  }, [openWindows, nextZIndex]);
+
+  const handlePhotosClick = useCallback(() => {
+    // Check if Photos window is already open
+    const existingWindow = openWindows.find((w) => w.id === 'photos');
+
+    if (existingWindow) {
+      // Bring to front
+      setOpenWindows((prev) =>
+        prev.map((w) =>
+          w.id === 'photos' ? { ...w, zIndex: nextZIndex } : w
+        )
+      );
+      setNextZIndex((prev) => prev + 1);
+    } else {
+      // Open new Photos window
+      setOpenWindows((prev) => [
+        ...prev,
+        {
+          id: 'photos',
+          title: 'Photos',
+          projectIndex: -1, // Special value for non-project windows
+          zIndex: nextZIndex,
+          position: { x: 200, y: 120 },
+        },
+      ]);
+      setNextZIndex((prev) => prev + 1);
+    }
+  }, [openWindows, nextZIndex]);
+
   return (
     <div className="fixed inset-0 overflow-hidden bg-black">
       {/* Desktop Background */}
@@ -116,6 +174,38 @@ export function MacOSDesktop() {
       {/* Open Windows */}
       <AnimatePresence>
         {openWindows.map((window) => {
+          // Handle special windows (like Notes and Photos)
+          if (window.id === 'notes') {
+            return (
+              <MacOSWindow
+                key={window.id}
+                title={window.title}
+                onClose={() => handleWindowClose(window.id)}
+                onFocus={() => handleWindowFocus(window.id)}
+                zIndex={window.zIndex}
+                initialPosition={window.position}
+              >
+                <NotesContent />
+              </MacOSWindow>
+            );
+          }
+
+          if (window.id === 'photos') {
+            return (
+              <MacOSWindow
+                key={window.id}
+                title={window.title}
+                onClose={() => handleWindowClose(window.id)}
+                onFocus={() => handleWindowFocus(window.id)}
+                zIndex={window.zIndex}
+                initialPosition={window.position}
+              >
+                <PhotosContent />
+              </MacOSWindow>
+            );
+          }
+
+          // Handle project windows
           const project = projectsData[window.projectIndex];
           return (
             <MacOSWindow
@@ -134,11 +224,15 @@ export function MacOSDesktop() {
       </AnimatePresence>
 
       {/* Dock */}
-      <DesktopDock showQuickQuestions={showQuickQuestions} />
+      <DesktopDock
+        showQuickQuestions={showQuickQuestions}
+        onNotesClick={handleNotesClick}
+        onPhotosClick={handlePhotosClick}
+      />
 
-      {/* Navigation Section - Positioned below dock */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 px-4 pb-6">
-        <div className="mx-auto w-full max-w-6xl">
+      {/* Navigation Section - Positioned below dock with proper spacing */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 px-2 sm:px-4 pb-4 sm:pb-6">
+        <div className="mx-auto w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl">
           <NavigationPrompt
             showQuick={showQuickQuestions}
             onToggleQuick={() => setShowQuickQuestions(prev => !prev)}

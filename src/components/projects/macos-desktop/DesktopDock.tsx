@@ -106,9 +106,11 @@ const AppIcon = ({ icon, label }: { icon: string; label: string }) => {
 
 interface DesktopDockProps {
   showQuickQuestions?: boolean;
+  onNotesClick?: () => void;
+  onPhotosClick?: () => void;
 }
 
-export function DesktopDock({ showQuickQuestions = true }: DesktopDockProps) {
+export function DesktopDock({ showQuickQuestions = true, onNotesClick, onPhotosClick }: DesktopDockProps) {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
   // Adjust position based on whether quick questions are shown
@@ -116,7 +118,7 @@ export function DesktopDock({ showQuickQuestions = true }: DesktopDockProps) {
 
   return (
     <div className={`fixed ${bottomPosition} left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-in-out`}>
-      <div className="bg-white/20 backdrop-blur-2xl border border-white/30 rounded-2xl px-3 py-2.5 shadow-2xl">
+      <div className="bg-white/20 dark:bg-neutral-800/80 backdrop-blur-2xl border border-white/30 dark:border-neutral-700/50 rounded-2xl px-3 py-2.5 shadow-2xl">
         <div className="flex items-end gap-2.5">
           {DOCK_ICONS.map((dockIcon, index) => (
             <div key={dockIcon.id} className="flex items-end gap-2">
@@ -127,18 +129,29 @@ export function DesktopDock({ showQuickQuestions = true }: DesktopDockProps) {
 
               {/* Icon with tooltip */}
               <div className="relative">
-                <motion.a
-                  href={dockIcon.href}
-                  target={dockIcon.href !== '#' ? '_blank' : undefined}
-                  rel={dockIcon.href !== '#' ? 'noopener noreferrer' : undefined}
+                <motion.div
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (dockIcon.id === 'notes' && onNotesClick) {
+                      onNotesClick();
+                    } else if (dockIcon.id === 'photos' && onPhotosClick) {
+                      onPhotosClick();
+                    } else if (dockIcon.href && dockIcon.href !== '#') {
+                      if (dockIcon.href.startsWith('mailto:')) {
+                        window.location.href = dockIcon.href;
+                      } else {
+                        window.open(dockIcon.href, '_blank', 'noopener,noreferrer');
+                      }
+                    }
+                  }}
                   onHoverStart={() => setHoveredIcon(dockIcon.id)}
                   onHoverEnd={() => setHoveredIcon(null)}
                   whileHover={{ scale: 1.3, y: -8 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-14 h-14 flex items-center justify-center cursor-pointer transition-transform block"
+                  className="w-14 h-14 flex items-center justify-center cursor-pointer transition-transform"
                 >
                   <AppIcon icon={dockIcon.icon} label={dockIcon.label} />
-                </motion.a>
+                </motion.div>
 
                 {/* Tooltip */}
                 <AnimatePresence>

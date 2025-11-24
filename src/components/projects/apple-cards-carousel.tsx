@@ -63,12 +63,22 @@ export const Carousel = ({
 
   // Get the card width and gap based on viewport size
   const getScrollDistance = () => {
-    // Card width (w-56 = 224px) + gap-4 (16px)
-    const cardWidth = 224;
-    const gap = 16;
-    const totalWidth = cardWidth + gap;
+    const width = typeof window !== 'undefined' ? window.innerWidth : 768;
 
-    // Scroll by 2 cards on desktop, 1 on mobile
+    // Match responsive card widths: w-48 sm:w-52 md:w-56 lg:w-64
+    let cardWidth = 224; // md default (w-56)
+    if (width < 640) {
+      cardWidth = 192; // w-48
+    } else if (width < 768) {
+      cardWidth = 208; // sm: w-52
+    } else if (width < 1024) {
+      cardWidth = 224; // md: w-56
+    } else {
+      cardWidth = 256; // lg+: w-64
+    }
+
+    const gap = 16; // gap-4
+    const totalWidth = cardWidth + gap;
     const cardsToScroll = 1;
     return totalWidth * cardsToScroll;
   };
@@ -93,8 +103,21 @@ export const Carousel = ({
 
   const handleCardClose = (index: number) => {
     if (carouselRef.current) {
-      const cardWidth = 224; // w-56 (224px)
-      const gap = isMobile() ? 16 : 16; // gap-4 (16px)
+      const width = window.innerWidth;
+
+      // Match responsive card widths
+      let cardWidth = 224; // md default (w-56)
+      if (width < 640) {
+        cardWidth = 192; // w-48
+      } else if (width < 768) {
+        cardWidth = 208; // sm: w-52
+      } else if (width < 1024) {
+        cardWidth = 224; // md: w-56
+      } else {
+        cardWidth = 256; // lg+: w-64
+      }
+
+      const gap = 16; // gap-4
       const scrollPosition = (cardWidth + gap) * index;
       carouselRef.current.scrollTo({
         left: scrollPosition,
@@ -311,7 +334,7 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 dark:bg-neutral-900"
+        className="relative z-10 flex h-64 w-48 sm:h-72 sm:w-52 md:h-80 md:w-56 lg:h-96 lg:w-64 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 dark:bg-neutral-900"
       >
         <div className="absolute inset-x-0 top-0 z-30 h-full cursor-pointer bg-gradient-to-b from-black hover:scale-110 via-transparent to-transparent" />
         {/*<div className="absolute inset-0 z-20 cursor-pointer bg-black/20 hover:bg-black/2" />*/}

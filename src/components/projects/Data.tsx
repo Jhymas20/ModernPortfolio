@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import { Image as Img } from 'lucide-react';
-import { ChevronRight, Link } from 'lucide-react';
+import { ChevronRight, Link, ExternalLink } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { url } from 'inspector';
+import { CollapsibleSection } from './CollapsibleSection';
 
 // Enhanced project content array with all projects
 const PROJECT_CONTENT = [
@@ -339,6 +340,8 @@ const PROJECT_CONTENT = [
 // Define interface for project prop
 interface ProjectProps {
   title: string;
+  category?: string;
+  thumbnail?: string;
   description?: string;
   techStack?: string[];
   date?: string;
@@ -354,85 +357,146 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
     return <div>Project details not available</div>;
   }
 
+  // Build category/type string
+  const categoryString = project.category || 'Project';
+  const typeString = `${categoryString} > ${projectData.techStack[0] || 'Development'}`;
+
   return (
-    <div className="space-y-10">
-      {/* Header section with description */}
-      <div className="rounded-3xl bg-[#F5F5F7] p-8 dark:bg-[#1D1D1F]">
-        <div className="space-y-6">
-          <div className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400">
-            <span>{projectData.date}</span>
-          </div>
-
-          <p className="text-secondary-foreground font-sans text-base leading-relaxed md:text-lg">
-            {projectData.description}
-          </p>
-
-          {/* Tech stack */}
-          <div className="pt-4">
-            <h3 className="mb-3 text-sm tracking-wide text-neutral-500 uppercase dark:text-neutral-400">
-              Technologies
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {projectData.techStack.map((tech, index) => (
-                <span
-                  key={index}
-                  className="rounded-full bg-neutral-200 px-3 py-1 text-sm text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Links section */}
-      {projectData.links && projectData.links.length > 0 && (
-        <div className="mb-24">
-          <div className="px-6 mb-4 flex items-center gap-2">
-            <h3 className="text-sm tracking-wide text-neutral-500 dark:text-neutral-400">
-              Links
-            </h3>
-            <Link className="text-muted-foreground w-4" />
-          </div>
-          <Separator className="my-4" />
-          <div className="space-y-3">
-            {projectData.links.map((link, index) => (
-                <a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#F5F5F7] flex items-center justify-between rounded-xl p-4 transition-colors hover:bg-[#E5E5E7] dark:bg-neutral-800 dark:hover:bg-neutral-700"
-                >
-                <span className="font-light capitalize">{link.name}</span>
-                <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Images gallery */}
-      {projectData.images && projectData.images.length > 0 && (
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 gap-4">
-            {projectData.images.map((image, index) => (
-              <div
-                key={index}
-                className="relative aspect-video overflow-hidden rounded-2xl"
-              >
+    <div className="h-full w-full overflow-y-auto bg-[#f5f4f0] dark:bg-[#1D1D1F]">
+      <div className="p-6 space-y-4">
+        {/* Header with thumbnail and title */}
+        <div className="flex items-start gap-4 border-b border-neutral-300 pb-4 dark:border-neutral-700">
+          {/* Thumbnail */}
+          <div className="flex-shrink-0">
+            {project.thumbnail ? (
+              <div className="relative h-16 w-16 overflow-hidden rounded-lg border-2 border-neutral-300 dark:border-neutral-600">
                 <Image
-                  src={image.src}
-                  alt={image.alt}
+                  src={project.thumbnail}
+                  alt={projectData.title}
                   fill
-                  className="object-cover transition-transform"
+                  className="object-cover"
                 />
               </div>
-            ))}
+            ) : projectData.images && projectData.images[0] ? (
+              <div className="relative h-16 w-16 overflow-hidden rounded-lg border-2 border-neutral-300 dark:border-neutral-600">
+                <Image
+                  src={projectData.images[0].src}
+                  alt={projectData.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            ) : (
+              <div className="flex h-16 w-16 items-center justify-center rounded-lg border-2 border-neutral-300 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-800">
+                <Img className="h-8 w-8 text-neutral-500" />
+              </div>
+            )}
+          </div>
+
+          {/* Title and subtitle */}
+          <div className="flex-1 min-w-0">
+            <h1 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+              {projectData.title}
+            </h1>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              {project.category || 'Project'}
+            </p>
           </div>
         </div>
-      )}
+
+        {/* Description */}
+        <div className="space-y-4">
+          <p className="text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+            {projectData.description}
+          </p>
+        </div>
+
+        {/* Details Section */}
+        <CollapsibleSection title="Details:" defaultOpen={true}>
+          <div className="space-y-3 text-sm">
+            {/* Type */}
+            <div className="flex items-start gap-2">
+              <span className="text-orange-500">●</span>
+              <div>
+                <span className="font-medium text-neutral-700 dark:text-neutral-300">Type: </span>
+                <span className="text-neutral-600 dark:text-neutral-400">{typeString}</span>
+              </div>
+            </div>
+
+            {/* Date */}
+            <div className="flex items-start gap-2">
+              <span className="text-orange-500">●</span>
+              <div>
+                <span className="font-medium text-neutral-700 dark:text-neutral-300">Year: </span>
+                <span className="text-neutral-600 dark:text-neutral-400">{projectData.date}</span>
+              </div>
+            </div>
+
+            {/* Technologies */}
+            <div className="flex items-start gap-2">
+              <span className="text-orange-500">●</span>
+              <div className="flex-1">
+                <span className="font-medium text-neutral-700 dark:text-neutral-300">Technologies: </span>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {projectData.techStack.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="rounded-full bg-neutral-200 px-3 py-1 text-xs text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Links */}
+            {projectData.links && projectData.links.length > 0 && (
+              <div className="flex items-start gap-2">
+                <span className="text-orange-500">●</span>
+                <div className="flex-1">
+                  <span className="font-medium text-neutral-700 dark:text-neutral-300">Links: </span>
+                  <div className="mt-2 space-y-2">
+                    {projectData.links.map((link, index) => (
+                      <a
+                        key={index}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                      >
+                        <ExternalLink className="h-3 w-3" />
+                        <span className="capitalize">{link.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </CollapsibleSection>
+
+        {/* Preview Section */}
+        {projectData.images && projectData.images.length > 0 && (
+          <CollapsibleSection title="Preview:" defaultOpen={true}>
+            <div className="space-y-4">
+              {projectData.images.map((image, index) => (
+                <div
+                  key={index}
+                  className="relative aspect-video overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </CollapsibleSection>
+        )}
+      </div>
     </div>
   );
 };
@@ -443,54 +507,54 @@ export const data = [
     category: 'Startup Project',
     title: 'CyberCodex.io',
     src: '/syntopreview.png',
-    content: <ProjectContent project={{ title: 'Synto' }} />,
+    content: <ProjectContent project={{ title: 'Synto', category: 'Startup Project', thumbnail: '/syntopreview.png' }} />,
   },
   {
     category: 'Fun Tool',
     title: 'Rrate',
     src: '/ratepreview.png',
-    content: <ProjectContent project={{ title: 'Rrate' }} />,
+    content: <ProjectContent project={{ title: 'Rrate', category: 'Fun Tool', thumbnail: '/ratepreview.png' }} />,
   },
   {
     category: 'Hackathon Winner',
     title: 'Defai',
     src: '/defaipreview.png',
-    content: <ProjectContent project={{ title: 'Defai' }} />,
+    content: <ProjectContent project={{ title: 'Defai', category: 'Hackathon Winner', thumbnail: '/defaipreview.png' }} />,
   },
   {
     category: 'Hackathon Winner',
     title: 'Fitgear',
     src: '/fitgearpreview.png',
-    content: <ProjectContent project={{ title: 'Fitgear' }} />,
+    content: <ProjectContent project={{ title: 'Fitgear', category: 'Hackathon Winner', thumbnail: '/fitgearpreview.png' }} />,
   },
   {
     category: 'Business Intelligence',
     title: 'Datai',
     src: '/dataipreview.png',
-    content: <ProjectContent project={{ title: 'Datai' }} />,
+    content: <ProjectContent project={{ title: 'Datai', category: 'Business Intelligence', thumbnail: '/dataipreview.png' }} />,
   },
   {
     category: '42 Project',
     title: '3d Pong Game',
     src: '/transcendancepreview.png',
-    content: <ProjectContent project={{ title: '3d Pong Game' }} />,
+    content: <ProjectContent project={{ title: '3d Pong Game', category: '42 Project', thumbnail: '/transcendancepreview.png' }} />,
   },
   {
     category: '42 Project',
     title: 'Minishell',
     src: '/minishellpreview.png',
-    content: <ProjectContent project={{ title: 'Minishell' }} />,
+    content: <ProjectContent project={{ title: 'Minishell', category: '42 Project', thumbnail: '/minishellpreview.png' }} />,
   },
   {
     category: 'Automation',
     title: 'YouBot',
     src: '/youbotpreview.png',
-    content: <ProjectContent project={{ title: 'YouBot' }} />,
+    content: <ProjectContent project={{ title: 'YouBot', category: 'Automation', thumbnail: '/youbotpreview.png' }} />,
   },
   {
     category: 'Web Development',
     title: 'Old Portfolio',
     src: '/oldportfoliopreview.png',
-    content: <ProjectContent project={{ title: 'Old Portfolio' }} />,
+    content: <ProjectContent project={{ title: 'Old Portfolio', category: 'Web Development', thumbnail: '/oldportfoliopreview.png' }} />,
   },
 ];

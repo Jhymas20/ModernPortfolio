@@ -47,37 +47,37 @@ export function MacOSWindow({
         }}
       >
         {/* Title Bar */}
-        <div className="h-12 bg-[#303030] flex items-center justify-between px-4 cursor-grab active:cursor-grabbing select-none">
-          {/* Window Control Buttons */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onClose();
-              }}
-              className="w-3 h-3 rounded-full bg-[#FF5F56] hover:bg-[#FF3B30] transition-colors"
-              aria-label="Close"
-            />
-            <button
-              className="w-3 h-3 rounded-full bg-[#FFBD2E] hover:bg-[#FFB000] transition-colors"
-              aria-label="Minimize"
-            />
-            <button
-              className="w-3 h-3 rounded-full bg-[#27C93F] hover:bg-[#00D600] transition-colors"
-              aria-label="Maximize"
-            />
-          </div>
+        <div className="h-10 bg-white dark:bg-neutral-800 flex items-center px-4 cursor-grab active:cursor-grabbing select-none border-b border-neutral-300 dark:border-neutral-700">
+          {/* Window Control Buttons and Title */}
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClose();
+                }}
+                className="w-3 h-3 rounded-full bg-[#FF5F56] hover:bg-[#FF3B30] transition-colors"
+                aria-label="Close"
+              />
+              <button
+                className="w-3 h-3 rounded-full bg-[#FFBD2E] hover:bg-[#FFB000] transition-colors"
+                aria-label="Minimize"
+              />
+              <button
+                className="w-3 h-3 rounded-full bg-[#27C93F] hover:bg-[#00D600] transition-colors"
+                aria-label="Maximize"
+              />
+            </div>
 
-          {/* Window Title */}
-          <div className="absolute left-1/2 -translate-x-1/2 text-white text-sm font-medium">
-            {title}
+            {/* Window Title */}
+            <div className="text-neutral-700 dark:text-neutral-200 text-sm font-medium">
+              {title}
+            </div>
           </div>
-
-          <div /> {/* Spacer for flexbox */}
         </div>
 
         {/* Window Content */}
-        <div className="h-[calc(100%-3rem)] overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="h-[calc(100%-2.5rem)] overflow-hidden">
           {children}
         </div>
       </motion.div>

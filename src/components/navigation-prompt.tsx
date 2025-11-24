@@ -12,7 +12,7 @@ import {
   UserRoundSearch,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 
 const pageRoutes = {
   Me: '/me',
@@ -38,15 +38,26 @@ interface NavigationPromptProps {
   onToggleQuick?: () => void;
 }
 
-export function NavigationPrompt({ className = '', showQuick: showQuickProp, onToggleQuick }: NavigationPromptProps) {
+export interface NavigationPromptHandle {
+  focus: () => void;
+}
+
+export const NavigationPrompt = forwardRef<NavigationPromptHandle, NavigationPromptProps>(({ className = '', showQuick: showQuickProp, onToggleQuick }, ref) => {
   const [input, setInput] = useState('');
-  const [internalShowQuick, setInternalShowQuick] = useState(true);
+  const [internalShowQuick, setInternalShowQuick] = useState(false); // Changed to false - hide quick questions by default
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Use controlled prop if provided, otherwise use internal state
   const showQuick = showQuickProp !== undefined ? showQuickProp : internalShowQuick;
   const toggleQuick = onToggleQuick || (() => setInternalShowQuick(prev => !prev));
+
+  // Expose focus method via ref
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current?.focus();
+    },
+  }));
 
   // Auto-focus the input when component mounts
   useEffect(() => {
@@ -66,6 +77,10 @@ export function NavigationPrompt({ className = '', showQuick: showQuickProp, onT
     const normalized = query.trim().toLowerCase();
     if (!normalized) return;
 
+    if (normalized.includes('home')) {
+      router.push('/');
+      return;
+    }
     if (normalized.includes('project') || normalized.includes('portfolio')) {
       router.push(pageRoutes.Projects);
       return;
@@ -106,7 +121,7 @@ export function NavigationPrompt({ className = '', showQuick: showQuickProp, onT
               key={key}
               onClick={() => handleSectionNavigation(key)}
               variant="outline"
-              className="border-border hover:bg-border/30 h-14 min-w-[92px] flex-shrink-0 rounded-2xl border bg-white/30 px-4 py-3 shadow-none backdrop-blur-lg active:scale-95 dark:border-neutral-700 dark:bg-neutral-800/50 dark:hover:bg-neutral-700/50"
+              className="border-border hover:bg-border/30 h-12 sm:h-14 lg:h-16 min-w-[80px] sm:min-w-[92px] lg:min-w-[104px] flex-shrink-0 rounded-2xl border bg-white/30 px-3 sm:px-4 lg:px-5 py-2 sm:py-3 lg:py-4 shadow-none backdrop-blur-lg active:scale-95 dark:border-neutral-700 dark:bg-neutral-800/50 dark:hover:bg-neutral-700/50"
             >
               <div className="flex items-center gap-2 text-gray-700 dark:text-neutral-200">
                 <Icon size={18} strokeWidth={2} color={color} />
@@ -116,7 +131,7 @@ export function NavigationPrompt({ className = '', showQuick: showQuickProp, onT
           ))}
           <Button
             variant="outline"
-            className="border-border hover:bg-border/30 h-14 min-w-[72px] flex-shrink-0 rounded-2xl border bg-white/30 px-3 py-3 shadow-none backdrop-blur-lg active:scale-95 dark:border-neutral-700 dark:bg-neutral-800/50 dark:hover:bg-neutral-700/50"
+            className="border-border hover:bg-border/30 h-12 sm:h-14 lg:h-16 min-w-[64px] sm:min-w-[72px] lg:min-w-[80px] flex-shrink-0 rounded-2xl border bg-white/30 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 lg:py-4 shadow-none backdrop-blur-lg active:scale-95 dark:border-neutral-700 dark:bg-neutral-800/50 dark:hover:bg-neutral-700/50"
             aria-label="More"
             onClick={() => handleSectionNavigation('Me')}
           >
@@ -132,16 +147,16 @@ export function NavigationPrompt({ className = '', showQuick: showQuickProp, onT
           e.preventDefault();
           if (input.trim()) handleQueryNavigation(input);
         }}
-        className="relative mt-4 w-full max-w-4xl"
+        className="relative mt-4 w-full max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
       >
-        <div className="mx-auto flex items-center rounded-full border border-neutral-200 bg-white/30 py-2.5 pr-2 pl-6 backdrop-blur-lg transition-all hover:border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-neutral-600">
+        <div className="mx-auto flex items-center rounded-full border border-neutral-200 bg-white/30 py-2 sm:py-2.5 lg:py-3 pr-2 pl-4 sm:pl-6 lg:pl-8 backdrop-blur-lg transition-all hover:border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-neutral-600">
           <input
             ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask me anything..."
-            className="w-full border-none bg-transparent text-base text-neutral-800 placeholder:text-neutral-500 focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-500"
+            className="w-full border-none bg-transparent text-sm sm:text-base lg:text-lg text-neutral-800 placeholder:text-neutral-500 focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-500"
           />
           <button
             type="submit"
@@ -155,6 +170,8 @@ export function NavigationPrompt({ className = '', showQuick: showQuickProp, onT
       </form>
     </div>
   );
-}
+});
+
+NavigationPrompt.displayName = 'NavigationPrompt';
 
 export default NavigationPrompt;

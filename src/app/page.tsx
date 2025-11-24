@@ -47,6 +47,10 @@ export default function Home() {
     const normalized = query.trim().toLowerCase();
     if (!normalized) return;
 
+    if (normalized.includes('home')) {
+      router.push('/');
+      return;
+    }
     if (normalized.includes('project') || normalized.includes('portfolio')) {
       router.push(pageRoutes.Projects);
       return;
@@ -102,14 +106,22 @@ export default function Home() {
     document.head.appendChild(linkMp4);
   }, []);
 
+  // Auto-focus the input when component mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-10 md:pb-20">
+    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden px-4 pb-10 md:pb-20">
       {/* big blurred footer word */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center overflow-hidden">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center overflow-visible">
       <div
-          className="hidden whitespace-nowrap bg-gradient-to-b from-neutral-400/70 via-neutral-400/55 to-neutral-400/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem] dark:from-neutral-400/10 dark:via-neutral-400/8 dark:to-neutral-400/0"
+          className="hidden whitespace-nowrap bg-gradient-to-b from-neutral-400/70 via-neutral-400/55 to-neutral-400/0 bg-clip-text text-[12vw] leading-none font-black text-transparent select-none -mb-4 sm:block sm:text-[14vw] sm:-mb-6 md:text-[16vw] md:-mb-8 lg:text-[18vw] lg:-mb-10 xl:text-[20vw] xl:-mb-16 2xl:text-[22vw] 2xl:-mb-20 dark:from-neutral-400/10 dark:via-neutral-400/8 dark:to-neutral-400/0"
           style={{
-            marginBottom: '-2.5rem',
             WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
           }}
         >

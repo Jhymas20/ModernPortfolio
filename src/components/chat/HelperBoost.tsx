@@ -282,7 +282,7 @@ export default function HelperBoost({
 // Component for each category section
 interface CategorySectionProps {
   name: string;
-  Icon: React.ElementType;
+  Icon: React.ComponentType<{ className?: string }>;
   questions: string[];
   onQuestionClick: (question: string) => void;
 }
