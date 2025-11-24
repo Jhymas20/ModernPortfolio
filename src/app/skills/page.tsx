@@ -9,9 +9,6 @@ export default function SkillsPage() {
           <p className="text-sm font-semibold uppercase text-neutral-500 dark:text-neutral-400">
             Capabilities
           </p>
-          <h1 className="text-4xl font-bold text-neutral-900 dark:text-white sm:text-5xl">
-            Skills & Expertise
-          </h1>
           <p className="text-neutral-600 dark:text-neutral-300">
             Tooling and experience across AI, fullstack, and beyond.
           </p>

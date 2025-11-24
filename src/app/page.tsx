@@ -120,7 +120,7 @@ export default function Home() {
       {/* big blurred footer word */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center overflow-visible">
       <div
-          className="hidden whitespace-nowrap bg-gradient-to-b from-neutral-400/70 via-neutral-400/55 to-neutral-400/0 bg-clip-text text-[12vw] leading-none font-black text-transparent select-none -mb-4 sm:block sm:text-[14vw] sm:-mb-6 md:text-[16vw] md:-mb-8 lg:text-[18vw] lg:-mb-10 xl:text-[20vw] xl:-mb-16 2xl:text-[22vw] 2xl:-mb-20 dark:from-neutral-400/10 dark:via-neutral-400/8 dark:to-neutral-400/0"
+          className="hidden whitespace-nowrap bg-gradient-to-b from-neutral-400/70 via-neutral-400/55 to-neutral-400/0 bg-clip-text text-[10vw] leading-none font-black text-transparent select-none -mb-3 sm:block sm:text-[11vw] sm:-mb-4 md:text-[12vw] md:-mb-5 lg:text-[13vw] lg:-mb-6 xl:text-[14vw] xl:-mb-7 2xl:text-[15vw] 2xl:-mb-8 dark:from-neutral-400/10 dark:via-neutral-400/8 dark:to-neutral-400/0"
           style={{
             WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
           }}
@@ -131,16 +131,12 @@ export default function Home() {
 
       {/* header */}
       <motion.div
-        className="z-1 mt-24 mb-8 flex flex-col items-center text-center md:mt-4 md:mb-12"
+        className="z-1 mt-8 mb-4 flex flex-col items-center text-center md:mt-6 md:mb-6"
         variants={topElementVariants as any}
         initial="hidden"
         animate="visible"
       >
-        <div className="z-100">
-          <WelcomeModal />
-        </div>
-
-        <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl dark:text-neutral-300">
+        <h2 className="text-secondary-foreground text-xl font-semibold md:text-2xl dark:text-neutral-300">
           Hey, I'm Jordan 👋
         </h2>
         <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
@@ -149,7 +145,7 @@ export default function Home() {
       </motion.div>
 
       {/* centre memoji */}
-      <div className="relative z-10 h-52 w-48 overflow-hidden sm:h-72 sm:w-72">
+      <div className="relative z-10 h-40 w-40 overflow-hidden sm:h-52 sm:w-52 md:h-60 md:w-60">
         <Image
           src="/landing-memojis.png"
           alt="Hero memoji"
@@ -165,7 +161,7 @@ export default function Home() {
         variants={bottomElementVariants as any}
         initial="hidden"
         animate="visible"
-        className="z-10 mt-4 flex w-full flex-col items-center justify-center md:px-0"
+        className="z-10 mt-2 mb-16 sm:mb-20 md:mb-22 lg:mb-24 xl:mb-28 flex w-full flex-col items-center justify-center md:px-0"
       >
         {/* free-form question */}
         <form
