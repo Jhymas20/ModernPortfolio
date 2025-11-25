@@ -1,7 +1,11 @@
 'use client';
 
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import {
+  VIEWPORT_CONFIG,
+  titleScrollVariants,
+  minimalistCardVariants,
+} from '@/lib/animations';
 import { motion } from 'framer-motion';
 import { Code, Cpu, PenTool, Users } from 'lucide-react';
 
@@ -9,7 +13,7 @@ const Skills = () => {
   const skillsData = [
     {
       category: 'Frontend Development',
-      icon: <Code className="h-5 w-5" />,
+      icon: Code,
       skills: [
         'HTML',
         'CSS',
@@ -21,11 +25,11 @@ const Skills = () => {
         'Vercel AI SDK',
         'Gsap',
       ],
-      color: 'bg-blue-50 text-blue-600 border border-blue-200',
+      iconColor: '#329696', // Cyan
     },
     {
       category: 'Backend & Systems',
-      icon: <Cpu className="h-5 w-5" />,
+      icon: Cpu,
       skills: [
         'Unix',
         'C',
@@ -38,17 +42,17 @@ const Skills = () => {
         'GCP',
         'PostgreSQL',
       ],
-      color: 'bg-emerald-50 text-emerald-600 border border-emerald-200',
+      iconColor: '#3E9858', // Emerald
     },
     {
       category: 'Design & Creative Tools',
-      icon: <PenTool className="h-5 w-5" />,
+      icon: PenTool,
       skills: ['Figma', 'Davinci Code', 'Illustrator', 'Canva', 'Keynote'],
-      color: 'bg-indigo-50 text-indigo-600 border border-indigo-200',
+      iconColor: '#856ED9', // Purple
     },
     {
       category: 'Soft Skills',
-      icon: <Users className="h-5 w-5" />,
+      icon: Users,
       skills: [
         'Communication',
         'Problem-Solving',
@@ -58,11 +62,11 @@ const Skills = () => {
         'Creativity',
         'Focus',
       ],
-      color: 'bg-amber-50 text-amber-600 border border-amber-200',
+      iconColor: '#B95F9D', // Pink
     },
     {
       category: 'AI & Fullstack Engineering',
-      icon: <Cpu className="h-5 w-5" />,
+      icon: Cpu,
       skills: [
         'LLM Providers (ChatGPT, Whisper, Groq, Mistral & Claude)',
         'AI Agents',
@@ -76,100 +80,84 @@ const Skills = () => {
         'Prisma',
         'Next.js',
       ],
-      color: 'bg-purple-50 text-purple-600 border border-purple-200',
+      iconColor: '#C19433', // Gold
     },
   ];
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: [0.19, 1, 0.22, 1] as const },
-    },
-  };
-
-  const badgeVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.3, ease: 'easeOut' as const },
-    },
-  };
-
   return (
-    <motion.div
-      initial={{ scale: 0.98, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-      className="mx-auto w-full max-w-5xl rounded-4xl"
-    >
-      <Card className="w-full border-none px-0 pb-12 shadow-none">
-        <CardHeader className="px-0 pb-1">
-          <CardTitle className="text-primary px-0 text-4xl font-bold">
-            Skills & Expertise
-          </CardTitle>
+    <div className="mx-auto w-full max-w-4xl px-4">
+      <Card className="w-full border-none bg-transparent shadow-none">
+        {/* Header Section */}
+        <CardHeader className="px-0 pb-8">
+          <motion.div
+            whileInView="visible"
+            initial="hidden"
+            viewport={VIEWPORT_CONFIG.title}
+            variants={titleScrollVariants}
+          >
+            <h2 className="text-primary text-4xl font-bold">
+              Skills & Expertise
+            </h2>
+          </motion.div>
         </CardHeader>
 
-        <CardContent className="px-0">
-          <motion.div
-            className="space-y-8 px-0"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {skillsData.map((section, index) => (
+        {/* Skills Categories */}
+        <CardContent className="space-y-6 px-0">
+          {skillsData.map((section, index) => {
+            const Icon = section.icon;
+            return (
               <motion.div
                 key={index}
-                className="space-y-3 px-0"
-                variants={itemVariants}
+                custom={index}
+                whileInView="visible"
+                initial="hidden"
+                viewport={VIEWPORT_CONFIG.default}
+                variants={minimalistCardVariants}
+                whileHover={{
+                  scale: 1.01,
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+                  transition: { duration: 0.3, ease: 'easeOut' },
+                }}
+                className="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm transition-shadow dark:border-neutral-800 dark:bg-neutral-900"
               >
-                <div className="flex items-center gap-2">
-                  {section.icon}
-                  <h3 className="text-accent-foreground text-lg font-semibold">
+                {/* Category Header */}
+                <div className="mb-4 flex items-center gap-3">
+                  <motion.div
+                    whileHover={{
+                      rotate: 5,
+                      scale: 1.1,
+                      transition: { duration: 0.3 },
+                    }}
+                  >
+                    <Icon
+                      className="h-6 w-6"
+                      style={{ color: section.iconColor }}
+                    />
+                  </motion.div>
+                  <h3 className="text-2xl font-semibold text-neutral-900 dark:text-white">
                     {section.category}
                   </h3>
                 </div>
 
-                <motion.div
-                  className="flex flex-wrap gap-2"
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
+                {/* Skills List with Bullets */}
+                <div className="text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
                   {section.skills.map((skill, idx) => (
-                    <motion.div
-                      key={idx}
-                      variants={badgeVariants}
-                      whileHover={{
-                        scale: 1.04,
-                        transition: { duration: 0.2 },
-                      }}
-                    >
-                      <Badge className={`border px-3 py-1.5 font-normal`}>
-                        {skill}
-                      </Badge>
-                    </motion.div>
+                    <span key={idx}>
+                      {skill}
+                      {idx < section.skills.length - 1 && (
+                        <span className="px-2 text-neutral-400 dark:text-neutral-600">
+                          •
+                        </span>
+                      )}
+                    </span>
                   ))}
-                </motion.div>
+                </div>
               </motion.div>
-            ))}
-          </motion.div>
+            );
+          })}
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
 };
 

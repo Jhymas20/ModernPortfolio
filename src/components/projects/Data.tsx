@@ -205,20 +205,32 @@ const PROJECT_CONTENT = [
     ],
     images: [
       {
-        src: '/datai1.png',
-        alt: 'Datai landing page',
+        src: '/projects/BGCLCV/teenCenterPc.png',
+        alt: 'Teen Center PC Setup',
       },
       {
-        src: '/datai2.png',
-        alt: 'Datai chatbot',
+        src: '/projects/BGCLCV/serverRoom.jpeg',
+        alt: 'Server Room',
       },
       {
-        src: '/datai3.png',
-        alt: 'Datai chatbot',
+        src: '/projects/BGCLCV/serverRoomAngle.jpeg',
+        alt: 'Server Room Angle View',
       },
       {
-        src: '/datai4.png',
-        alt: 'Datai chatbot',
+        src: '/projects/BGCLCV/serverSonicwall.jpeg',
+        alt: 'Server Sonicwall Setup',
+      },
+      {
+        src: '/projects/BGCLCV/esportsRoom.png',
+        alt: 'Esports Room',
+      },
+      {
+        src: '/projects/BGCLCV/teenCenter.jpeg',
+        alt: 'Teen Center',
+      },
+      {
+        src: '/projects/BGCLCV/gymHoop.jpeg',
+        alt: 'Gym Basketball Hoop',
       }
     ],
   },
@@ -530,8 +542,8 @@ export const data = [
   {
     category: 'Business Intelligence',
     title: 'Datai',
-    src: '/dataipreview.png',
-    content: <ProjectContent project={{ title: 'Datai', category: 'Business Intelligence', thumbnail: '/dataipreview.png' }} />,
+    src: '/projects/BGCLCV/teenCenterPc.png',
+    content: <ProjectContent project={{ title: 'Datai', category: 'Business Intelligence', thumbnail: '/projects/BGCLCV/teenCenterPc.png' }} />,
   },
   {
     category: '42 Project',

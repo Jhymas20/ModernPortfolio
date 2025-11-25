@@ -26,6 +26,7 @@ interface Position {
 
 interface TetrisGameProps {
   onGameOver?: () => void;
+  onExit?: () => void;
 }
 
 export interface TetrisGameControls {
@@ -37,7 +38,7 @@ export interface TetrisGameControls {
   reset: () => void;
 }
 
-export const TetrisGame = forwardRef<TetrisGameControls, TetrisGameProps>(({ onGameOver }, ref) => {
+export const TetrisGame = forwardRef<TetrisGameControls, TetrisGameProps>(({ onGameOver, onExit }, ref) => {
   const [board, setBoard] = useState<Board>(createEmptyBoard());
   const [currentPiece, setCurrentPiece] = useState<Piece>([]);
   const [nextPiece, setNextPiece] = useState<Piece>([]);
@@ -221,6 +222,12 @@ export const TetrisGame = forwardRef<TetrisGameControls, TetrisGameProps>(({ onG
   // Keyboard controls
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
+      // ESC to exit to menu
+      if (e.key === 'Escape' && onExit) {
+        onExit();
+        return;
+      }
+
       if (gameOver || isPaused) return;
 
       // Prevent default behavior for arrow keys and space (stops page scrolling)
@@ -258,7 +265,7 @@ export const TetrisGame = forwardRef<TetrisGameControls, TetrisGameProps>(({ onG
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [currentPiece, currentPosition, gameOver, isPaused]);
+  }, [currentPiece, currentPosition, gameOver, isPaused, onExit]);
 
   const rotatePiece = (piece: Piece): Piece => {
     const newPiece: Piece = [];

@@ -50,9 +50,9 @@ export const ICON_CONFIGS: IconConfig[] = [
   },
   {
     id: 'datai',
-    title: 'Datai',
+    title: 'Server Room (NPCE)',
     projectIndex: 4,
-    icon: '/dataipreview.png',
+    icon: '/projects/BGCLCV/teenCenterPc.png',
     size: { width: 80, height: 95 },
     positions: {
       mobile: { x: 76, y: 20 },
@@ -83,11 +83,11 @@ export const ICON_CONFIGS: IconConfig[] = [
     icon: '/fitgearpreview.png',
     size: { width: 95, height: 70 },
     positions: {
-      mobile: { x: 60, y: 37 },
-      tablet: { x: 61, y: 37 },
-      laptop: { x: 62, y: 37 },
-      desktop: { x: 63, y: 37 },
-      ultrawide: { x: 64, y: 37 }
+      mobile: { x: 64, y: 37 },
+      tablet: { x: 65, y: 37 },
+      laptop: { x: 66, y: 37 },
+      desktop: { x: 67, y: 37 },
+      ultrawide: { x: 68, y: 37 }
     }
   },
   {
@@ -202,7 +202,7 @@ export const calculateIconPositions = (viewportWidth: number, viewportHeight: nu
 };
 
 // Initial positions (fallback for SSR)
-export const INITIAL_DESKTOP_ICONS: DesktopIconData[] = calculateIconPositions(1200, 800, false);
+export const INITIAL_DESKTOP_ICONS: DesktopIconData[] = calculateIconPositions(1200, 800, true);
 
 // Legacy fallback (kept for backwards compatibility)
 export const DEFAULT_ICON_POSITIONS: DesktopIconData[] = INITIAL_DESKTOP_ICONS;
