@@ -12,75 +12,59 @@ import { Code, Cpu, PenTool, Users } from 'lucide-react';
 const Skills = () => {
   const skillsData = [
     {
-      category: 'Frontend Development',
+      category: 'JavaScript Frameworks',
       icon: Code,
       skills: [
-        'HTML',
-        'CSS',
-        'JavaScript/TypeScript',
-        'Tailwind CSS',
-        'Bootstrap',
-        'Next.js',
         'React',
+        'Next.js 15.2.3',
+        'TypeScript',
         'Vercel AI SDK',
-        'Gsap',
       ],
       iconColor: '#329696', // Cyan
     },
     {
-      category: 'Backend & Systems',
+      category: 'UI Frameworks & Styling',
+      icon: PenTool,
+      skills: [
+        'Tailwind CSS',
+        'Radix UI',
+        'Framer Motion',
+        'Lucide Icons',
+      ],
+      iconColor: '#856ED9', // Purple
+    },
+    {
+      category: 'Backend & Tools',
       icon: Cpu,
       skills: [
-        'Unix',
-        'C',
-        'C++',
-        'Python',
-        'Typescript',
-        'Git',
-        'GitHub',
-        'Docker',
-        'GCP',
+        'Node.js',
         'PostgreSQL',
+        'Prisma',
+        'Git',
+        'Docker',
+        'Webpack',
       ],
       iconColor: '#3E9858', // Emerald
     },
     {
-      category: 'Design & Creative Tools',
-      icon: PenTool,
-      skills: ['Figma', 'Davinci Code', 'Illustrator', 'Canva', 'Keynote'],
-      iconColor: '#856ED9', // Purple
-    },
-    {
-      category: 'Soft Skills',
-      icon: Users,
-      skills: [
-        'Communication',
-        'Problem-Solving',
-        'Adaptability',
-        'Learning Agility',
-        'Teamwork',
-        'Creativity',
-        'Focus',
-      ],
-      iconColor: '#B95F9D', // Pink
-    },
-    {
-      category: 'AI & Fullstack Engineering',
+      category: 'AI & Machine Learning',
       icon: Cpu,
       skills: [
-        'LLM Providers (ChatGPT, Whisper, Groq, Mistral & Claude)',
+        'OpenAI (ChatGPT, Whisper)',
+        'Claude',
+        'Groq',
         'AI Agents',
-        'Prompt engineering',
-        'Vector databases (Weaviate, Pinecone)',
         'RAG (Retrieval-Augmented Generation)',
-        'Tool routing & calling',
-        'Hugging Face Transformers',
-        'Vercel AI SDK',
-        'Supabase',
-        'Prisma',
-        'Next.js',
+        'Vector Databases',
+        'Prompt Engineering',
       ],
       iconColor: '#C19433', // Gold
+    },
+    {
+      category: 'Design & Creative',
+      icon: PenTool,
+      skills: ['Figma', 'Illustrator', 'DaVinci Resolve', 'Three.js'],
+      iconColor: '#B95F9D', // Pink
     },
   ];
 

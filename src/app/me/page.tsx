@@ -46,10 +46,10 @@ export default function MePage() {
               </div>
               <div className="space-y-4 text-neutral-700 dark:text-neutral-300">
                 <p className="leading-relaxed">
-                  I'm a Mobile & Web Application developer with 3+ years of experience; I develop software using extraordinary abilities, strategy, and design to meet any obstacle.
+                  I’m a full-stack developer and IT technician with experience building web apps, mobile apps, automation tools, and backend systems. I combine software engineering, cybersecurity fundamentals, and hands-on IT work to create fast, reliable, and practical solutions.
                 </p>
                 <p className="leading-relaxed">
-                  I have worked on a wide range of projects, from simple apps to complex enterprise-level solutions. I am constantly amazed by the power and flexibility of modern frameworks, and I believe that they are the future of software development.
+                  From building local AI assistants to designing modern websites and deploying infrastructure for real clients, I love turning ideas into working systems.
                 </p>
               </div>
 
@@ -58,7 +58,7 @@ export default function MePage() {
                 <a
                   href="/resume.pdf"
                   download
-                  className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-cyan-600 hover:shadow-xl active:scale-95"
+                  className="inline-flex items-center gap-2 rounded-full border border-neutral-200/50 bg-white/30 px-6 py-2.5 text-sm font-semibold text-neutral-800 shadow-lg backdrop-blur-lg transition-all hover:border-neutral-300/50 hover:bg-white/40 hover:shadow-xl active:scale-95 dark:border-neutral-700/50 dark:bg-neutral-800/30 dark:text-neutral-100 dark:hover:border-neutral-600/50 dark:hover:bg-neutral-700/40"
                 >
                   <Download size={18} />
                   Download Resume

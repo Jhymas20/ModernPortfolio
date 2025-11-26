@@ -49,7 +49,7 @@ export const ICON_CONFIGS: IconConfig[] = [
     }
   },
   {
-    id: 'datai',
+    id: 'serverRoom',
     title: 'Server Room (NPCE)',
     projectIndex: 4,
     icon: '/projects/BGCLCV/teenCenterPc.webp',
@@ -63,10 +63,10 @@ export const ICON_CONFIGS: IconConfig[] = [
     }
   },
   {
-    id: 'rrate',
-    title: 'Rrate',
+    id: 'cybercodex',
+    title: 'CyberCodex.io',
     projectIndex: 1,
-    icon: '/ratepreview.png',
+    icon: '/Projects/Cybercodex.io/courses.webp',
     size: { width: 70, height: 90 },
     positions: {
       mobile: { x: 22, y: 44 },

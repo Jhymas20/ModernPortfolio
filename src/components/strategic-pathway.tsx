@@ -8,33 +8,33 @@ export function StrategicPathway() {
   const pathways = [
     {
       icon: Lightbulb,
-      title: 'Planning & Strategy',
+      title: 'Discovery & Technical Planning',
       description:
-        "I analyze your goals, target users, and key features to create a roadmap for your app's success.",
+        "I break down goals, workflows, and requirements to build a clear development plan. This ensures the project is realistic, scalable, and designed with purpose.",
       gradient: 'from-blue-500/20 to-cyan-500/20',
       iconColor: 'text-cyan-400',
     },
     {
       icon: Palette,
-      title: 'Pixel-Perfect UI/UX Design',
+      title: 'Interface Design & User Experience',
       description:
-        'I create intuitive, visually appealing and user-friendly interfaces that enhance engagement and usability.',
+        'I create clean, modern, and intuitive layouts that feel smooth to use. My UI approach focuses on clarity, speed, and user comfort. No clutter or over-engineering.',
       gradient: 'from-purple-500/20 to-pink-500/20',
       iconColor: 'text-pink-400',
     },
     {
       icon: Code,
-      title: 'Efficient Development & Seamless Integration',
+      title: 'Development, Integration & Automation',
       description:
-        'I build high-performance, scalable applications with clean, maintainable code. I integrate essential features like API connections, third-party services, and IAP to enhance functionality.',
+        'I build fast, maintainable code using modern frameworks. This includes API integrations, backend systems, databases, automations, and performance-focused engineering.',
       gradient: 'from-green-500/20 to-emerald-500/20',
       iconColor: 'text-emerald-400',
     },
     {
       icon: Rocket,
-      title: 'Launch & Post-Launch Support',
+      title: 'Deployment, Optimization & Ongoing Support',
       description:
-        'I ensure a hassle-free deployment and provide ongoing updates, optimizations, and support to keep your app running flawlessly.',
+        'I handle deployment, bug fixes, upgrades, and long-term improvements. My goal is to keep every project stable, secure, and continuously improving after launch.',
       gradient: 'from-orange-500/20 to-red-500/20',
       iconColor: 'text-orange-400',
     },

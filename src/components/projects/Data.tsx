@@ -79,33 +79,38 @@ const PROJECT_CONTENT = [
     ],
   },
   {
-    title: 'Rrate',
+    title: 'CyberCodex.io',
     description:
-      "Rrate is a fun website to allow user to compare his salary with the richest people in the world. Try it now it's online!",
-    techStack: ['Html', 'Css', 'Javascript'],
+      "CyberCodex.io is a comprehensive cybersecurity learning platform featuring interactive courses, hands-on labs, and a vibrant community. Master security skills from beginner to advanced with structured pathways and real-world scenarios.",
+    techStack: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js'],
     date: '2024',
     links: [
       {
         name: 'website',
-        url: 'https://rrate.app',
-      },
-      {
-        name: 'github',
-        url: 'https://github.com/toukoum/Rrate',
+        url: 'https://cybercodex.io',
       },
     ],
     images: [
       {
-        src: '/rrate1.png',
-        alt: 'Rrate landing page',
+        src: '/Projects/Cybercodex.io/cyberCodex.mp4',
+        alt: 'CyberCodex.io demo video',
+        type: 'video',
       },
       {
-        src: '/rrate2.png',
-        alt: 'Rrate comparison page',
+        src: '/Projects/Cybercodex.io/homepage.webp',
+        alt: 'CyberCodex.io homepage',
       },
       {
-        src: '/rrate3.png',
-        alt: 'Rrate comparison page',
+        src: '/Projects/Cybercodex.io/dashboard.webp',
+        alt: 'CyberCodex.io dashboard',
+      },
+      {
+        src: '/Projects/Cybercodex.io/community.webp',
+        alt: 'CyberCodex.io community',
+      },
+      {
+        src: '/Projects/Cybercodex.io/courses.webp',
+        alt: 'CyberCodex.io courses page',
       },
     ],
   },
@@ -497,12 +502,26 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
                   key={index}
                   className="relative aspect-video overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600"
                 >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                  />
+                  {image.type === 'video' ? (
+                    <video
+                      src={image.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                      preload="metadata"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -522,10 +541,10 @@ export const data = [
     content: <ProjectContent project={{ title: 'Synto', category: 'Startup Project', thumbnail: '/syntopreview.png' }} />,
   },
   {
-    category: 'Fun Tool',
-    title: 'Rrate',
-    src: '/ratepreview.png',
-    content: <ProjectContent project={{ title: 'Rrate', category: 'Fun Tool', thumbnail: '/ratepreview.png' }} />,
+    category: 'Cybersecurity Platform',
+    title: 'CyberCodex.io',
+    src: '/Projects/Cybercodex.io/courses.webp',
+    content: <ProjectContent project={{ title: 'CyberCodex.io', category: 'Cybersecurity Platform', thumbnail: '/Projects/Cybercodex.io/courses.webp' }} />,
   },
   {
     category: 'Hackathon Winner',
@@ -541,7 +560,7 @@ export const data = [
   },
   {
     category: 'Business Intelligence',
-    title: 'Datai',
+    title: 'Server Room',
     src: '/projects/BGCLCV/teenCenterPc.webp',
     content: <ProjectContent project={{ title: 'Datai', category: 'Business Intelligence', thumbnail: '/projects/BGCLCV/teenCenterPc.webp' }} />,
   },

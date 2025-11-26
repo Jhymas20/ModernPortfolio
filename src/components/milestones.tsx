@@ -11,12 +11,12 @@ export function Milestones() {
       label: 'YEARS OF EXPERIENCE',
     },
     {
-      value: '+15',
+      value: '+10',
       label: 'PROJECTS COMPLETED',
     },
     {
-      value: '+7',
-      label: 'WORLDWIDE CLIENTS',
+      value: '+15,000',
+      label: 'COMMUNITY FOLLOWERS REACHED',
     },
   ];
 
