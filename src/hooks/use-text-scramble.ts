@@ -1,5 +1,10 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { CHARACTER_SETS } from '@/lib/animations';
+
+const CHARACTER_SETS = {
+  symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?',
+  alphanumeric: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+  numbers: '0123456789',
+};
 
 export interface UseTextScrambleOptions {
   text: string;
@@ -19,7 +24,7 @@ export function useTextScramble({
   trigger = true,
 }: UseTextScrambleOptions): string {
   const [displayText, setDisplayText] = useState(text);
-  const frameRef = useRef<number>();
+  const frameRef = useRef<number | undefined>(undefined);
   const startTimeRef = useRef<number>(0);
   const hasRunRef = useRef(false);
 

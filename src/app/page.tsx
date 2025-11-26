@@ -94,7 +94,7 @@ export default function Home() {
     img.src = '/landing-memojis.png';
 
     const linkWebm = document.createElement('link');
-    linkWebm.rel = 'preload'; // Note: prefetch au lieu de preload
+    linkWebm.rel = 'prefetch'; // Non-blocking resource hint
     linkWebm.as = 'video';
     linkWebm.href = '/final_memojis.webm';
     document.head.appendChild(linkWebm);
@@ -131,7 +131,7 @@ export default function Home() {
 
       {/* header */}
       <motion.div
-        className="z-1 mt-8 mb-4 flex flex-col items-center text-center md:mt-6 md:mb-6"
+        className="z-1 mt-8 mb-0 flex flex-col items-center text-center md:mt-6 md:mb-1"
         variants={topElementVariants as any}
         initial="hidden"
         animate="visible"
@@ -147,7 +147,7 @@ export default function Home() {
       {/* centre memoji */}
       <div className="relative z-10 h-52 w-52 sm:h-64 sm:w-64 md:h-72 md:w-72 rounded-full overflow-hidden">
         <Image
-          src="/meCloud.png"
+          src="/Me/meNoBackground.webp"
           alt="Hero memoji"
           width={2000}
           height={2000}

@@ -65,7 +65,7 @@ export function useLocalChat() {
         }, 800); // Small delay to show response before navigating
       }
     } catch (error) {
-      console.error('Error sending message:', error);
+      // console.error('Error sending message:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',

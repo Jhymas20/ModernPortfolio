@@ -1,12 +1,7 @@
 // src/components/chat/tool-renderer.tsx
 import { Contact } from '../contact';
-import Crazy from '../crazy';
-import InternshipCard from '../InternshipCard';
-import { Presentation } from '../presentation';
 import AllProjects from '../projects/AllProjects';
-import Resume from '../resume';
 import Skills from '../skills';
-import Sports from '../sport';
 
 interface ToolRendererProps {
   toolInvocations: any[];
@@ -34,23 +29,6 @@ export default function ToolRenderer({
               </div>
             );
 
-          case 'getPresentation':
-            return (
-              <div
-                key={toolCallId}
-                className="w-full overflow-hidden rounded-lg"
-              >
-                <Presentation />
-              </div>
-            );
-
-          case 'getResume':
-            return (
-              <div key={toolCallId} className="w-full rounded-lg">
-                <Resume />
-              </div>
-            );
-
           case 'getContact':
             return (
               <div key={toolCallId} className="w-full rounded-lg">
@@ -62,27 +40,6 @@ export default function ToolRenderer({
             return (
               <div key={toolCallId} className="w-full rounded-lg">
                 <Skills />
-              </div>
-            );
-
-          case 'getSports':
-            return (
-              <div key={toolCallId} className="w-full rounded-lg">
-                <Sports />
-              </div>
-            );
-
-          case 'getCrazy':
-            return (
-              <div key={toolCallId} className="w-full rounded-lg">
-                <Crazy />
-              </div>
-            );
-
-          case 'getInternship':
-            return (
-              <div key={toolCallId} className="w-full rounded-lg">
-                <InternshipCard />
               </div>
             );
 

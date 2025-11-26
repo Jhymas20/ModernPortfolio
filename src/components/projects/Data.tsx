@@ -205,7 +205,7 @@ const PROJECT_CONTENT = [
     ],
     images: [
       {
-        src: '/projects/BGCLCV/teenCenterPc.png',
+        src: '/projects/BGCLCV/teenCenterPc.webp',
         alt: 'Teen Center PC Setup',
       },
       {
@@ -221,15 +221,15 @@ const PROJECT_CONTENT = [
         alt: 'Server Sonicwall Setup',
       },
       {
-        src: '/projects/BGCLCV/esportsRoom.png',
+        src: '/projects/BGCLCV/esportsRoom.webp',
         alt: 'Esports Room',
       },
       {
-        src: '/projects/BGCLCV/teenCenter.jpeg',
+        src: '/projects/BGCLCV/teenCenter.webp',
         alt: 'Teen Center',
       },
       {
-        src: '/projects/BGCLCV/gymHoop.jpeg',
+        src: '/projects/BGCLCV/gymHoop.webp',
         alt: 'Gym Basketball Hoop',
       }
     ],
@@ -252,7 +252,7 @@ const PROJECT_CONTENT = [
         alt: 'Transcendance landing page',
       },
       {
-        src: '/trans2.png',
+        src: '/trans2.webp',
         alt: 'Transcendance game',
       },
       {
@@ -542,8 +542,8 @@ export const data = [
   {
     category: 'Business Intelligence',
     title: 'Datai',
-    src: '/projects/BGCLCV/teenCenterPc.png',
-    content: <ProjectContent project={{ title: 'Datai', category: 'Business Intelligence', thumbnail: '/projects/BGCLCV/teenCenterPc.png' }} />,
+    src: '/projects/BGCLCV/teenCenterPc.webp',
+    content: <ProjectContent project={{ title: 'Datai', category: 'Business Intelligence', thumbnail: '/projects/BGCLCV/teenCenterPc.webp' }} />,
   },
   {
     category: '42 Project',

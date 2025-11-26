@@ -52,7 +52,7 @@ export const ICON_CONFIGS: IconConfig[] = [
     id: 'datai',
     title: 'Server Room (NPCE)',
     projectIndex: 4,
-    icon: '/projects/BGCLCV/teenCenterPc.png',
+    icon: '/projects/BGCLCV/teenCenterPc.webp',
     size: { width: 80, height: 95 },
     positions: {
       mobile: { x: 76, y: 20 },

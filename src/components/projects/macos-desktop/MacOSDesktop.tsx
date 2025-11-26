@@ -155,7 +155,7 @@ export function MacOSDesktop() {
       <div
         className="absolute inset-0 bg-center bg-no-repeat dark:opacity-80"
         style={{
-          backgroundImage: 'url(/sidewaysBlackWhite.png)',
+          backgroundImage: 'url(/sidewaysBlackWhite.webp)',
           backgroundSize: 'contain',
           backgroundPosition: 'center center',
         }}

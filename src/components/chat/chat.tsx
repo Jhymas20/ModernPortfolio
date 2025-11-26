@@ -143,7 +143,7 @@ const Chat = () => {
         setIsTalking(true);
         if (videoRef.current) {
           videoRef.current.play().catch((error) => {
-            console.error('Failed to play video:', error);
+            // console.error('Failed to play video:', error);
           });
         }
       }
@@ -161,12 +161,12 @@ const Chat = () => {
       if (videoRef.current) {
         videoRef.current.pause();
       }
-      console.error('Chat error:', error.message, error.cause);
+      // console.error('Chat error:', error.message, error.cause);
       toast.error(`Error: ${error.message}`);
     },
     onToolCall: (tool) => {
       const toolName = tool.toolCall.toolName;
-      console.log('Tool call:', toolName);
+      // console.log('Tool call:', toolName);
     },
   });
 
@@ -242,7 +242,7 @@ const Chat = () => {
     if (videoRef.current) {
       if (isTalking) {
         videoRef.current.play().catch((error) => {
-          console.error('Failed to play video:', error);
+          // console.error('Failed to play video:', error);
         });
       } else {
         videoRef.current.pause();
