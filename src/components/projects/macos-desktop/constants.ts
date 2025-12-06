@@ -35,10 +35,10 @@ export const ICON_CONFIGS: IconConfig[] = [
     }
   },
   {
-    id: 'defai',
-    title: 'Defai',
+    id: 'firstportfolio',
+    title: 'First Portfolio',
     projectIndex: 2,
-    icon: '/defaipreview.png',
+    icon: '/Projects/OldPortfolio/home.webp',
     size: { width: 75, height: 75 },
     positions: {
       mobile: { x: 44, y: 17 },
@@ -49,10 +49,10 @@ export const ICON_CONFIGS: IconConfig[] = [
     }
   },
   {
-    id: 'datai',
-    title: 'Datai',
+    id: 'serverRoom',
+    title: 'Server Room (NPCE)',
     projectIndex: 4,
-    icon: '/dataipreview.png',
+    icon: '/projects/BGCLCV/teenCenterPc.webp',
     size: { width: 80, height: 95 },
     positions: {
       mobile: { x: 76, y: 20 },
@@ -63,10 +63,10 @@ export const ICON_CONFIGS: IconConfig[] = [
     }
   },
   {
-    id: 'rrate',
-    title: 'Rrate',
+    id: 'cybercodex',
+    title: 'CyberCodex.io',
     projectIndex: 1,
-    icon: '/ratepreview.png',
+    icon: '/Projects/Cybercodex.io/courses.webp',
     size: { width: 70, height: 90 },
     positions: {
       mobile: { x: 22, y: 44 },
@@ -83,19 +83,19 @@ export const ICON_CONFIGS: IconConfig[] = [
     icon: '/fitgearpreview.png',
     size: { width: 95, height: 70 },
     positions: {
-      mobile: { x: 60, y: 37 },
-      tablet: { x: 61, y: 37 },
-      laptop: { x: 62, y: 37 },
-      desktop: { x: 63, y: 37 },
-      ultrawide: { x: 64, y: 37 }
+      mobile: { x: 64, y: 37 },
+      tablet: { x: 65, y: 37 },
+      laptop: { x: 66, y: 37 },
+      desktop: { x: 67, y: 37 },
+      ultrawide: { x: 68, y: 37 }
     }
   },
   {
-    id: 'youbot',
-    title: 'YouBot',
+    id: 'retrosnake',
+    title: 'Retro Snake',
     projectIndex: 7,
-    icon: '/youbotpreview.png',
-    size: { width: 70, height: 85 },
+    icon: '/Projects/Snake/snake.webp',
+    size: { width: 80, height: 80 },
     positions: {
       mobile: { x: 80, y: 43 },
       tablet: { x: 82, y: 43 },
@@ -202,7 +202,7 @@ export const calculateIconPositions = (viewportWidth: number, viewportHeight: nu
 };
 
 // Initial positions (fallback for SSR)
-export const INITIAL_DESKTOP_ICONS: DesktopIconData[] = calculateIconPositions(1200, 800, false);
+export const INITIAL_DESKTOP_ICONS: DesktopIconData[] = calculateIconPositions(1200, 800, true);
 
 // Legacy fallback (kept for backwards compatibility)
 export const DEFAULT_ICON_POSITIONS: DesktopIconData[] = INITIAL_DESKTOP_ICONS;

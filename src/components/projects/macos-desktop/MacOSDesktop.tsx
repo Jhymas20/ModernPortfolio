@@ -17,7 +17,7 @@ export function MacOSDesktop() {
   const [icons, setIcons] = useState<DesktopIconData[]>(INITIAL_DESKTOP_ICONS);
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([]);
   const [nextZIndex, setNextZIndex] = useState(WINDOW_Z_INDEX_START);
-  const [showQuickQuestions, setShowQuickQuestions] = useState(false); // Default to hidden
+  const [showQuickQuestions, setShowQuickQuestions] = useState(true); // Default to shown
 
   // Calculate icon positions based on viewport size, handle resize, and quick questions state
   useEffect(() => {
@@ -155,7 +155,7 @@ export function MacOSDesktop() {
       <div
         className="absolute inset-0 bg-center bg-no-repeat dark:opacity-80"
         style={{
-          backgroundImage: 'url(/sidewaysBlackWhite.png)',
+          backgroundImage: 'url(/sidewaysBlackWhite.webp)',
           backgroundSize: 'contain',
           backgroundPosition: 'center center',
         }}

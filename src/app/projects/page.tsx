@@ -17,9 +17,20 @@ export default function ProjectsPage() {
     };
 
     checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
 
-    return () => window.removeEventListener('resize', checkScreenSize);
+    // Debounced resize handler to reduce unnecessary state updates
+    let resizeTimeout: NodeJS.Timeout;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(checkScreenSize, 150);
+    };
+
+    window.addEventListener('resize', debouncedResize);
+
+    return () => {
+      clearTimeout(resizeTimeout);
+      window.removeEventListener('resize', debouncedResize);
+    };
   }, []);
 
   // Show loading or nothing until mounted to prevent hydration mismatch

@@ -1,175 +1,92 @@
 'use client';
 
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import {
+  VIEWPORT_CONFIG,
+  titleScrollVariants,
+} from '@/lib/animations';
 import { motion } from 'framer-motion';
-import { Code, Cpu, PenTool, Users } from 'lucide-react';
+import SkillIcon from './skills/SkillIcon';
+
+// Skill interface
+interface Skill {
+  name: string;
+  icon?: string;
+  fallbackColor: string;
+}
 
 const Skills = () => {
-  const skillsData = [
-    {
-      category: 'Frontend Development',
-      icon: <Code className="h-5 w-5" />,
-      skills: [
-        'HTML',
-        'CSS',
-        'JavaScript/TypeScript',
-        'Tailwind CSS',
-        'Bootstrap',
-        'Next.js',
-        'React',
-        'Vercel AI SDK',
-        'Gsap',
-      ],
-      color: 'bg-blue-50 text-blue-600 border border-blue-200',
-    },
-    {
-      category: 'Backend & Systems',
-      icon: <Cpu className="h-5 w-5" />,
-      skills: [
-        'Unix',
-        'C',
-        'C++',
-        'Python',
-        'Typescript',
-        'Git',
-        'GitHub',
-        'Docker',
-        'GCP',
-        'PostgreSQL',
-      ],
-      color: 'bg-emerald-50 text-emerald-600 border border-emerald-200',
-    },
-    {
-      category: 'Design & Creative Tools',
-      icon: <PenTool className="h-5 w-5" />,
-      skills: ['Figma', 'Davinci Code', 'Illustrator', 'Canva', 'Keynote'],
-      color: 'bg-indigo-50 text-indigo-600 border border-indigo-200',
-    },
-    {
-      category: 'Soft Skills',
-      icon: <Users className="h-5 w-5" />,
-      skills: [
-        'Communication',
-        'Problem-Solving',
-        'Adaptability',
-        'Learning Agility',
-        'Teamwork',
-        'Creativity',
-        'Focus',
-      ],
-      color: 'bg-amber-50 text-amber-600 border border-amber-200',
-    },
-    {
-      category: 'AI & Fullstack Engineering',
-      icon: <Cpu className="h-5 w-5" />,
-      skills: [
-        'LLM Providers (ChatGPT, Whisper, Groq, Mistral & Claude)',
-        'AI Agents',
-        'Prompt engineering',
-        'Vector databases (Weaviate, Pinecone)',
-        'RAG (Retrieval-Augmented Generation)',
-        'Tool routing & calling',
-        'Hugging Face Transformers',
-        'Vercel AI SDK',
-        'Supabase',
-        'Prisma',
-        'Next.js',
-      ],
-      color: 'bg-purple-50 text-purple-600 border border-purple-200',
-    },
+  // Flat array of all skills matching the exact icons in public/icons/skills
+  const skillsData: Skill[] = [
+    // Programming Languages
+    { name: 'Python', icon: '/icons/skills/python.svg', fallbackColor: '#3776AB' },
+    { name: 'C', icon: '/icons/skills/c.svg', fallbackColor: '#A8B9CC' },
+    { name: 'C++', icon: '/icons/skills/c++.svg', fallbackColor: '#00599C' },
+    { name: 'C#', icon: '/icons/skills/cSharp.svg', fallbackColor: '#239120' },
+    { name: 'Bash', icon: '/icons/skills/bash.svg', fallbackColor: '#4EAA25' },
+
+    // Web Languages
+    { name: 'HTML', icon: '/icons/skills/httml.svg', fallbackColor: '#E34F26' },
+    { name: 'CSS', icon: '/icons/skills/css.svg', fallbackColor: '#1572B6' },
+    { name: 'JavaScript', icon: '/icons/skills/javascript.svg', fallbackColor: '#F7DF1E' },
+    { name: 'TypeScript', icon: '/icons/skills/typescript.svg', fallbackColor: '#3178C6' },
+    { name: 'Tailwind', icon: '/icons/skills/tailwind.svg', fallbackColor: '#06B6D4' },
+
+    // Operating Systems
+    { name: 'macOS', icon: '/icons/skills/mac.svg', fallbackColor: '#000000' },
+    { name: 'Linux', icon: '/icons/skills/linux.svg', fallbackColor: '#FCC624' },
+    { name: 'Windows', icon: '/icons/skills/windows.svg', fallbackColor: '#0078D6' },
+    { name: 'Git', icon: '/icons/skills/git.svg', fallbackColor: '#F05032' },
+    { name: 'GitHub', icon: '/icons/skills/github.svg', fallbackColor: '#181717' },
+
+    // Tools & Frameworks
+    { name: 'Docker', icon: '/icons/skills/docker.svg', fallbackColor: '#2496ED' },
+    { name: 'NPM', icon: '/icons/skills/npm.svg', fallbackColor: '#CB3837' },
+    { name: 'React', icon: '/icons/skills/react.svg', fallbackColor: '#61DAFB' },
+    { name: 'Kali', icon: '/icons/skills/kali.svg', fallbackColor: '#557C94' },
+    { name: 'Node.js', icon: '/icons/skills/nodeJS.svg', fallbackColor: '#339933' },
+
+    // Databases & IDEs
+    { name: 'SQLite', icon: '/icons/skills/sqlLight.svg', fallbackColor: '#003B57' },
+    { name: 'MySQL', icon: '/icons/skills/mySql.svg', fallbackColor: '#4479A1' },
+    { name: 'OpenAI', icon: '/icons/skills/openai.svg', fallbackColor: '#10A37F' },
+    { name: 'VS Code', icon: '/icons/skills/vscode.svg', fallbackColor: '#007ACC' },
+    { name: 'VS Studio', icon: '/icons/skills/vsStudio.svg', fallbackColor: '#5C2D91' },
   ];
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: [0.19, 1, 0.22, 1] as const },
-    },
-  };
-
-  const badgeVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.3, ease: 'easeOut' as const },
-    },
-  };
-
   return (
-    <motion.div
-      initial={{ scale: 0.98, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-      className="mx-auto w-full max-w-5xl rounded-4xl"
-    >
-      <Card className="w-full border-none px-0 pb-12 shadow-none">
-        <CardHeader className="px-0 pb-1">
-          <CardTitle className="text-primary px-0 text-4xl font-bold">
-            Skills & Expertise
-          </CardTitle>
+    <div className="mx-auto w-full max-w-6xl px-4">
+      <Card className="w-full border-none bg-transparent shadow-none">
+        {/* Header Section */}
+        <CardHeader className="px-0 pb-8">
+          <motion.div
+            whileInView="visible"
+            initial="hidden"
+            viewport={VIEWPORT_CONFIG.title}
+            variants={titleScrollVariants}
+          >
+            <h2 className="text-primary text-4xl font-bold">
+              Skills & Expertise
+            </h2>
+          </motion.div>
         </CardHeader>
 
+        {/* Launchpad Grid - Single Continuous Grid */}
         <CardContent className="px-0">
-          <motion.div
-            className="space-y-8 px-0"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {skillsData.map((section, index) => (
-              <motion.div
+          <div className="grid grid-cols-5 gap-6 sm:gap-8 lg:gap-10 px-2">
+            {skillsData.map((skill, index) => (
+              <SkillIcon
                 key={index}
-                className="space-y-3 px-0"
-                variants={itemVariants}
-              >
-                <div className="flex items-center gap-2">
-                  {section.icon}
-                  <h3 className="text-accent-foreground text-lg font-semibold">
-                    {section.category}
-                  </h3>
-                </div>
-
-                <motion.div
-                  className="flex flex-wrap gap-2"
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  {section.skills.map((skill, idx) => (
-                    <motion.div
-                      key={idx}
-                      variants={badgeVariants}
-                      whileHover={{
-                        scale: 1.04,
-                        transition: { duration: 0.2 },
-                      }}
-                    >
-                      <Badge className={`border px-3 py-1.5 font-normal`}>
-                        {skill}
-                      </Badge>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </motion.div>
+                name={skill.name}
+                icon={skill.icon}
+                fallbackColor={skill.fallbackColor}
+                index={index}
+              />
             ))}
-          </motion.div>
+          </div>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
 };
 

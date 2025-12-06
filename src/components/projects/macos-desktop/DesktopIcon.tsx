@@ -90,8 +90,8 @@ export function DesktopIcon({ icon, onOpen, onPositionChange }: DesktopIconProps
 
       {/* Icon Label */}
       <span
-        className="text-xs text-white font-medium text-center drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] px-1 py-0.5 bg-black/20 backdrop-blur-sm rounded truncate pointer-events-none"
-        style={{ maxWidth: `${maxDimension}px` }}
+        className="text-xs text-white font-medium text-center drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] px-1 py-0.5 bg-black/20 backdrop-blur-sm rounded break-words pointer-events-none leading-tight"
+        style={{ maxWidth: `${Math.max(maxDimension + 20, 120)}px` }}
       >
         {icon.title}
       </span>
