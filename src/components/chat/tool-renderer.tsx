@@ -1,5 +1,5 @@
 // src/components/chat/tool-renderer.tsx
-import { Contact } from '../contact';
+import { Contact } from '../contact-old';
 import AllProjects from '../projects/AllProjects';
 import Skills from '../skills';
 

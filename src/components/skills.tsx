@@ -36,41 +36,22 @@ const Skills = () => {
     { name: 'macOS', icon: '/icons/skills/mac.svg', fallbackColor: '#000000' },
     { name: 'Linux', icon: '/icons/skills/linux.svg', fallbackColor: '#FCC624' },
     { name: 'Windows', icon: '/icons/skills/windows.svg', fallbackColor: '#0078D6' },
-    { name: 'Git', icon: '/icons/skills/git.svg', fallbackColor: '#F05032' },
-    { name: 'GitHub', icon: '/icons/skills/github.svg', fallbackColor: '#181717' },
+    { name: 'Kali', icon: '/icons/skills/kali.svg', fallbackColor: '#557C94' },
 
     // Tools & Frameworks
-    { name: 'Docker', icon: '/icons/skills/docker.svg', fallbackColor: '#2496ED' },
+    { name: 'Git', icon: '/icons/skills/git.svg', fallbackColor: '#F05032' },
     { name: 'NPM', icon: '/icons/skills/npm.svg', fallbackColor: '#CB3837' },
     { name: 'React', icon: '/icons/skills/react.svg', fallbackColor: '#61DAFB' },
-    { name: 'Kali', icon: '/icons/skills/kali.svg', fallbackColor: '#557C94' },
+    { name: 'Docker', icon: '/icons/skills/docker.svg', fallbackColor: '#2496ED' },
     { name: 'Node.js', icon: '/icons/skills/nodeJS.svg', fallbackColor: '#339933' },
 
-    // Databases & IDEs
+    // Databases
     { name: 'SQLite', icon: '/icons/skills/sqlLight.svg', fallbackColor: '#003B57' },
-    { name: 'MySQL', icon: '/icons/skills/mySql.svg', fallbackColor: '#4479A1' },
-    { name: 'OpenAI', icon: '/icons/skills/openai.svg', fallbackColor: '#10A37F' },
-    { name: 'VS Code', icon: '/icons/skills/vscode.svg', fallbackColor: '#007ACC' },
-    { name: 'VS Studio', icon: '/icons/skills/vsStudio.svg', fallbackColor: '#5C2D91' },
   ];
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4">
       <Card className="w-full border-none bg-transparent shadow-none">
-        {/* Header Section */}
-        <CardHeader className="px-0 pb-8">
-          <motion.div
-            whileInView="visible"
-            initial="hidden"
-            viewport={VIEWPORT_CONFIG.title}
-            variants={titleScrollVariants}
-          >
-            <h2 className="text-primary text-4xl font-bold">
-              Skills & Expertise
-            </h2>
-          </motion.div>
-        </CardHeader>
-
         {/* Launchpad Grid - Single Continuous Grid */}
         <CardContent className="px-0">
           <div className="grid grid-cols-5 gap-6 sm:gap-8 lg:gap-10 px-2">

@@ -77,11 +77,11 @@ export const ICON_CONFIGS: IconConfig[] = [
     }
   },
   {
-    id: 'fitgear',
-    title: 'Frigear',
+    id: 'homelab',
+    title: 'Home-Lab',
     projectIndex: 3,
-    icon: '/fitgearpreview.png',
-    size: { width: 95, height: 70 },
+    icon: '/Projects/HomeLab/Main.webp',
+    size: { width: 75, height: 110 },
     positions: {
       mobile: { x: 64, y: 37 },
       tablet: { x: 65, y: 37 },
@@ -133,11 +133,11 @@ export const ICON_CONFIGS: IconConfig[] = [
     }
   },
   {
-    id: 'oldportfolio',
-    title: 'Old Portfo...',
+    id: 'proxmoxcluster',
+    title: 'Proxmox Cluster',
     projectIndex: 8,
-    icon: '/oldportfoliopreview.png',
-    size: { width: 80, height: 80 },
+    icon: '/Projects/Proxmox/mainProxmox.webp',
+    size: { width: 140, height: 85 },
     positions: {
       mobile: { x: 78, y: 73 },
       tablet: { x: 80, y: 73 },
@@ -212,6 +212,7 @@ export const DOCK_ICONS: DockIcon[] = [
   { id: 'github', icon: '', label: 'GitHub', href: 'https://github.com/Jhymas20' },
   { id: 'tiktok', icon: '', label: 'TikTok', href: 'https://www.tiktok.com/@node.io' },
   { id: 'instagram', icon: '', label: 'Instagram', href: 'https://www.instagram.com/jordan.hymas/' },
+  { id: 'linkedin', icon: '', label: 'LinkedIn', href: 'https://www.linkedin.com/in/jordan-hymas/' },
   { id: 'notes', icon: '', label: 'Notes', href: '#', separator: true },
   { id: 'photos', icon: '', label: 'Photos', href: '#' },
   { id: 'email', icon: '', label: 'Mail', href: 'mailto:jordanhymas24@gmail.com' },

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { DesktopIcon } from './DesktopIcon';
 import { MacOSWindow } from './MacOSWindow';
 import { DesktopDock } from './DesktopDock';
@@ -18,6 +18,16 @@ export function MacOSDesktop() {
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([]);
   const [nextZIndex, setNextZIndex] = useState(WINDOW_Z_INDEX_START);
   const [showQuickQuestions, setShowQuickQuestions] = useState(true); // Default to shown
+
+  // Animation variants for Projects title
+  const topElementVariants = {
+    hidden: { opacity: 0, y: -60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: 'tween' as const, ease: 'easeOut' as const, duration: 0.8 },
+    },
+  };
 
   // Calculate icon positions based on viewport size, handle resize, and quick questions state
   useEffect(() => {
@@ -160,6 +170,24 @@ export function MacOSDesktop() {
           backgroundPosition: 'center center',
         }}
       />
+
+      {/* Big blurred vertical text on left wall */}
+      <motion.div
+        className="pointer-events-none absolute left-4 bottom-8 z-0 overflow-visible"
+        variants={topElementVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div
+          className="bg-gradient-to-b from-neutral-400/70 via-neutral-400/60 to-neutral-400/50 bg-clip-text text-[8vw] leading-none font-black text-transparent select-none sm:text-[9vw] md:text-[10vw] lg:text-[11vw] xl:text-[12vw] 2xl:text-[13vw] dark:from-neutral-400/10 dark:via-neutral-400/8 dark:to-neutral-400/5"
+          style={{
+            writingMode: 'vertical-rl',
+            WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
+          }}
+        >
+          Projects
+        </div>
+      </motion.div>
 
       {/* Desktop Icons */}
       {icons.map((icon) => (

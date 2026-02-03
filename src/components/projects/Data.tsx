@@ -161,27 +161,67 @@ const PROJECT_CONTENT = [
     ],
   },
   {
-    title: 'Fitgear',
+    title: 'Home-Lab',
     description:
-      'Won the Gotta Go Hack IA by building Fitgear, a virtual voice seller accessible by QR code to improve the ratio between customers and sellers. Created an AI pipeline with API calls and a RAG system for natural language interactions.',
-    techStack: ['Next.js', 'TailwindCSS', 'OpenAI API', 'Langchain'],
-    date: '2024',
-    links: [
-      {
-        name: 'Linkedin',
-        url: 'https://www.linkedin.com/posts/raphael-giraud-60939519a_hackathon-innovation-sporttech-activity-7210399263774674946-qSXq?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAC6vwikBVSEkS7XWktWS7y6GR3GHwAlKslc',
-      },
+      'A full home lab built from the ground up, serving as a practical testbed for enterprise networking, DevOps workflows, AI integration, and infrastructure design. The lab includes a multi-node Proxmox virtualization cluster with shared NAS storage, UniFi managed networking with VLAN segmentation, dedicated Linux servers for backend services and automation, portable Linux access nodes for secure remote connectivity, and edge devices like a Raspberry Pi 5 with a touchscreen, camera, and microphone for hand-tracking experiments and local AI chatbot interfaces.',
+    techStack: [
+      'Proxmox',
+      'Ubuntu Linux',
+      'UniFi Networking',
+      'Pi-hole',
+      'Raspberry Pi',
+      'NAS Storage',
+      'VLAN Segmentation',
+      'Docker',
     ],
+    date: '2024-2025',
+    links: [],
     images: [
       {
-        src: '/fitgear2.png',
-        alt: 'Fitgear chatbot',
+        src: '/Projects/HomeLab/Main.webp',
+        alt: 'Home Lab main rack overview',
+        orientation: 'vertical' as const,
       },
       {
-        src: '/fitgear1.png',
-        alt: 'Fitgear landing page',
+        src: '/Projects/HomeLab/lower.webp',
+        alt: 'Home Lab lower rack section',
+        orientation: 'vertical' as const,
+      },
+      {
+        src: '/Projects/HomeLab/Nas.webp',
+        alt: 'Home Lab NAS storage array',
+        orientation: 'vertical' as const,
+      },
+      {
+        src: '/Projects/HomeLab/network.webp',
+        alt: 'Home Lab network diagram',
       },
     ],
+    details: {
+      equipment: [
+        { name: 'Raspberry Pi 5', description: 'Touchscreen-enabled device with an attached camera and microphone, used for hand-tracking experiments and running a local AI chatbot interface.' },
+        { name: 'Three Mini Phone Servers (Portable Linux Nodes)', description: 'Mobile devices running lightweight Linux server environments, used as deployable remote-access nodes. These act as drop-in access points on any network they\'re connected to, providing secure wireless access to my systems — functionally similar to portable VPN endpoints.' },
+        { name: 'Raspberry Pi 3', description: 'Runs Pi-hole for network-wide ad blocking, along with several lightweight supporting services.' },
+        { name: 'UniFi Cloud Key (Central Network Controller)', description: 'Acts as the main management hub for the home lab, controlling and monitoring all UniFi devices, including: UniFi Access Point (AP), UniFi Camera, UniFi Display, UniFi 8-Port Switch, and UniFi 16-Port Switch.' },
+        { name: 'Network-Attached Storage (NAS)', description: 'Storage array containing three SSDs and one HDD, providing a total of 3 TB of storage, connected directly to the Proxmox cluster for VM and container storage.' },
+        { name: 'Dell OptiPlex – "Infinite Void" (Ubuntu Linux Server)', description: 'Dedicated Ubuntu Linux server used for backend services, automation, and infrastructure support tasks.' },
+        { name: 'Dell OptiPlex #2 – Proxmox Cluster Node 1', description: 'First node in the Proxmox virtualization cluster, hosting virtual machines and containers.' },
+        { name: 'Dell OptiPlex #3 – Proxmox Cluster Node 2', description: 'Second node in the Proxmox virtualization cluster, providing redundancy and workload distribution.' },
+        { name: 'UniFi Switch #1 – 8-Port Managed Switch', description: 'Provides managed network connectivity for lab devices and supports VLAN segmentation.' },
+        { name: 'UniFi Switch #2 – 16-Port Managed Switch', description: 'Core switching hardware for the lab, handling higher device density and backbone traffic.' },
+      ],
+      external: [
+        { name: 'Dell OptiPlex 7050 – Proxmox Cluster Node 3', description: 'Separate physical system outside the primary rack, acting as the third Proxmox node. Includes its own dedicated NAS with 2.5 TB of storage, expanding cluster capacity and resilience.' },
+      ],
+      learned: [
+        'Networking: VLAN design, traffic segmentation, managed switching, and centralized device control',
+        'Virtualization: Building and operating a multi-node Proxmox cluster with shared storage',
+        'Linux Servers: Deploying and managing Ubuntu and lightweight Linux environments for services and automation',
+        'Storage Systems: Integrating NAS devices with virtualization platforms and balancing performance vs. capacity',
+        'Hardware Configuration: Assembling, repurposing, and maintaining enterprise-style hardware in a homelab setting',
+        'Security & Remote Access: Designing portable access nodes and understanding network trust boundaries',
+      ],
+    },
   },
   {
     title: 'Server Room (NPCE)',
@@ -305,31 +345,51 @@ const PROJECT_CONTENT = [
     ],
   },
   {
-    title: 'Old Portfolio',
+    title: 'Proxmox Cluster',
     description:
-      'My previous traditional portfolio built with vanilla HTML, CSS and JS with GSAP animations for a smooth and interactive user experience.',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
-    date: '2022',
-    links: [
-      {
-        name: 'Website',
-        url: 'https://toukoum.github.io/oldPortfolio/',
-      },
-      {
-        name: 'GitHub',
-        url: 'https://github.com/toukoum/portfolio',
-      },
+      'A multi-node Proxmox VE virtualization cluster used to manage virtual machines for security testing, system administration, and infrastructure experimentation. The cluster is designed to resemble a small enterprise environment, providing centralized VM management, shared storage, and remote accessibility.',
+    techStack: [
+      'Proxmox VE',
+      'Dell OptiPlex',
+      'NAS Storage',
+      'Tailscale VPN',
+      'Linux',
+      'Windows Server',
+      'Kali Linux',
     ],
+    date: '2024-2025',
+    links: [],
     images: [
       {
-        src: '/oldport1.png',
-        alt: 'Old Portfolio landing page',
+        src: '/Projects/Proxmox/proxmoxHome.webp',
+        alt: 'Proxmox cluster home view',
       },
       {
-        src: '/oldport2.png',
-        alt: 'Old Portfolio projects',
-      }
+        src: '/Projects/Proxmox/mainProxmox.webp',
+        alt: 'Proxmox cluster main dashboard',
+      },
     ],
+    details: {
+      equipment: [
+        { name: 'Node 1 & Node 2', description: 'Two Dell OptiPlex systems running Proxmox VE, connected to a shared 3 TB NAS for virtual machine and ISO storage.' },
+        { name: 'Node 3', description: 'A Dell OptiPlex 7050 acting as the third Proxmox node, attached to a dedicated 2.5 TB NAS for additional capacity and redundancy.' },
+        { name: 'Shared Storage', description: 'NAS-backed storage integrated with Proxmox to support VM disks, snapshots, and backups across the cluster.' },
+      ],
+      external: [
+        { name: 'Tailscale VPN', description: 'Used to securely access the entire home lab from any location, providing encrypted, zero-trust remote connectivity to Proxmox nodes, virtual machines, and management interfaces without exposing services directly to the public internet.' },
+      ],
+      learned: [
+        'Virtual machine lifecycle management using Proxmox VE',
+        'Multi-node clustering and shared storage integration',
+        'Secure remote access using mesh VPN technologies',
+        'Linux and Windows server administration in virtualized environments',
+        'Backup, snapshot, and recovery planning',
+        'Hosting Linux and Windows VMs for administrative and infrastructure testing',
+        'Running Kali Linux VMs for controlled security and penetration-testing labs',
+        'Rapid VM deployment using a template library',
+        'Snapshotting and restoring systems to simulate recovery and rollback scenarios',
+      ],
+    },
   },
 ];
 
@@ -472,6 +532,57 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
           </div>
         </CollapsibleSection>
 
+        {/* Equipment Section (for Home-Lab style projects) */}
+        {projectData.details?.equipment && (
+          <CollapsibleSection title="Lab Equipment:" defaultOpen={true}>
+            <div className="space-y-3 text-sm">
+              {projectData.details.equipment.map((item: { name: string; description: string }, index: number) => (
+                <div key={index} className="flex items-start gap-2">
+                  <span className="text-orange-500 mt-0.5">{index + 1}.</span>
+                  <div>
+                    <span className="font-medium text-neutral-700 dark:text-neutral-300">{item.name}</span>
+                    <p className="text-neutral-600 dark:text-neutral-400 mt-0.5">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CollapsibleSection>
+        )}
+
+        {/* External Equipment Section */}
+        {projectData.details?.external && (
+          <CollapsibleSection title="External to the Main Lab Rack:" defaultOpen={true}>
+            <div className="space-y-3 text-sm">
+              {projectData.details.external.map((item: { name: string; description: string }, index: number) => (
+                <div key={index} className="flex items-start gap-2">
+                  <span className="text-orange-500">●</span>
+                  <div>
+                    <span className="font-medium text-neutral-700 dark:text-neutral-300">{item.name}</span>
+                    <p className="text-neutral-600 dark:text-neutral-400 mt-0.5">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CollapsibleSection>
+        )}
+
+        {/* What I Learned Section */}
+        {projectData.details?.learned && (
+          <CollapsibleSection title="What I Learned:" defaultOpen={true}>
+            <div className="space-y-2 text-sm">
+              {projectData.details.learned.map((item: string, index: number) => (
+                <div key={index} className="flex items-start gap-2">
+                  <span className="text-orange-500">●</span>
+                  <span className="text-neutral-600 dark:text-neutral-400">{item}</span>
+                </div>
+              ))}
+              <p className="text-neutral-600 dark:text-neutral-400 mt-3 italic">
+                This lab functions as a practical testbed for experimenting with enterprise networking, DevOps workflows, AI integration, and infrastructure design in a controlled environment.
+              </p>
+            </div>
+          </CollapsibleSection>
+        )}
+
         {/* Preview Section */}
         {projectData.images && projectData.images.length > 0 && (
           <CollapsibleSection title="Preview:" defaultOpen={true}>
@@ -479,9 +590,11 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
               {projectData.images.map((image, index) => (
                 <div
                   key={index}
-                  className="relative aspect-video overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600"
+                  className={`relative overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600 ${
+                    (image as any).orientation === 'vertical' ? 'aspect-[3/4]' : 'aspect-video'
+                  }`}
                 >
-                  {image.type === 'video' ? (
+                  {'type' in image && image.type === 'video' ? (
                     <video
                       src={image.src}
                       autoPlay
@@ -532,10 +645,11 @@ export const data = [
     content: <ProjectContent project={{ title: 'First Portfolio', category: 'Web Development', thumbnail: '/Projects/OldPortfolio/home.webp' }} />,
   },
   {
-    category: 'Hackathon Winner',
-    title: 'Fitgear',
-    src: '/fitgearpreview.png',
-    content: <ProjectContent project={{ title: 'Fitgear', category: 'Hackathon Winner', thumbnail: '/fitgearpreview.png' }} />,
+    category: 'Infrastructure & Homelab',
+    title: 'Home-Lab',
+    src: '/Projects/HomeLab/Main.webp',
+    orientation: 'vertical' as const,
+    content: <ProjectContent project={{ title: 'Home-Lab', category: 'Infrastructure & Homelab', thumbnail: '/Projects/HomeLab/Main.webp' }} />,
   },
   {
     category: 'Infrastructure & Networking',
@@ -562,9 +676,9 @@ export const data = [
     content: <ProjectContent project={{ title: 'Retro Snake', category: 'Game Development', thumbnail: '/Projects/Snake/snake.webp' }} />,
   },
   {
-    category: 'Web Development',
-    title: 'Old Portfolio',
-    src: '/oldportfoliopreview.png',
-    content: <ProjectContent project={{ title: 'Old Portfolio', category: 'Web Development', thumbnail: '/oldportfoliopreview.png' }} />,
+    category: 'Infrastructure & Virtualization',
+    title: 'Proxmox Cluster',
+    src: '/Projects/Proxmox/mainProxmox.webp',
+    content: <ProjectContent project={{ title: 'Proxmox Cluster', category: 'Infrastructure & Virtualization', thumbnail: '/Projects/Proxmox/mainProxmox.webp' }} />,
   },
 ];

@@ -21,6 +21,7 @@ type Card = {
   title: string;
   category: string;
   content: React.ReactNode;
+  orientation?: 'vertical';
 };
 
 export const CarouselContext = createContext<{
@@ -334,7 +335,12 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-64 w-48 sm:h-72 sm:w-52 md:h-80 md:w-56 lg:h-96 lg:w-64 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 dark:bg-neutral-900"
+        className={cn(
+          "relative z-10 flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 dark:bg-neutral-900",
+          card.orientation === 'vertical'
+            ? "h-96 w-56 sm:h-[26rem] sm:w-60 md:h-[30rem] md:w-64 lg:h-[34rem] lg:w-[19rem]"
+            : "h-64 w-48 sm:h-72 sm:w-52 md:h-80 md:w-56 lg:h-96 lg:w-64"
+        )}
       >
         <div className="absolute inset-x-0 top-0 z-30 h-full cursor-pointer bg-gradient-to-b from-black hover:scale-110 via-transparent to-transparent" />
         {/*<div className="absolute inset-0 z-20 cursor-pointer bg-black/20 hover:bg-black/2" />*/}
