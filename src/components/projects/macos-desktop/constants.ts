@@ -17,133 +17,142 @@ interface IconConfig {
   };
 }
 
-// Icon configurations - positioned exactly as shown in user's screenshot
-// Maintains layout across screen sizes with progressive spreading on larger displays
+// Icon configurations - arranged in macOS desktop grid style
+// All icons have standardized height of 80px, width varies by aspect ratio
 export const ICON_CONFIGS: IconConfig[] = [
-  {
-    id: 'synto',
-    title: 'Synto',
-    projectIndex: 0,
-    icon: '/syntopreview.webp',
-    size: { width: 85, height: 85 },
-    positions: {
-      mobile: { x: 12, y: 20 },
-      tablet: { x: 11, y: 20 },
-      laptop: { x: 10, y: 20 },
-      desktop: { x: 9, y: 20 },
-      ultrawide: { x: 8, y: 20 }
-    }
-  },
-  {
-    id: 'firstportfolio',
-    title: 'First Portfolio',
-    projectIndex: 2,
-    icon: '/Projects/OldPortfolio/home.webp',
-    size: { width: 75, height: 75 },
-    positions: {
-      mobile: { x: 44, y: 17 },
-      tablet: { x: 44, y: 17 },
-      laptop: { x: 44, y: 17 },
-      desktop: { x: 44, y: 17 },
-      ultrawide: { x: 44, y: 17 }
-    }
-  },
-  {
-    id: 'serverRoom',
-    title: 'Server Room (NPCE)',
-    projectIndex: 4,
-    icon: '/projects/BGCLCV/teenCenterPc.webp',
-    size: { width: 80, height: 95 },
-    positions: {
-      mobile: { x: 76, y: 20 },
-      tablet: { x: 78, y: 20 },
-      laptop: { x: 80, y: 20 },
-      desktop: { x: 82, y: 20 },
-      ultrawide: { x: 84, y: 20 }
-    }
-  },
-  {
-    id: 'cybercodex',
-    title: 'CyberCodex.io',
-    projectIndex: 1,
-    icon: '/Projects/Cybercodex.io/courses.webp',
-    size: { width: 70, height: 90 },
-    positions: {
-      mobile: { x: 22, y: 44 },
-      tablet: { x: 21, y: 44 },
-      laptop: { x: 20, y: 44 },
-      desktop: { x: 19, y: 44 },
-      ultrawide: { x: 18, y: 44 }
-    }
-  },
+  // LEFT SIDE - Column 1 (Row 1)
   {
     id: 'homelab',
     title: 'Home-Lab',
     projectIndex: 3,
     icon: '/Projects/HomeLab/Main.webp',
-    size: { width: 75, height: 110 },
+    size: { width: 65, height: 80 },
     positions: {
-      mobile: { x: 64, y: 37 },
-      tablet: { x: 65, y: 37 },
-      laptop: { x: 66, y: 37 },
-      desktop: { x: 67, y: 37 },
-      ultrawide: { x: 68, y: 37 }
+      mobile: { x: 14, y: 13 },
+      tablet: { x: 14, y: 13 },
+      laptop: { x: 14, y: 13 },
+      desktop: { x: 14, y: 13 },
+      ultrawide: { x: 14, y: 13 }
     }
   },
+  // LEFT SIDE - Column 2 (Row 1)
   {
-    id: 'retrosnake',
-    title: 'Retro Snake',
-    projectIndex: 7,
-    icon: '/Projects/Snake/snake.webp',
-    size: { width: 80, height: 80 },
+    id: 'synto',
+    title: 'Synto',
+    projectIndex: 0,
+    icon: '/syntopreview.webp',
+    size: { width: 75, height: 80 },
     positions: {
-      mobile: { x: 80, y: 43 },
-      tablet: { x: 82, y: 43 },
-      laptop: { x: 83, y: 43 },
-      desktop: { x: 84, y: 43 },
-      ultrawide: { x: 85, y: 43 }
+      mobile: { x: 21, y: 13 },
+      tablet: { x: 21, y: 13 },
+      laptop: { x: 21, y: 13 },
+      desktop: { x: 21, y: 13 },
+      ultrawide: { x: 21, y: 13 }
     }
   },
+  // LEFT SIDE - Column 3 (Row 1)
   {
-    id: '3dpong',
-    title: '3D Pong',
-    projectIndex: 5,
-    icon: '/transcendancepreview.webp',
-    size: { width: 65, height: 65 },
+    id: 'firstportfolio',
+    title: 'First Portfolio',
+    projectIndex: 2,
+    icon: '/Projects/OldPortfolio/home.webp',
+    size: { width: 55, height: 80 },
     positions: {
-      mobile: { x: 10, y: 69 },
-      tablet: { x: 9, y: 69 },
-      laptop: { x: 8, y: 69 },
-      desktop: { x: 7, y: 69 },
-      ultrawide: { x: 6, y: 69 }
+      mobile: { x: 28, y: 13 },
+      tablet: { x: 28, y: 13 },
+      laptop: { x: 28, y: 13 },
+      desktop: { x: 28, y: 13 },
+      ultrawide: { x: 28, y: 13 }
     }
   },
+  // LEFT SIDE - Column 1 (Row 2)
+  {
+    id: 'cybercodex',
+    title: 'CyberCodex.io',
+    projectIndex: 1,
+    icon: '/Projects/Cybercodex.io/courses.webp',
+    size: { width: 55, height: 80 },
+    positions: {
+      mobile: { x: 14, y: 33 },
+      tablet: { x: 14, y: 33 },
+      laptop: { x: 14, y: 33 },
+      desktop: { x: 14, y: 33 },
+      ultrawide: { x: 14, y: 33 }
+    }
+  },
+  // RIGHT SIDE - Column 1 (Row 1)
   {
     id: 'minishell',
     title: 'Minishell',
     projectIndex: 6,
     icon: '/minishellpreview.webp',
-    size: { width: 90, height: 75 },
+    size: { width: 80, height: 80 },
     positions: {
-      mobile: { x: 35, y: 61 },
-      tablet: { x: 35, y: 61 },
-      laptop: { x: 35, y: 61 },
-      desktop: { x: 35, y: 61 },
-      ultrawide: { x: 35, y: 61 }
+      mobile: { x: 71, y: 13 },
+      tablet: { x: 71, y: 13 },
+      laptop: { x: 71, y: 13 },
+      desktop: { x: 71, y: 13 },
+      ultrawide: { x: 71, y: 13 }
     }
   },
+  // RIGHT SIDE - Column 2 (Row 1)
+  {
+    id: '3dpong',
+    title: '3D Pong',
+    projectIndex: 5,
+    icon: '/transcendancepreview.webp',
+    size: { width: 80, height: 80 },
+    positions: {
+      mobile: { x: 78, y: 13 },
+      tablet: { x: 78, y: 13 },
+      laptop: { x: 78, y: 13 },
+      desktop: { x: 78, y: 13 },
+      ultrawide: { x: 78, y: 13 }
+    }
+  },
+  // RIGHT SIDE - Column 3 (Row 1)
+  {
+    id: 'retrosnake',
+    title: 'Retro Snake',
+    projectIndex: 7,
+    icon: '/Projects/Snake/snake.webp',
+    size: { width: 90, height: 80 },
+    positions: {
+      mobile: { x: 85, y: 13 },
+      tablet: { x: 85, y: 13 },
+      laptop: { x: 85, y: 13 },
+      desktop: { x: 85, y: 13 },
+      ultrawide: { x: 85, y: 13 }
+    }
+  },
+  // RIGHT SIDE - Column 1 (Row 2)
   {
     id: 'proxmoxcluster',
     title: 'Proxmox Cluster',
     projectIndex: 8,
     icon: '/Projects/Proxmox/mainProxmox.webp',
-    size: { width: 140, height: 85 },
+    size: { width: 100, height: 80 },
     positions: {
-      mobile: { x: 78, y: 73 },
-      tablet: { x: 80, y: 73 },
-      laptop: { x: 81, y: 73 },
-      desktop: { x: 82, y: 73 },
-      ultrawide: { x: 83, y: 73 }
+      mobile: { x: 71, y: 33 },
+      tablet: { x: 71, y: 33 },
+      laptop: { x: 71, y: 33 },
+      desktop: { x: 71, y: 33 },
+      ultrawide: { x: 71, y: 33 }
+    }
+  },
+  // RIGHT SIDE - Column 2 (Row 2)
+  {
+    id: 'serverRoom',
+    title: 'Server Room (NPCE)',
+    projectIndex: 4,
+    icon: '/projects/BGCLCV/teenCenterPc.webp',
+    size: { width: 80, height: 80 },
+    positions: {
+      mobile: { x: 80, y: 33 },
+      tablet: { x: 80, y: 33 },
+      laptop: { x: 80, y: 33 },
+      desktop: { x: 80, y: 33 },
+      ultrawide: { x: 80, y: 33 }
     }
   },
 ];

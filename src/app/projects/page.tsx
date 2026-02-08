@@ -8,6 +8,7 @@ import { MacOSDesktop } from '@/components/projects/macos-desktop/MacOSDesktop';
 export default function ProjectsPage() {
   const [isDesktop, setIsDesktop] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [showNav, setShowNav] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -62,7 +63,7 @@ export default function ProjectsPage() {
         </div>
 
         <AllProjects />
-        <NavigationPrompt />
+        <NavigationPrompt showQuick={showNav} onToggleQuick={() => setShowNav(!showNav)} />
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ export function MacOSDesktop() {
   const [icons, setIcons] = useState<DesktopIconData[]>(INITIAL_DESKTOP_ICONS);
   const [openWindows, setOpenWindows] = useState<OpenWindow[]>([]);
   const [nextZIndex, setNextZIndex] = useState(WINDOW_Z_INDEX_START);
-  const [showQuickQuestions, setShowQuickQuestions] = useState(true); // Default to shown
+  const [showQuickQuestions, setShowQuickQuestions] = useState(false); // Default to hidden
 
   // Animation variants for Projects title
   const topElementVariants = {

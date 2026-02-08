@@ -75,7 +75,7 @@ export function DesktopIcon({ icon, onOpen, onPositionChange }: DesktopIconProps
     >
       {/* Icon Image */}
       <div
-        className="rounded-lg overflow-hidden shadow-lg border-2 border-white/20 pointer-events-none"
+        className="overflow-hidden shadow-lg border-2 border-white/20 pointer-events-none"
         style={{ width: `${iconSize.width}px`, height: `${iconSize.height}px` }}
       >
         <Image
@@ -91,7 +91,7 @@ export function DesktopIcon({ icon, onOpen, onPositionChange }: DesktopIconProps
 
       {/* Icon Label */}
       <span
-        className="text-xs text-white font-medium text-center drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] px-1 py-0.5 bg-black/20 backdrop-blur-sm rounded break-words pointer-events-none leading-tight"
+        className="text-xs text-black dark:text-white font-medium text-center px-1 py-0.5 rounded break-words pointer-events-none leading-tight"
         style={{ maxWidth: `${Math.max(maxDimension + 20, 120)}px` }}
       >
         {icon.title}

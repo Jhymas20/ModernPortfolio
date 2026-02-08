@@ -165,12 +165,27 @@ export default function FunPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: false, amount: 0.3 }}
-              className="text-2xl md:text-4xl text-neutral-700 dark:text-neutral-300 font-light leading-relaxed"
+              className="text-2xl md:text-3xl lg:text-4xl text-neutral-700 dark:text-neutral-300 font-light leading-relaxed"
             >
-              I&apos;m Jordan, a full-stack developer who brings creative visions to life.
-              From building interactive UIs with React and Next.js to architecting scalable backends,
-              I craft digital experiences that users love. When I&apos;m not coding, you&apos;ll find me
-              experimenting with new frameworks, tweaking animations, or refining pixel-perfect designs.
+              I&apos;m an IT engineer and developer who builds real systems, not just apps. My background spans cybersecurity, networking, Linux administration, frontend/mobile development, and AI automation.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
+              className="text-2xl md:text-3xl lg:text-4xl text-neutral-700 dark:text-neutral-300 font-light leading-relaxed mt-6"
+            >
+              I work hands-on with servers, infrastructure, and multi-site networks while also designing modern web and mobile experiences. I enjoy blending software, hardware, and automation to solve real-world problems.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: false, amount: 0.3 }}
+              className="text-2xl md:text-3xl lg:text-4xl text-neutral-700 dark:text-neutral-300 font-light leading-relaxed mt-6"
+            >
+              When I&apos;m not coding or managing systems, I&apos;m usually experimenting in my homelab, building AI tools, or refining my custom interfaces.
             </motion.p>
           </motion.div>
         </div>
@@ -207,12 +222,12 @@ export default function FunPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'FRONTEND WIZARD', desc: 'Crafting responsive, pixel-perfect UIs with React, Next.js & TypeScript. Making the web beautiful, one component at a time.' },
-              { title: 'BACKEND ARCHITECT', desc: 'Building robust APIs and databases that scale. Node.js, Python, and everything in between.' },
-              { title: 'UI/UX DESIGNER', desc: 'Creating intuitive user experiences with Figma. Design systems, animations, and micro-interactions are my jam.' },
-              { title: 'ANIMATION GURU', desc: 'Bringing websites to life with Framer Motion and CSS magic. Smooth transitions, scroll effects, you name it.' },
-              { title: 'DEVOPS ENTHUSIAST', desc: 'Git workflows, Docker containers, CI/CD pipelines. Automating all the things.' },
-              { title: 'PROBLEM SOLVER', desc: 'Love diving into complex challenges and emerging with elegant solutions. Debug mode is my natural state.' },
+              { title: 'FULL-STACK + SYSTEMS ENGINEER', desc: 'I build complete systems, from frontend interfaces to backend logic to real infrastructure. Web apps, mobile apps, servers, networks, and automation pipelines.' },
+              { title: 'CYBERSECURITY & NETWORKING', desc: 'Hands-on experience securing networks, managing firewalls, deploying UniFi environments, and supporting multi-site infrastructures. I focus on practical security, reliability, and performance.' },
+              { title: 'LINUX & SERVER ADMINISTRATION', desc: 'Daily driver of Linux environments. VPS hosting, Nginx, SSH hardening, monitoring, backups, and deployment workflows. Comfortable managing servers both locally and in the cloud.' },
+              { title: 'MOBILE APP + FRONTEND DEVELOPMENT', desc: 'Designing and building responsive web and mobile apps with React, Next.js, React Native, and modern UI frameworks. I care about clean UX, smooth interactions, and functional design.' },
+              { title: 'AI AUTOMATION & LOCAL AI SYSTEMS', desc: 'Building AI-powered tools and automation pipelines using Python, APIs, and locally hosted models. I integrate voice, agents, and workflows to solve real-world problems, not just demos.' },
+              { title: 'INFRASTRUCTURE PROBLEM SOLVER', desc: 'From troubleshooting networks and hardware to debugging code and deployments, I enjoy tackling complex technical challenges end-to-end and turning chaos into working systems.' },
             ].map((skill, index) => (
               <motion.div
                 key={skill.title}
@@ -343,12 +358,12 @@ export default function FunPage() {
 
           <div className="space-y-12">
             {[
-              { number: '01', fact: 'I&apos;ve built projects ranging from interactive portfolios to full-scale web apps' },
-              { number: '02', fact: 'My code editor theme changes based on my mood (dark mode supremacy though)' },
-              { number: '03', fact: 'I spend more time perfecting animations than I&apos;d like to admit' },
-              { number: '04', fact: 'When a build succeeds on first try, I check twice because it feels too good to be true' },
-              { number: '05', fact: 'I believe every pixel matters - precision is my love language' },
-              { number: '06', fact: 'Late-night coding sessions fuel my best creative breakthroughs' },
+              { number: '01', fact: "I've built everything from production networks and Linux servers to web apps, mobile apps, and AI automation systems." },
+              { number: '02', fact: 'Most of my projects start in a terminal before they ever reach a browser.' },
+              { number: '03', fact: 'I enjoy connecting software, hardware, and infrastructure into complete working systems.' },
+              { number: '04', fact: "If something breaks, I don't panic — I trace packets, read logs, and fix it." },
+              { number: '05', fact: "Clean architecture matters to me, whether it's UI layouts or network diagrams." },
+              { number: '06', fact: 'Late-night homelab sessions are where my best ideas usually come together.' },
             ].map((item, index) => (
               <motion.div
                 key={item.number}
@@ -356,7 +371,7 @@ export default function FunPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: false, amount: 0.3 }}
-                className="flex items-start gap-8 group"
+                className="flex items-start gap-8 group bg-gradient-to-r from-neutral-100 via-neutral-100 to-transparent dark:from-neutral-900 dark:via-neutral-900 dark:to-transparent py-4 -my-4"
               >
                 <span className="text-6xl md:text-8xl font-black text-neutral-300 dark:text-neutral-700 group-hover:text-violet-500 transition-colors flex-shrink-0">
                   {item.number}
