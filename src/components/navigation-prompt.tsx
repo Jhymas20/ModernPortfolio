@@ -133,7 +133,7 @@ export const NavigationPrompt = forwardRef<NavigationPromptHandle, NavigationPro
             variant="outline"
             className="border-border hover:bg-border/30 hidden sm:flex h-14 lg:h-16 min-w-[72px] lg:min-w-[80px] flex-shrink-0 rounded-2xl border bg-white/30 px-3 lg:px-4 py-3 lg:py-4 shadow-none backdrop-blur-lg active:scale-95 dark:border-neutral-700 dark:bg-neutral-800/50 dark:hover:bg-neutral-700/50"
             aria-label="More"
-            onClick={() => handleSectionNavigation('Me')}
+            onClick={() => router.push('/')}
           >
             <div className="flex items-center justify-center text-gray-700 dark:text-neutral-200">
               <span className="text-lg">···</span>

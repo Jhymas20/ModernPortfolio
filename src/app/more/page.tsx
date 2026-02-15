@@ -90,7 +90,7 @@ export default function FunPage() {
         </div>
 
         {/* Descriptive Text - Right Side */}
-        <div className="absolute top-[35%] md:top-[40%] right-4 md:right-8 lg:right-12 xl:right-16 text-right select-none pointer-events-none z-20">
+        <div className="absolute top-[22%] md:top-[40%] right-4 md:right-8 lg:right-12 xl:right-16 text-right select-none pointer-events-none z-20">
           <p className="text-neutral-700 dark:text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-light tracking-wide">
             / WEB DEVELOPMENT
           </p>
@@ -361,7 +361,7 @@ export default function FunPage() {
               { number: '01', fact: "I've built everything from production networks and Linux servers to web apps, mobile apps, and AI automation systems." },
               { number: '02', fact: 'Most of my projects start in a terminal before they ever reach a browser.' },
               { number: '03', fact: 'I enjoy connecting software, hardware, and infrastructure into complete working systems.' },
-              { number: '04', fact: "If something breaks, I don't panic — I trace packets, read logs, and fix it." },
+              { number: '04', fact: "If something breaks, I don't panic, I trace packets, read logs, and fix it." },
               { number: '05', fact: "Clean architecture matters to me, whether it's UI layouts or network diagrams." },
               { number: '06', fact: 'Late-night homelab sessions are where my best ideas usually come together.' },
             ].map((item, index) => (

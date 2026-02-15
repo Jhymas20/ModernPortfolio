@@ -1,6 +1,7 @@
 'use client';
 
 import FluidCursor from '@/components/FluidCursor';
+import { MobilePopup } from '@/components/mobile-popup';
 import { Button } from '@/components/ui/button';
 import WelcomeModal from '@/components/welcome-modal';
 import { motion } from 'framer-motion';
@@ -88,23 +89,6 @@ export default function Home() {
     },
   };
 
-  useEffect(() => {
-    // Précharger les assets visuels en arrière-plan
-    const img = new window.Image();
-    img.src = '/landing-memojis.webp';
-
-    const linkWebm = document.createElement('link');
-    linkWebm.rel = 'prefetch'; // Non-blocking resource hint
-    linkWebm.as = 'video';
-    linkWebm.href = '/final_memojis.webm';
-    document.head.appendChild(linkWebm);
-
-    const linkMp4 = document.createElement('link');
-    linkMp4.rel = 'prefetch';
-    linkMp4.as = 'video';
-    linkMp4.href = '/final_memojis_ios.mp4';
-    document.head.appendChild(linkMp4);
-  }, []);
 
   // Auto-focus the input when component mounts (desktop only to avoid mobile keyboard)
   useEffect(() => {
@@ -211,6 +195,7 @@ export default function Home() {
         </div>
       </motion.div>
       <FluidCursor />
+      <MobilePopup />
     </div>
   );
 }
