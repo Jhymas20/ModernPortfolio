@@ -16,11 +16,11 @@ export function MobileHomeLayout() {
       LINE_POSITIONS.map((_, lineIndex) =>
         Array.from({ length: 2 }, (_, burstIndex) => ({
           id: `${lineIndex}-${burstIndex}`,
-          duration: 9 + Math.random() * 4.5,
-          delay: Math.random() * 7 + lineIndex * 0.8 + burstIndex * 3.2,
-          opacity: 0.34 + Math.random() * 0.26,
-          height: 30 + Math.random() * 28,
-          blur: 0.2 + Math.random() * 0.8,
+          duration: 8.5 + Math.random() * 4.2,
+          delay: Math.random() * 7 + lineIndex * 0.8 + burstIndex * 3.1,
+          opacity: 0.44 + Math.random() * 0.3,
+          height: 28 + Math.random() * 30,
+          blur: 0.3 + Math.random() * 1.0,
         }))
       ),
     []
@@ -36,7 +36,7 @@ export function MobileHomeLayout() {
             {lineBursts[index].map((burst) => (
               <span
                 key={burst.id}
-                className="fiber-burst absolute left-1/2 w-[2.6px] -translate-x-1/2 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.92)_52%,rgba(255,255,255,0)_100%)]"
+                className="fiber-burst absolute left-1/2 w-[2.8px] -translate-x-1/2 rounded-full bg-[linear-gradient(180deg,rgba(255,118,22,0)_0%,rgba(255,126,34,0.98)_52%,rgba(255,118,22,0)_100%)]"
                 style={
                   {
                     height: `${burst.height}px`,
@@ -91,7 +91,7 @@ export function MobileHomeLayout() {
           </p>
           
           <p className="mt-3 max-w-[95%] text-[24px] leading-[1.08] font-semibold tracking-[-0.01em] text-white/92">
-            From Cybersecurity, IT, and Networking to Full-stack development.
+            From Cybersecurity, IT, to Networking and Full-stack development.
             <br />
           </p>
 

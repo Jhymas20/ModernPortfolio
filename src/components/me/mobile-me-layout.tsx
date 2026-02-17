@@ -12,6 +12,18 @@ const menuTitleFont = Anton({
 });
 
 const LINE_POSITIONS = [19, 39, 59, 79] as const;
+const highlights = [
+  'Dual degrees in Cybersecurity & Computer Science',
+  'CCNA Certified (Cisco networking)',
+  '2+ years IT Network Technician experience',
+  'IT Manager supporting 3 physical sites',
+  'Provide technical support for 87+ locations nationwide',
+  'Hands-on experience with networking, infrastructure, servers, and endpoints',
+  'Full-stack developer building modern web and mobile applications',
+  'Builder of custom AI systems and automation tools',
+  'Former college basketball player (strong teamwork and discipline)',
+  'Entrepreneurial mindset with active personal tech projects and platforms',
+] as const;
 
 export function MobileMeLayout() {
   const lineBursts = useMemo(
@@ -143,22 +155,30 @@ export function MobileMeLayout() {
         </section>
 
         <section className="mt-3 rounded-[22px] border border-black/65 bg-[#f5f4f0] px-3 py-3 shadow-[0_6px_0_rgba(0,0,0,0.2)] dark:border-white/30 dark:bg-[#17191d] dark:shadow-[0_6px_0_rgba(0,0,0,0.44)]">
-          <p className={`${menuTitleFont.className} text-[34px] leading-none tracking-tight`}>More</p>
-          <div className="mt-2 space-y-2 font-mono text-[12px] leading-[1.5] text-black/82 dark:text-white/84">
-            <p>
-              I&apos;m a full-stack developer and IT technician with experience building web apps,
-              mobile apps, automation tools, and backend systems. I combine software engineering,
-              cybersecurity fundamentals, and hands-on IT work to create fast, reliable, and practical
-              solutions.
-            </p>
-            <p>
-              From building local AI assistants to designing modern websites and deploying
-              infrastructure for real clients, I love turning ideas into working systems.
-            </p>
-            <p>
-              I focus on building complete systems end-to-end, from planning and design to deployment,
-              monitoring, and long-term improvements.
-            </p>
+          <p className={`${menuTitleFont.className} text-[34px] leading-none tracking-tight`}>
+            Highlights & Accomplishments
+          </p>
+          <div
+            className="relative mt-2 pl-1"
+            style={{ '--timeline-x': '12px' } as CSSProperties}
+          >
+            <span
+              className="pointer-events-none absolute bottom-2 top-2 w-[2px] -translate-x-1/2 bg-[#f97316]/72 dark:bg-[#fb923c]/74"
+              style={{ left: 'calc(var(--timeline-x) + 4px)' }}
+            />
+            <ul className="m-0 list-none space-y-2.5 p-0">
+              {highlights.map((item, index) => (
+                <li key={item} className="relative pl-7">
+                  <span
+                    className="absolute top-[0.34rem] h-4 w-4 rounded-full border-2 border-[#f97316] bg-[#f5f4f0] dark:border-[#fb923c] dark:bg-[#17191d]"
+                    style={{ left: 'calc(var(--timeline-x) - 8px)' }}
+                  />
+                  <span className="font-mono text-[12px] leading-[1.45] text-black/84 dark:text-white/84">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </div>
