@@ -54,7 +54,11 @@ const MOBILE_PROJECT_ORDER = [
   '/Projects/Snake/snake.webp', // retro snake
 ] as const;
 
-export function MobileProjectsLayout() {
+type MobileProjectsLayoutProps = {
+  embedded?: boolean;
+};
+
+export function MobileProjectsLayout({ embedded = false }: MobileProjectsLayoutProps = {}) {
   const projects = useMemo(() => {
     const source = data as ProjectCard[];
     const bySrc = new Map(source.map((project) => [project.src, project]));
@@ -75,6 +79,8 @@ export function MobileProjectsLayout() {
   const openProject = openProjectIndex !== null ? projects[openProjectIndex] : null;
 
   useEffect(() => {
+    if (embedded) return;
+
     const previousBodyOverflow = document.body.style.overflow;
     const previousHtmlOverflow = document.documentElement.style.overflow;
     const previousBodyOverscroll = document.body.style.overscrollBehaviorY;
@@ -91,7 +97,7 @@ export function MobileProjectsLayout() {
       document.body.style.overscrollBehaviorY = previousBodyOverscroll;
       document.documentElement.style.overscrollBehaviorY = previousHtmlOverscroll;
     };
-  }, []);
+  }, [embedded]);
 
   useEffect(() => {
     if (detailContentTimerRef.current !== null) {

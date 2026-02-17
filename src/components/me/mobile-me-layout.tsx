@@ -25,7 +25,11 @@ const highlights = [
   'Entrepreneurial mindset with active personal tech projects and platforms',
 ] as const;
 
-export function MobileMeLayout() {
+type MobileMeLayoutProps = {
+  addHomeScrollGap?: boolean;
+};
+
+export function MobileMeLayout({ addHomeScrollGap = false }: MobileMeLayoutProps = {}) {
   const lineBursts = useMemo(
     () =>
       LINE_POSITIONS.map((_, lineIndex) =>
@@ -167,7 +171,7 @@ export function MobileMeLayout() {
               style={{ left: 'calc(var(--timeline-x) + 4px)' }}
             />
             <ul className="m-0 list-none space-y-2.5 p-0">
-              {highlights.map((item, index) => (
+              {highlights.map((item) => (
                 <li key={item} className="relative pl-7">
                   <span
                     className="absolute top-[0.34rem] h-4 w-4 rounded-full border-2 border-[#f97316] bg-[#f5f4f0] dark:border-[#fb923c] dark:bg-[#17191d]"
@@ -183,9 +187,11 @@ export function MobileMeLayout() {
         </section>
       </div>
 
+      {addHomeScrollGap ? <div aria-hidden="true" className="relative z-10 h-24" /> : null}
+
       <style jsx>{`
         .me-fiber-burst {
-          top: 0;
+          top: -10%;
           opacity: 0;
           animation-name: meFiberDown;
           animation-timing-function: cubic-bezier(0.28, 0.08, 0.26, 1);
@@ -194,7 +200,7 @@ export function MobileMeLayout() {
 
         @keyframes meFiberDown {
           0% {
-            transform: translate(-50%, -8vh);
+            top: -10%;
             opacity: 0;
           }
           8% {
@@ -204,7 +210,7 @@ export function MobileMeLayout() {
             opacity: var(--burst-opacity);
           }
           100% {
-            transform: translate(-50%, 104vh);
+            top: 100%;
             opacity: 0;
           }
         }

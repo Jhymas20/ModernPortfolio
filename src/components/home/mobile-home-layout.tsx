@@ -10,7 +10,11 @@ const titleFont = Anton({
   display: 'swap',
 });
 
-export function MobileHomeLayout() {
+type MobileHomeLayoutProps = {
+  extendedBottom?: boolean;
+};
+
+export function MobileHomeLayout({ extendedBottom = false }: MobileHomeLayoutProps = {}) {
   const lineBursts = useMemo(
     () =>
       LINE_POSITIONS.map((_, lineIndex) =>
@@ -27,7 +31,11 @@ export function MobileHomeLayout() {
   );
 
   return (
-    <div className="relative h-[100dvh] overflow-hidden bg-[#030303] text-[#f5f4ef]">
+    <div
+      className={`relative overflow-hidden bg-[#030303] text-[#f5f4ef] ${
+        extendedBottom ? 'h-[112dvh]' : 'h-[100dvh]'
+      }`}
+    >
       <div className="pointer-events-none absolute inset-0">
         {LINE_POSITIONS.map((left, index) => (
           <div key={left} className="absolute bottom-0 top-0 w-px" style={{ left: `${left}%` }}>

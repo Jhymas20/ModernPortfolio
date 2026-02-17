@@ -1,7 +1,7 @@
 'use client';
 
 import FluidCursor from '@/components/FluidCursor';
-import { MobileHomeLayout } from '@/components/home/mobile-home-layout';
+import { MobileScrollLayout } from '@/components/home/mobile-scroll-layout';
 import { Button } from '@/components/ui/button';
 import { motion, type Variants } from 'framer-motion';
 import {
@@ -96,7 +96,7 @@ export default function Home() {
   }
 
   if (!isDesktop) {
-    return <MobileHomeLayout />;
+    return <MobileScrollLayout />;
   }
 
   return <DesktopHome />;

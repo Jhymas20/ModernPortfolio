@@ -8,9 +8,9 @@ import { Github, Instagram, Linkedin } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'ME', href: '/me' },
-  { label: 'SKILLS', href: '/skills' },
   { label: 'PROJECTS', href: '/projects' },
   { label: 'MORE', href: '/more' },
+  { label: 'SKILLS', href: '/skills' },
   { label: 'CONTACT', href: '/contact' },
 ];
 
