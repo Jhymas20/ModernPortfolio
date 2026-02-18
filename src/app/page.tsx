@@ -53,20 +53,12 @@ export default function Home() {
   const { setTheme } = useTheme();
   const [isDesktop, setIsDesktop] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const previousThemeRef = useRef<string | null>(null);
 
   useEffect(() => {
-    previousThemeRef.current = window.localStorage.getItem('theme');
-    setTheme('dark');
-
-    return () => {
-      const previousTheme = previousThemeRef.current;
-      if (previousTheme) {
-        setTheme(previousTheme);
-        return;
-      }
-      setTheme('system');
-    };
+    const storedTheme = window.localStorage.getItem('theme');
+    if (!storedTheme) {
+      setTheme('dark');
+    }
   }, [setTheme]);
 
   useEffect(() => {

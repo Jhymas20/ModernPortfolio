@@ -73,9 +73,11 @@ export function MobileMeLayout({ addHomeScrollGap = false }: MobileMeLayoutProps
       <div className="relative z-10 mx-auto w-full max-w-md px-3">
         <header className="mb-3">
           <h1 className={`${menuTitleFont.className} text-[56px] leading-[0.9] tracking-tight`}>ME</h1>
-          <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-black/72 dark:text-white/76">
-            Jordan Hymas
-          </p>
+          {addHomeScrollGap ? null : (
+            <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-black/72 dark:text-white/76">
+              Jordan Hymas
+            </p>
+          )}
         </header>
 
         <section className="rounded-[24px] border border-black/65 bg-[#f5f4f0] px-3 py-3 shadow-[0_7px_0_rgba(0,0,0,0.22)] dark:border-white/30 dark:bg-[#17191d] dark:shadow-[0_7px_0_rgba(0,0,0,0.48)]">

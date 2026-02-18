@@ -14,34 +14,16 @@ export function MobileScrollLayout() {
   return (
     <div className="relative">
       <section className="min-h-[100dvh]">
-        <MobileHomeLayout extendedBottom />
+        <div className="dark">
+          <MobileHomeLayout extendedBottom />
+        </div>
       </section>
 
       <section className="relative -mt-20 min-h-[100dvh]">
         <MobileMeLayout addHomeScrollGap />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-24 dark:hidden"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-24 dark:hidden blur-[14px]"
-          style={{
-            background:
-              'radial-gradient(120% 95% at 50% 0%, rgba(242, 136, 58, 0.5) 0%, rgba(227, 84, 0, 0.18) 52%, rgba(227, 84, 0, 0) 100%)',
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-24 dark:hidden"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(239, 103, 8, 0.44) 0%, rgba(227, 84, 0, 0.2) 48%, rgba(227, 84, 0, 0) 100%)',
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 z-[5] hidden h-24 dark:block blur-[14px]"
+          className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-24 blur-[14px]"
           style={{
             background:
               'radial-gradient(120% 95% at 50% 0%, rgba(242, 136, 58, 0.34) 0%, rgba(227, 84, 0, 0.15) 52%, rgba(227, 84, 0, 0) 100%)',
@@ -49,7 +31,7 @@ export function MobileScrollLayout() {
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 z-[5] hidden h-24 dark:block"
+          className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-24"
           style={{
             background:
               'linear-gradient(180deg, rgba(239, 103, 8, 0.34) 0%, rgba(227, 84, 0, 0.16) 48%, rgba(227, 84, 0, 0) 100%)',
@@ -72,7 +54,9 @@ export function MobileScrollLayout() {
       </section>
 
       <section className="relative -mt-20 min-h-[100dvh] [mask-image:linear-gradient(to_bottom,transparent_0px,black_88px,black_100%)]">
-        <MobileContactLayout />
+        <div className="dark">
+          <MobileContactLayout />
+        </div>
       </section>
     </div>
   );

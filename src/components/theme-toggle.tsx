@@ -14,7 +14,7 @@ export function ThemeToggle() {
   const isMobileViewport = viewport.width > 0 && viewport.width < 768;
   const isHomeMobile = pathname === '/' && isMobileViewport;
   const isNavPage = pathname !== '/chat' && (pathname !== '/' || isHomeMobile);
-  const isThemeLockedPage = pathname === '/' || pathname === '/contact';
+  const isThemeLockedPage = pathname === '/contact' || (pathname === '/' && !isHomeMobile);
 
   // Prevent hydration mismatch
   useEffect(() => {
