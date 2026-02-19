@@ -8,17 +8,17 @@ Live site: [jordanhymas.com](https://jordanhymas.com)
 
 ## Pages
 
-**Home** — Landing page with an animated introduction and navigation to the rest of the site.
+**[ Home ]** — Landing page with an animated introduction and navigation to the rest of the site.
 
-**Me** — Background, personal summary, and a resume download link.
+**[ Me ]** — Background, personal summary, and a resume download link.
 
-**Projects** — A macOS-style desktop interface on larger screens and a touch-friendly card carousel on mobile, each card linking to full project breakdowns.
+**[ Projects ]** — A macOS-style desktop interface on larger screens and a touch-friendly card carousel on mobile, each card linking to full project breakdowns.
 
-**Skills** — A categorized breakdown of technical skills across systems, development, networking, and tooling.
+**[ Skills ]** — A categorized breakdown of technical skills across systems, development, networking, and tooling.
 
-**More** — A photo section with a grid gallery layout.
+**[ More ]** — A photo section with a grid gallery layout.
 
-**Contact** — Social links and email contact with an animated background.
+**[ Contact ]** — Social links and email contact with an animated background.
 
 ---
 
