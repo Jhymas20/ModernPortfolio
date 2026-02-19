@@ -322,27 +322,29 @@ export function MacOSDesktop() {
       </div>
 
       {/* Desktop Icons */}
-      {icons.map((icon, index) => (
-        <motion.div
-          key={icon.id}
-          animate={{
-            opacity: desktopVisible ? 1 : 0,
-            scale: desktopVisible ? desktopIconScale : desktopIconScale * 0.8,
-            filter: desktopVisible ? 'blur(0px)' : 'blur(4px)',
-          }}
-          transition={{
-            duration: 0.3,
-            delay: desktopVisible ? index * 0.06 : index * 0.08,
-          }}
-          style={{ pointerEvents: desktopVisible ? 'auto' : 'none' }}
-        >
-          <DesktopIcon
-            icon={icon}
-            onOpen={() => handleIconOpen(icon)}
-            onPositionChange={handleIconPositionChange}
-          />
-        </motion.div>
-      ))}
+      <div className="absolute inset-0 z-[4]">
+        {icons.map((icon, index) => (
+          <motion.div
+            key={icon.id}
+            animate={{
+              opacity: desktopVisible ? 1 : 0,
+              scale: desktopVisible ? desktopIconScale : desktopIconScale * 0.8,
+              filter: desktopVisible ? 'blur(0px)' : 'blur(4px)',
+            }}
+            transition={{
+              duration: 0.3,
+              delay: desktopVisible ? index * 0.06 : index * 0.08,
+            }}
+            style={{ pointerEvents: desktopVisible ? 'auto' : 'none' }}
+          >
+            <DesktopIcon
+              icon={icon}
+              onOpen={() => handleIconOpen(icon)}
+              onPositionChange={handleIconPositionChange}
+            />
+          </motion.div>
+        ))}
+      </div>
 
       {/* Open Windows */}
       <motion.div

@@ -2,15 +2,9 @@
 
 import Skills from '@/components/skills';
 import { useWindowsViewportDensity } from '@/hooks/useWindowsViewportDensity';
-import { Anton } from 'next/font/google';
 import { useMemo, type CSSProperties } from 'react';
 
 const LINE_POSITIONS = [19, 39, 59, 79] as const;
-const sectionTitleFont = Anton({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-});
 
 type MobileSkillsLayoutProps = {
   homeScrollOnlyStyle?: boolean;
@@ -113,10 +107,10 @@ export function MobileSkillsLayout({ homeScrollOnlyStyle = false }: MobileSkills
         <div
           className={`select-none uppercase tracking-tight ${
             homeScrollOnlyStyle
-              ? `${sectionTitleFont.className} text-[56px] leading-[0.9] text-black dark:text-white`
+              ? 'text-[56px] font-black leading-[0.9] tracking-[-0.08em] text-black dark:text-white'
               : 'bg-gradient-to-b from-neutral-400/70 via-neutral-400/60 to-neutral-400/50 bg-clip-text text-[18vw] font-black leading-none text-transparent dark:from-neutral-400/10 dark:via-neutral-400/8 dark:to-neutral-400/5'
           }`}
-          style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)' }}
+          style={{ WebkitTextStroke: homeScrollOnlyStyle ? '1.5px #e35400' : '1px rgba(255, 255, 255, 0.3)' }}
         >
           Skills
         </div>

@@ -65,6 +65,7 @@ export function DesktopIcon({ icon, onOpen, onPositionChange }: DesktopIconProps
       }}
       style={{
         position: 'absolute',
+        zIndex: 3,
         left: icon.position.x - maxDimension / 2,
         top: icon.position.y - maxDimension / 2,
         width: `${maxDimension}px`

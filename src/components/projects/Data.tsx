@@ -1,80 +1,68 @@
 import Image from 'next/image';
-import { Image as Img } from 'lucide-react';
-import { ChevronRight, Link, ExternalLink } from 'lucide-react';
-import { Separator } from '@/components/ui/separator';
-import { url } from 'inspector';
+import { Image as Img, ExternalLink } from 'lucide-react';
 import { CollapsibleSection } from './CollapsibleSection';
 
 // Enhanced project content array with all projects
 const PROJECT_CONTENT = [
   {
-    title: 'Synto',
+    title: 'Liquid Portfolio',
     description:
-      'Synto is an AI-powered interface that transforms complex blockchain interactions into simple, natural language commands. Whether you want to send tokens, stake assets, swap coins, or even create NFTs or liquidity pools, just tell Synto what to do — no manual wallet interactions, no technical jargon. One of my biggest projects yet',
+      'Liquid Portfolio is a modern interactive personal portfolio designed to showcase my skills in cybersecurity, IT, and full-stack development. I built it to deliver a sleek, Apple-inspired experience with animated liquid borders, dark/light mode, and an embedded AI chat assistant that understands my background and projects. This is Mark One of my portfolio site.',
+    typeLabel: 'Personal Portfolio > Next.js',
     techStack: [
-      'Next.js',
-      'TailwindCSS',
-      'Web3.js',
-      'shadcn-ui',
-      'TypeScript',
-      'Phantom Wallet',
-      'OpenAI API',
-      'Vercel AI SDK',
-      'Solana Agent kit',
-      'Neon',
-      'Prisma'
+      'Next.js 15.5.12',
+      'React',
+      'Node.js',
+      'Tailwind CSS',
+      'Radix UI',
+      'Framer Motion',
+      'Lucide Icons',
+      'Express',
+      'Vite',
+      'Turbopack',
+      'Open Graph',
+      'React Native for Web',
     ],
     date: '2025',
+    features: [
+      'AI-powered portfolio chat',
+      'Animated liquid hover borders',
+      'Dark / Light mode',
+      'Responsive layout for all devices',
+      'Sections: About, Skills, Projects, Contact, Fun',
+    ],
     links: [
       {
-        name: 'website',
-        url: 'https://synto.fun',
+        name: 'GitHub',
+        url: 'https://github.com/Jhymas20',
       },
-      {
-        name: 'Launch Video',
-        url: 'https://www.youtube.com/watch?v=4QUE2KgKDUw',
-      },
-      {
-        name: 'X',
-        url: 'https://x.com/chainSynto',
-      },
-      {
-        name: 'Technical Video',
-        url: 'https://www.youtube.com/watch?v=1CjBLKPUwtA&feature=youtu.be',
-      },
-      {
-        name: 'Pitch Deck',
-        url: 'https://drive.google.com/file/d/1B3m44mEgv81rJHfjNfTKi147yX4raQed/view?usp=sharing',
-      },
-      {
-        name: 'Usage tutorial',
-        url: 'https://www.youtube.com/watch?v=PRu1cfvT2bA',
-      }
     ],
     images: [
       {
-        src: '/synto1.webp',
-        alt: 'Synto landing page',
+        src: '/Projects/LiquidPortfolio/homePage.mp4',
+        alt: 'Liquid Portfolio home page animation',
+        type: 'video',
       },
       {
-        src: '/synto2.webp',
-        alt: 'Synto chat interface',
+        src: '/Projects/LiquidPortfolio/projects.webp',
+        alt: 'Liquid Portfolio projects page',
       },
       {
-        src: '/synto3.webp',
-        alt: 'Synto chat interface',
+        src: '/Projects/LiquidPortfolio/me.webp',
+        alt: 'Liquid Portfolio me page',
       },
       {
-        src: '/synto4.webp',
-        alt: 'Synto chat interface',
+        src: '/Projects/LiquidPortfolio/morePage.mp4',
+        alt: 'Liquid Portfolio more page animation',
+        type: 'video',
       },
       {
-        src: '/synto5.webp',
-        alt: 'Synto chat interface',
+        src: '/Projects/LiquidPortfolio/skills.webp',
+        alt: 'Liquid Portfolio skills page',
       },
       {
-        src: '/synto6.webp',
-        alt: 'Synto chat interface',
+        src: '/Projects/LiquidPortfolio/contact.webp',
+        alt: 'Liquid Portfolio contact page',
       },
     ],
   },
@@ -308,22 +296,64 @@ const PROJECT_CONTENT = [
     ],
   },
   {
-    title: 'Minishell',
+    title: 'Modern Portfolio',
     description:
-      "Minishell is a project that aims to create a simple shell. It's a great introduction to process creation and management in C, offering fundamental Unix command-line functionality. This was a very challenging project, but I learned a lot from it.",
-    techStack: ['C', 'Unix', 'Bash'],
-    date: '2023',
+      "My current portfolio website, a clean, modern platform that showcases everything I've learned in web development, UI design, and frontend engineering. This is one of the projects I'm most proud of, built to push motion, layout structure, accessibility, and performance while keeping a polished, Apple-inspired aesthetic across light and dark modes.",
+    typeLabel: 'Personal Portfolio > Next.js',
+    techStack: [
+      'Next.js 15.5.12',
+      'React',
+      'Node.js',
+      'Tailwind CSS',
+      'Radix UI',
+      'Framer Motion',
+      'Lucide Icons',
+      'Express',
+      'Vite',
+      'Turbopack',
+      'Open Graph',
+      'React Native for Web',
+    ],
+    date: '2026',
+    features: [
+      'Modern responsive layout',
+      'Clean animated transitions with Framer Motion',
+      'Dark / Light mode support',
+      'Structured sections for Me, Skills, Projects, More, and Contact',
+      'Performance-optimized Next.js build',
+      'Open Graph social sharing support',
+    ],
     links: [
       {
+        name: 'Website',
+        url: 'https://jordanhymas.com',
+      },
+      {
         name: 'GitHub',
-        url: 'https://github.com/toukoum/Michelle-42',
+        url: 'https://github.com/Jhymas20',
       },
     ],
     images: [
       {
-        src: '/minishell1.webp',
-        alt: 'Minishell landing page',
-      }
+        src: '/Projects/ModernPortfolio/home_page.webp',
+        alt: 'Modern Portfolio home page',
+      },
+      {
+        src: '/Projects/ModernPortfolio/projects_page.webp',
+        alt: 'Modern Portfolio projects page',
+      },
+      {
+        src: '/Projects/ModernPortfolio/me_page.webp',
+        alt: 'Modern Portfolio me page',
+      },
+      {
+        src: '/Projects/ModernPortfolio/skills_page.webp',
+        alt: 'Modern Portfolio skills page',
+      },
+      {
+        src: '/Projects/ModernPortfolio/contact_page.webp',
+        alt: 'Modern Portfolio contact page',
+      },
     ],
   },
   {
@@ -415,7 +445,10 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
 
   // Build category/type string
   const categoryString = project.category || 'Project';
-  const typeString = `${categoryString} > ${projectData.techStack[0] || 'Development'}`;
+  const typeString =
+    'typeLabel' in projectData && projectData.typeLabel
+      ? projectData.typeLabel
+      : `${categoryString} > ${projectData.techStack[0] || 'Development'}`;
 
   return (
     <div className="h-full w-full overflow-y-auto bg-[#f5f4f0] dark:bg-[#1D1D1F]">
@@ -508,31 +541,22 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
               </div>
             </div>
 
-            {/* Links */}
-            {projectData.links && projectData.links.length > 0 && (
-              <div className="flex items-start gap-2">
-                <span className="text-orange-500">●</span>
-                <div className="flex-1">
-                  <span className="font-medium text-neutral-700 dark:text-neutral-300">Links: </span>
-                  <div className="mt-2 space-y-2">
-                    {projectData.links.map((link, index) => (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-                      >
-                        <ExternalLink className="h-3 w-3" />
-                        <span className="capitalize">{link.name}</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </CollapsibleSection>
+
+        {/* Features Section */}
+        {'features' in projectData && Array.isArray(projectData.features) && projectData.features.length > 0 && (
+          <CollapsibleSection title="Features:" defaultOpen={true}>
+            <div className="space-y-2 text-sm">
+              {projectData.features.map((feature: string, index: number) => (
+                <div key={index} className="flex items-start gap-2">
+                  <span className="text-orange-500">●</span>
+                  <span className="text-neutral-600 dark:text-neutral-400">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </CollapsibleSection>
+        )}
 
         {/* Equipment Section (for Home-Lab style projects) */}
         {projectData.details?.equipment && (
@@ -585,6 +609,26 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
           </CollapsibleSection>
         )}
 
+        {/* Links Section */}
+        {projectData.links && projectData.links.length > 0 && (
+          <CollapsibleSection title="Links:" defaultOpen={true}>
+            <div className="space-y-2 text-sm">
+              {projectData.links.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-neutral-700 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                  <span className="capitalize">{link.name}</span>
+                </a>
+              ))}
+            </div>
+          </CollapsibleSection>
+        )}
+
         {/* Preview Section */}
         {projectData.images && projectData.images.length > 0 && (
           <CollapsibleSection title="Preview:" defaultOpen={true}>
@@ -593,7 +637,7 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
                 <div
                   key={index}
                   className={`relative overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600 ${
-                    (image as any).orientation === 'vertical' ? 'aspect-[3/4]' : 'aspect-video'
+                    'orientation' in image && image.orientation === 'vertical' ? 'aspect-[3/4]' : 'aspect-video'
                   }`}
                 >
                   {'type' in image && image.type === 'video' ? (
@@ -630,10 +674,10 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
 // Main data export with updated content
 export const data = [
   {
-    category: 'Startup Project',
-    title: 'CyberCodex.io',
-    src: '/syntopreview.webp',
-    content: <ProjectContent project={{ title: 'Synto', category: 'Startup Project', thumbnail: '/syntopreview.webp' }} />,
+    category: 'Web Development',
+    title: 'Liquid Portfolio',
+    src: '/Projects/LiquidPortfolio/projects.webp',
+    content: <ProjectContent project={{ title: 'Liquid Portfolio', category: 'Web Development', thumbnail: '/Projects/LiquidPortfolio/projects.webp' }} />,
   },
   {
     category: 'Cybersecurity Platform',
@@ -667,10 +711,10 @@ export const data = [
     content: <ProjectContent project={{ title: '3d Pong Game', category: '42 Project', thumbnail: '/transcendancepreview.webp' }} />,
   },
   {
-    category: '42 Project',
-    title: 'Minishell',
-    src: '/minishellpreview.webp',
-    content: <ProjectContent project={{ title: 'Minishell', category: '42 Project', thumbnail: '/minishellpreview.webp' }} />,
+    category: 'Web Development',
+    title: 'Modern Portfolio',
+    src: '/Projects/ModernPortfolio/home_page.webp',
+    content: <ProjectContent project={{ title: 'Modern Portfolio', category: 'Web Development', thumbnail: '/Projects/ModernPortfolio/home_page.webp' }} />,
   },
   {
     category: 'Game Development',

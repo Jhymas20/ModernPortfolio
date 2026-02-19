@@ -21,8 +21,8 @@ const menuTitleFont = Anton({
 });
 
 const SUMMARY_BY_SRC: Record<string, string> = {
-  '/syntopreview.webp':
-    'Synto turns complex blockchain actions into natural-language commands for sending, swapping, staking, and advanced on-chain workflows.',
+  '/Projects/LiquidPortfolio/projects.webp':
+    'Liquid Portfolio is my Mark One personal portfolio with motion-driven UI, AI chat integration, and responsive sections for my work and background.',
   '/Projects/Cybercodex.io/courses.webp':
     'A cybersecurity learning platform with structured courses, practical labs, and an interactive experience built for real skill progression.',
   '/Projects/OldPortfolio/home.webp':
@@ -33,8 +33,8 @@ const SUMMARY_BY_SRC: Record<string, string> = {
     'Enterprise-grade server room and esports network deployment with UniFi, firewall segmentation, structured cabling, and centralized management.',
   '/transcendancepreview.webp':
     'A multiplayer 3D Pong project with authentication, real-time gameplay, and full-stack systems built from scratch during my 42 curriculum.',
-  '/minishellpreview.webp':
-    'A custom Unix-style shell in C focused on process handling, command execution, and low-level systems fundamentals.',
+  '/Projects/ModernPortfolio/home_page.webp':
+    'My current portfolio website with modern UI, responsive layouts, smooth motion, and a polished production-ready frontend architecture.',
   '/Projects/Snake/snake.webp':
     'A nostalgic C++ Snake project from my early programming years that reflects where my systems and game development path began.',
   '/Projects/Proxmox/mainProxmox.webp':
@@ -42,12 +42,15 @@ const SUMMARY_BY_SRC: Record<string, string> = {
 };
 
 const TITLE_BY_SRC: Record<string, string> = {
-  '/syntopreview.webp': 'Synto',
+  '/Projects/LiquidPortfolio/projects.webp': 'Liquid Portfolio',
+  '/Projects/ModernPortfolio/home_page.webp': 'Modern Portfolio',
 };
 
 const MOBILE_PROJECT_ORDER = [
   '/projects/BGCLCV/teenCenterPc.webp', // Server Room (NPCE)
+  '/Projects/LiquidPortfolio/projects.webp', // Liquid Portfolio
   '/Projects/Cybercodex.io/courses.webp', // cybercodex.io
+  '/Projects/ModernPortfolio/home_page.webp', // Modern Portfolio
   '/Projects/HomeLab/Main.webp', // homelab
   '/Projects/OldPortfolio/home.webp', // first portfolio
   '/Projects/Proxmox/mainProxmox.webp', // proxmox
@@ -98,6 +101,27 @@ export function MobileProjectsLayout({ embedded = false }: MobileProjectsLayoutP
       document.documentElement.style.overscrollBehaviorY = previousHtmlOverscroll;
     };
   }, [embedded]);
+
+  useEffect(() => {
+    if (!embedded || openProjectIndex === null) return;
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyOverscroll = document.body.style.overscrollBehaviorY;
+    const previousHtmlOverscroll = document.documentElement.style.overscrollBehaviorY;
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overscrollBehaviorY = 'none';
+    document.documentElement.style.overscrollBehaviorY = 'none';
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.overscrollBehaviorY = previousBodyOverscroll;
+      document.documentElement.style.overscrollBehaviorY = previousHtmlOverscroll;
+    };
+  }, [embedded, openProjectIndex]);
 
   useEffect(() => {
     if (detailContentTimerRef.current !== null) {
@@ -257,10 +281,16 @@ export function MobileProjectsLayout({ embedded = false }: MobileProjectsLayoutP
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setOpenProjectIndex(null)}
+            onClick={() => {
+              if (!embedded) {
+                setOpenProjectIndex(null);
+              }
+            }}
           >
             <motion.div
-              className="absolute inset-x-0 bottom-0 top-[7dvh] overflow-hidden rounded-t-[24px] border border-black/70 bg-[#f5f4f0] text-black transform-gpu will-change-transform dark:border-white/25 dark:bg-[#121214] dark:text-white"
+              className={`absolute inset-x-0 bottom-0 overflow-hidden rounded-t-[24px] border border-black/70 bg-[#f5f4f0] text-black transform-gpu will-change-transform dark:border-white/25 dark:bg-[#121214] dark:text-white ${
+                embedded ? 'top-[9dvh]' : 'top-[7dvh]'
+              }`}
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
@@ -280,7 +310,7 @@ export function MobileProjectsLayout({ embedded = false }: MobileProjectsLayoutP
                   <X className="h-5 w-5" />
                 </button>
               </div>
-              <div className="h-[calc(93dvh-69px)] overflow-y-auto">
+              <div className="h-[calc(93dvh-69px)] overflow-y-auto overscroll-y-contain">
                 {detailContentReady ? openProject.content : <div className="h-full w-full" />}
               </div>
             </motion.div>

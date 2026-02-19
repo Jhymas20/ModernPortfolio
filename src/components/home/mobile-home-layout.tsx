@@ -36,6 +36,13 @@ export function MobileHomeLayout({ extendedBottom = false }: MobileHomeLayoutPro
         extendedBottom ? 'h-[112dvh]' : 'h-[100dvh]'
       }`}
     >
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/92 via-white/36 to-white/10 dark:from-black/82 dark:via-black/54 dark:to-black/15" />
+        <div className="absolute inset-x-0 bottom-0 h-[56vh] bg-gradient-to-t from-[#ff5a00]/92 via-[#db0000]/72 to-transparent" />
+        <div className="absolute -bottom-[24vh] left-[-24vw] h-[58vh] w-[72vw] rounded-full bg-[#ff2f00]/72 blur-[120px]" />
+        <div className="absolute -bottom-[26vh] right-[-20vw] h-[62vh] w-[76vw] rounded-full bg-[#ff7b00]/84 blur-[130px]" />
+      </div>
+
       <div className="pointer-events-none absolute inset-0">
         {LINE_POSITIONS.map((left, index) => (
           <div key={left} className="absolute bottom-0 top-0 w-px" style={{ left: `${left}%` }}>
@@ -58,32 +65,6 @@ export function MobileHomeLayout({ extendedBottom = false }: MobileHomeLayoutPro
             ))}
           </div>
         ))}
-      </div>
-
-      <div className="pointer-events-none absolute inset-x-0 bottom-[-8%] h-[49%] overflow-hidden">
-        <div className="absolute inset-0">
-          <div
-            className="absolute inset-[-8%] blur-[2px]"
-            style={{
-              background:
-                'radial-gradient(100% 92% at 68% 100%, rgba(239, 103, 8, 0.9) 0%, rgba(227, 84, 0, 0.88) 40%, rgba(168, 45, 0, 0.62) 66%, rgba(168, 45, 0, 0.2) 86%, rgba(168, 45, 0, 0) 100%)',
-            }}
-          />
-          <div
-            className="absolute inset-[-4%] blur-[30px]"
-            style={{
-              background:
-                'radial-gradient(54% 48% at 26% 20%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.64) 44%, rgba(0, 0, 0, 0) 88%), radial-gradient(62% 52% at 78% 14%, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.62) 42%, rgba(0, 0, 0, 0) 86%)',
-            }}
-          />
-          <div
-            className="absolute inset-[-2%] blur-[22px]"
-            style={{
-              background:
-                'linear-gradient(180deg, rgba(227, 84, 0, 0) 0%, rgba(227, 84, 0, 0.12) 22%, rgba(227, 84, 0, 0.65) 58%, rgba(242, 136, 58, 0.56) 100%)',
-            }}
-          />
-        </div>
       </div>
 
       <div className="relative z-10 mx-auto flex h-full w-full max-w-md flex-col px-3 pb-6 pt-20">

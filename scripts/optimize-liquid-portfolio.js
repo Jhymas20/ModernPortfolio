@@ -13,6 +13,7 @@ const imagesToOptimize = [
 const videosToConvert = [
   'public/Projects/LiquidPortfolio/homePage.mov',
   'public/Projects/LiquidPortfolio/homepageAnimation.mov',
+  'public/Projects/LiquidPortfolio/morePage.mov',
 ];
 
 async function optimizeImages() {

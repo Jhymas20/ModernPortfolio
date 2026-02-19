@@ -37,10 +37,10 @@ export const ICON_CONFIGS: IconConfig[] = [
   },
   // LEFT SIDE - Column 2 (Row 1)
   {
-    id: 'synto',
-    title: 'Synto',
+    id: 'liquidportfolio',
+    title: 'Liquid Portfolio',
     projectIndex: 0,
-    icon: '/syntopreview.webp',
+    icon: '/Projects/LiquidPortfolio/projects.webp',
     size: { width: 75, height: 80 },
     positions: {
       mobile: { x: 21, y: 20 },
@@ -82,10 +82,10 @@ export const ICON_CONFIGS: IconConfig[] = [
   },
   // RIGHT SIDE - Column 1 (Row 1)
   {
-    id: 'minishell',
-    title: 'Minishell',
+    id: 'modernportfolio',
+    title: 'Modern Portfolio',
     projectIndex: 6,
-    icon: '/minishellpreview.webp',
+    icon: '/Projects/ModernPortfolio/home_page.webp',
     size: { width: 80, height: 80 },
     positions: {
       mobile: { x: 71, y: 20 },
