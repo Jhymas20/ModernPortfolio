@@ -1,60 +1,83 @@
-# LiquidPortfolio 🎨✨
+# Jordan Hymas — Portfolio
 
-A modern, interactive portfolio website featuring AI-powered chat, animated liquid borders, and a sleek dark/light mode interface.
+A personal portfolio built to showcase my projects, skills, and background. Designed with a focus on clean typography, smooth animations, and a fully responsive layout that adapts between mobile and desktop experiences.
 
-## ✨ Features
+Live site: [jordanhymas.com](https://jordanhymas.com)
 
-- **Interactive AI Chat** - Engage with an AI assistant that knows about your portfolio
-- **Animated Liquid Borders** - Beautiful Siri-style colorful borders on hover
-- **Dark/Light Mode** - Seamless theme switching
-- **Responsive Design** - Works perfectly on all devices
-- **Multiple Sections**:
-  - About Me
-  - Skills
-  - Projects
-  - Contact
-  - Fun
+---
 
-## 🚀 How to Run
+## Pages
 
-### Prerequisites
-- **Node.js** (v18 or higher)
-- **npm** or **pnpm** package manager
+**Home** — Landing page with an animated introduction and navigation to the rest of the site.
 
-### Setup
+**Me** — Background, personal summary, and a resume download link.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Jhymas20/LiquidPortfolio.git
-   cd LiquidPortfolio
-   ```
+**Projects** — A macOS-style desktop interface on larger screens and a touch-friendly card carousel on mobile, each card linking to full project breakdowns.
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   pnpm install
-   ```
+**Skills** — A categorized breakdown of technical skills across systems, development, networking, and tooling.
 
-3. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   pnpm dev
-   ```
+**More** — A photo section with a grid gallery layout.
 
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
+**Contact** — Social links and email contact with an animated background.
 
-## 🛠️ Built With
+---
 
-- **Next.js 15** - React framework
-- **React 19** - UI library
-- **TailwindCSS v4** - Styling
-- **Framer Motion** - Animations
-- **TypeScript** - Type safety
-- **AI SDK** - AI chat functionality
+## Tech Stack
 
-## 📝 License
+| Layer | Tools |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS v4 |
+| Animations | Framer Motion |
+| UI Primitives | Radix UI |
+| Icons | Lucide React, Tabler Icons |
+| Theming | next-themes (light / dark mode) |
+| Dev Server | Turbopack |
+| Image Optimization | Sharp (build-time WebP conversion) |
+| Analytics | Vercel Analytics |
+| Deployment | Vercel |
 
-This project is open source and available for personal and commercial use.
+---
+
+## Screenshots
+
+![Home](public/tempGithubPhotos/home_page.png)
+
+![Me](public/tempGithubPhotos/me_page.png)
+
+![Projects](public/tempGithubPhotos/projects_page.png)
+
+![Skills](public/tempGithubPhotos/skills_page.png)
+
+![Contact](public/tempGithubPhotos/contact_page.png)
+
+---
+
+## Running Locally
+
+```bash
+npm install
+npm run dev
+```
+
+The dev server starts at `http://localhost:3000` using Turbopack.
+
+To build for production:
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+## Image Optimization
+
+Project images are converted to WebP at build time using a custom script.
+
+```bash
+npm run optimize:images
+```
+
+Source images go in `public/Projects/`, optimized WebP output is written in place.
