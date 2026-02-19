@@ -241,14 +241,14 @@ export default function MePage() {
             </p>
             <div className="relative mt-5 pl-2" style={{ '--timeline-x': '14px' } as CSSProperties}>
               <span
-                className="pointer-events-none absolute bottom-2 top-2 w-[3px] -translate-x-1/2 bg-[#f97316]/72 dark:bg-[#fb923c]/74"
+                className="pointer-events-none absolute bottom-2 top-2 w-[3px] -translate-x-1/2 bg-[#e35400]/72 dark:bg-[#ff5a00]/74"
                 style={{ left: 'calc(var(--timeline-x) + 10px)' }}
               />
               <ul className="m-0 list-none space-y-3.5 p-0">
                 {highlights.map((item) => (
                   <li key={item} className="relative pl-10">
                     <span
-                      className="absolute top-[0.28rem] h-5 w-5 rounded-full border-[2.5px] border-[#f97316] bg-[#f5f4f0] dark:border-[#fb923c] dark:bg-[#17191d]"
+                      className="absolute top-[0.28rem] h-5 w-5 rounded-full border-[2.5px] border-[#e35400] bg-[#f5f4f0] dark:border-[#ff5a00]/90 dark:bg-[#17191d]"
                       style={{ left: 'calc(var(--timeline-x) - 8px)' }}
                     />
                     <span className="font-mono text-[15px] leading-[1.45] text-black/84 dark:text-white/84">
@@ -290,7 +290,7 @@ export default function MePage() {
                 key={item.title}
                 className="rounded-[16px] border border-black/20 bg-black/6 p-3 dark:border-white/18 dark:bg-black/25"
               >
-                <h3 className="font-mono text-[14px] font-semibold uppercase tracking-[0.08em] text-[#ad4f00] dark:text-[#f8c08a]">
+                <h3 className="font-mono text-[14px] font-semibold uppercase tracking-[0.08em] text-[#e35400] dark:text-[#ff5a00]/90">
                   {item.title}
                 </h3>
                 <p className="mt-2 font-mono text-[13px] leading-[1.5] text-black/82 dark:text-white/82">

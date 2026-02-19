@@ -114,7 +114,29 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    cursor: default;
+    caret-color: transparent !important;
   }
+
+  a,
+  button,
+  [role='button'],
+  summary,
+  label[for],
+  select,
+  option,
+  input[type='checkbox'],
+  input[type='radio'],
+  input[type='range'],
+  input[type='submit'],
+  input[type='button'],
+  input[type='reset'] {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    caret-color: transparent !important;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -184,4 +206,20 @@ pre {
 .animate-fade-in-up {
   animation: fade-in-up 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   opacity: 0; /* Start hidden */
+}
+
+/* More page - hide page scrollbar while preserving scroll */
+html.more-hide-scrollbar,
+body.more-hide-scrollbar,
+body.more-hide-scrollbar main {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html.more-hide-scrollbar::-webkit-scrollbar,
+body.more-hide-scrollbar::-webkit-scrollbar,
+body.more-hide-scrollbar main::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }

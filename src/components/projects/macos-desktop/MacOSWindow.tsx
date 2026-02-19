@@ -37,7 +37,7 @@ export function MacOSWindow({
         exit={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.2 }}
         onMouseDown={onFocus}
-        className="fixed bg-white/95 backdrop-blur-xl rounded-lg shadow-2xl overflow-hidden"
+        className="fixed overflow-hidden rounded-lg border border-black/45 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-white/20"
         style={{
           zIndex,
           width: '900px',

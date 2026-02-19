@@ -25,6 +25,13 @@ export default function SkillsPage() {
 
   return (
     <div className="relative flex h-screen flex-col bg-gradient-to-b from-white to-neutral-50 px-4 dark:from-neutral-900 dark:to-neutral-950 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 z-0 hidden sm:block">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/92 via-white/36 to-white/10 dark:from-black/82 dark:via-black/54 dark:to-black/15" />
+        <div className="absolute inset-x-0 bottom-0 h-[56vh] bg-gradient-to-t from-[#ff5a00]/92 via-[#db0000]/72 to-transparent" />
+        <div className="absolute -bottom-[20vh] left-[-12vw] h-[52vh] w-[44vw] rounded-full bg-[#ff2f00]/72 blur-[120px]" />
+        <div className="absolute -bottom-[24vh] right-[-8vw] h-[56vh] w-[48vw] rounded-full bg-[#ff7b00]/84 blur-[130px]" />
+      </div>
+
       <DesktopPageNav activePath="/skills" />
 
       {/* Mobile: big text at bottom */}
@@ -52,10 +59,10 @@ export default function SkillsPage() {
         animate="visible"
       >
         <div
-          className="select-none bg-gradient-to-b from-neutral-400/70 via-neutral-400/60 to-neutral-400/50 bg-clip-text text-[9vw] font-black leading-none text-transparent md:text-[10vw] lg:text-[11vw] xl:text-[12vw] 2xl:text-[13vw] dark:from-neutral-400/10 dark:via-neutral-400/8 dark:to-neutral-400/5"
+          className="select-none text-[9vw] font-black leading-none text-black md:text-[10vw] lg:text-[11vw] xl:text-[12vw] 2xl:text-[13vw] dark:text-white"
           style={{
             writingMode: 'vertical-rl',
-            WebkitTextStroke: '1px rgba(255, 255, 255, 0.3)',
+            WebkitTextStroke: '2px #e35400',
           }}
         >
           Skills

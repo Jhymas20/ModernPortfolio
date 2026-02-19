@@ -169,14 +169,14 @@ export function MobileMeLayout({ addHomeScrollGap = false }: MobileMeLayoutProps
             style={{ '--timeline-x': '12px' } as CSSProperties}
           >
             <span
-              className="pointer-events-none absolute bottom-2 top-2 w-[2px] -translate-x-1/2 bg-[#f97316]/72 dark:bg-[#fb923c]/74"
+              className="pointer-events-none absolute bottom-2 top-2 w-[2px] -translate-x-1/2 bg-[#e35400]/72 dark:bg-[#ff5a00]/74"
               style={{ left: 'calc(var(--timeline-x) + 4px)' }}
             />
             <ul className="m-0 list-none space-y-2.5 p-0">
               {highlights.map((item) => (
                 <li key={item} className="relative pl-7">
                   <span
-                    className="absolute top-[0.34rem] h-4 w-4 rounded-full border-2 border-[#f97316] bg-[#f5f4f0] dark:border-[#fb923c] dark:bg-[#17191d]"
+                    className="absolute top-[0.34rem] h-4 w-4 rounded-full border-2 border-[#e35400] bg-[#f5f4f0] dark:border-[#ff5a00]/90 dark:bg-[#17191d]"
                     style={{ left: 'calc(var(--timeline-x) - 8px)' }}
                   />
                   <span className="font-mono text-[12px] leading-[1.45] text-black/84 dark:text-white/84">

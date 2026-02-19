@@ -168,13 +168,17 @@ export function DesktopDock({
   const isCompact = density === 'compact';
   const isTight = density === 'tight';
   const dockScale = isTight ? 0.78 : isCompact ? 0.88 : 1;
-  const bottomOffset = isTight ? 96 : isCompact ? 112 : 140;
+  const bottomOffset = isTight
+    ? 'clamp(10px, 2.2vh, 22px)'
+    : isCompact
+      ? 'clamp(14px, 2.8vh, 30px)'
+      : 'clamp(18px, 3.4vh, 38px)';
 
   return (
     <div
       className="fixed left-1/2 z-50 transition-all duration-300 ease-in-out"
       style={{
-        bottom: `${bottomOffset}px`,
+        bottom: bottomOffset,
         transform: `translateX(-50%) scale(${dockScale})`,
         transformOrigin: 'bottom center',
       }}

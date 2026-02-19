@@ -9,6 +9,7 @@ export default function FunPage() {
   const { scrollYProgress } = useScroll();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isIOSMobile, setIsIOSMobile] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   // Parallax effects
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
@@ -23,6 +24,7 @@ export default function FunPage() {
     const isIOS = isAppleMobileUa || isIpadDesktopMode;
     const mobileViewport = window.innerWidth < 768;
     setIsIOSMobile(isIOS && mobileViewport);
+    setIsMobileViewport(mobileViewport);
 
     if (isIOS) {
       window.scrollTo(0, 0);
@@ -37,6 +39,15 @@ export default function FunPage() {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.add('more-hide-scrollbar');
+    document.body.classList.add('more-hide-scrollbar');
+    return () => {
+      document.documentElement.classList.remove('more-hide-scrollbar');
+      document.body.classList.remove('more-hide-scrollbar');
+    };
   }, []);
 
   const heroSectionClass = `relative ${isIOSMobile ? 'h-[50vh] min-h-[360px]' : 'h-[46vh]'} sm:h-screen flex items-center justify-center overflow-hidden`;
@@ -57,9 +68,11 @@ export default function FunPage() {
         <div
           className="absolute inset-x-0 bottom-0 top-5 pointer-events-none z-0 dark:hidden sm:inset-0"
           style={{
-            backgroundImage: 'radial-gradient(circle, rgb(0, 0, 0) 2.5px, transparent 2.5px)',
+            backgroundImage: isMobileViewport
+              ? 'radial-gradient(circle, rgb(255, 255, 255) 2.5px, transparent 2.5px)'
+              : 'radial-gradient(circle, rgb(255, 116, 16) 2.5px, transparent 2.5px)',
             backgroundSize: '35px 35px',
-            opacity: 0.6,
+            opacity: 0.78,
             maskImage: `radial-gradient(circle 350px at ${mousePosition.x}px ${mousePosition.y}px, black 0%, transparent 100%)`,
             WebkitMaskImage: `radial-gradient(circle 350px at ${mousePosition.x}px ${mousePosition.y}px, black 0%, transparent 100%)`,
           }}
@@ -68,9 +81,11 @@ export default function FunPage() {
         <div
           className="absolute inset-x-0 bottom-0 top-5 pointer-events-none z-0 hidden dark:block sm:inset-0"
           style={{
-            backgroundImage: 'radial-gradient(circle, rgb(255, 255, 255) 2.5px, transparent 2.5px)',
+            backgroundImage: isMobileViewport
+              ? 'radial-gradient(circle, rgb(255, 255, 255) 2.5px, transparent 2.5px)'
+              : 'radial-gradient(circle, rgba(255, 132, 32, 0.98) 2.5px, transparent 2.5px)',
             backgroundSize: '35px 35px',
-            opacity: 0.6,
+            opacity: 0.82,
             maskImage: `radial-gradient(circle 350px at ${mousePosition.x}px ${mousePosition.y}px, black 0%, transparent 100%)`,
             WebkitMaskImage: `radial-gradient(circle 350px at ${mousePosition.x}px ${mousePosition.y}px, black 0%, transparent 100%)`,
           }}
@@ -109,7 +124,7 @@ export default function FunPage() {
 
         {/* Person Image */}
         <div
-          className={`absolute inset-0 flex items-center justify-center ${isIOSMobile ? 'pt-[9rem]' : 'pt-[6.5rem]'} sm:pt-0 pointer-events-none z-15`}
+          className={`absolute inset-0 flex items-center justify-center md:hidden ${isIOSMobile ? 'pt-[9rem]' : 'pt-[6.5rem]'} sm:pt-0 pointer-events-none z-15`}
         >
           <div
             className={`relative w-[42vw] sm:w-[65vw] md:w-[55vw] lg:w-[45vw] xl:w-[40vw] 2xl:w-[35vw] ${isIOSMobile ? 'h-[26vh]' : 'h-[30vh]'} sm:h-[60vh] md:h-[65vh] lg:h-[70vh] xl:h-[75vh]`}
@@ -126,7 +141,7 @@ export default function FunPage() {
 
         {/* Top Left - Name/Brand */}
         <div className="absolute left-4 top-[78px] select-none pointer-events-none z-30 sm:top-[12%] md:left-8 lg:left-12 xl:left-16">
-          <p className="text-neutral-700 dark:text-white text-xs sm:text-sm md:text-base lg:text-lg font-light tracking-widest uppercase">
+          <p className="text-[#e35400] dark:text-[#ff5a00]/90 text-xs sm:text-sm md:text-base lg:text-lg font-light tracking-widest uppercase">
             Jordan Hymas &copy;
           </p>
         </div>
@@ -165,7 +180,10 @@ export default function FunPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black text-neutral-900 dark:text-white mb-8">
+            <h2
+              className="text-6xl md:text-8xl lg:text-9xl font-black text-neutral-900 dark:text-white mb-8"
+              style={{ WebkitTextStroke: '1.5px #e35400' }}
+            >
               WHO AM I?
             </h2>
             <motion.p
@@ -221,6 +239,7 @@ export default function FunPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: false, amount: 0.3 }}
             className="text-6xl md:text-8xl font-black text-neutral-900 dark:text-white mb-16 text-center"
+            style={{ WebkitTextStroke: '1.5px #e35400' }}
           >
             WHAT I DO
           </motion.h2>
@@ -357,6 +376,7 @@ export default function FunPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: false, amount: 0.3 }}
             className="text-6xl md:text-8xl lg:text-9xl font-black text-neutral-900 dark:text-white mb-16"
+            style={{ WebkitTextStroke: '1.5px #e35400' }}
           >
             BEHIND THE CODE
           </motion.h2>
@@ -378,7 +398,7 @@ export default function FunPage() {
                 viewport={{ once: false, amount: 0.3 }}
                 className="flex items-start gap-8 group bg-gradient-to-r from-neutral-100 via-neutral-100 to-transparent dark:from-neutral-900 dark:via-neutral-900 dark:to-transparent py-4 -my-4"
               >
-                <span className="text-6xl md:text-8xl font-black text-neutral-300 dark:text-neutral-700 group-hover:text-violet-500 transition-colors flex-shrink-0">
+                <span className="text-6xl md:text-8xl font-black text-[#e35400] dark:text-[#ff5a00]/90 group-hover:text-[#ff5a00] transition-colors flex-shrink-0">
                   {item.number}
                 </span>
                 <p className="text-xl md:text-3xl text-neutral-700 dark:text-neutral-300 font-light pt-2">
@@ -413,7 +433,6 @@ export default function FunPage() {
             WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 50%, transparent 20%, black 70%)',
           }} />
         </div>
-
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -421,7 +440,10 @@ export default function FunPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: false, amount: 0.3 }}
           >
-            <h2 className="text-7xl md:text-9xl lg:text-[12rem] font-black text-neutral-900 dark:text-white mb-8 leading-none">
+            <h2
+              className="text-7xl md:text-9xl lg:text-[12rem] font-black text-neutral-900 dark:text-white mb-8 leading-none"
+              style={{ WebkitTextStroke: '1.5px #e35400' }}
+            >
               LET&apos;S
               <br />
               WORK
