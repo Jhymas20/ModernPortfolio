@@ -1,5 +1,6 @@
 'use client';
 
+import { DesktopPageNav } from '@/components/desktop-page-nav';
 import { useEffect, useState } from 'react';
 import { MacOSDesktop } from '@/components/projects/macos-desktop/MacOSDesktop';
 import { MobileProjectsLayout } from '@/components/projects/mobile-projects-layout';
@@ -41,7 +42,12 @@ export default function ProjectsPage() {
 
   // Desktop view - full macOS interface
   if (isDesktop) {
-    return <MacOSDesktop />;
+    return (
+      <>
+        <DesktopPageNav activePath="/projects" />
+        <MacOSDesktop />
+      </>
+    );
   }
 
   // Mobile view - editorial cards layout

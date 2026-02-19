@@ -1,5 +1,6 @@
 'use client';
 
+import { DesktopPageNav } from '@/components/desktop-page-nav';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -45,6 +46,8 @@ export default function FunPage() {
 
   return (
     <div className="relative bg-white dark:bg-black overflow-x-hidden">
+      <DesktopPageNav activePath="/more" />
+
       {/* Hero Section - Fixed Height */}
       <motion.section
         style={isIOSMobile ? undefined : { opacity: heroOpacity, scale: heroScale }}

@@ -1,5 +1,6 @@
 'use client';
 
+import { DesktopPageNav } from '@/components/desktop-page-nav';
 import Skills from '@/components/skills';
 import { motion } from 'framer-motion';
 import { useWindowsViewportDensity } from '@/hooks/useWindowsViewportDensity';
@@ -24,6 +25,8 @@ export default function SkillsPage() {
 
   return (
     <div className="relative flex h-screen flex-col bg-gradient-to-b from-white to-neutral-50 px-4 dark:from-neutral-900 dark:to-neutral-950 overflow-hidden">
+      <DesktopPageNav activePath="/skills" />
+
       {/* Mobile: big text at bottom */}
       <motion.div
         className="pointer-events-none absolute inset-x-0 bottom-20 z-0 flex items-end justify-center overflow-visible sm:hidden"

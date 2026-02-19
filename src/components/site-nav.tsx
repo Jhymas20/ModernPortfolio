@@ -40,6 +40,14 @@ export const chromeFont = Oswald({
   display: 'swap',
 });
 
+const DESKTOP_CUSTOM_NAV_ROUTES = new Set([
+  '/me',
+  '/projects',
+  '/skills',
+  '/more',
+  '/contact',
+]);
+
 export function SiteNav() {
   const pathname = usePathname();
   const forceLightMenuPanel = pathname === '/';
@@ -61,7 +69,10 @@ export function SiteNav() {
     return () => window.removeEventListener('resize', update);
   }, []);
 
-  const hidden = pathname === '/chat' || (pathname === '/' && !isMobileViewport);
+  const hidden =
+    pathname === '/chat' ||
+    (pathname === '/' && !isMobileViewport) ||
+    (DESKTOP_CUSTOM_NAV_ROUTES.has(pathname) && !isMobileViewport);
 
   const updateHoverBounds = useCallback((index: number) => {
     const container = navContainerRef.current;

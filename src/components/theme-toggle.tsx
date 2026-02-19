@@ -6,6 +6,14 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
+const DESKTOP_CUSTOM_NAV_ROUTES = new Set([
+  '/me',
+  '/projects',
+  '/skills',
+  '/more',
+  '/contact',
+]);
+
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -35,6 +43,10 @@ export function ThemeToggle() {
   }
 
   if (pathname === '/' && viewport.width === 0) {
+    return null;
+  }
+
+  if (DESKTOP_CUSTOM_NAV_ROUTES.has(pathname) && viewport.width >= 768) {
     return null;
   }
 

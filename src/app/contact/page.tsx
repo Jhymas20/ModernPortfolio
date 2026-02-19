@@ -1,5 +1,6 @@
 'use client';
 
+import { DesktopPageNav } from '@/components/desktop-page-nav';
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useTheme } from 'next-themes';
@@ -73,6 +74,7 @@ export default function ContactPage() {
 
   return (
     <div className={`relative flex flex-col bg-gradient-to-b from-white to-neutral-50 px-4 dark:from-neutral-900 dark:to-neutral-950 ${pageHeightClass} ${pagePaddingClass}`}>
+      <DesktopPageNav activePath="/contact" />
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col">
         {/* Hero Section with Big Background Text - Takes up top space */}
         <ContactHero density={density} />

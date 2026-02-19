@@ -6,6 +6,14 @@ import { motion } from 'framer-motion';
 import { chromeFont } from '@/components/site-nav';
 import { useEffect, useState } from 'react';
 
+const DESKTOP_CUSTOM_NAV_ROUTES = new Set([
+  '/me',
+  '/projects',
+  '/skills',
+  '/more',
+  '/contact',
+]);
+
 export function HomeButton() {
   const router = useRouter();
   const pathname = usePathname();
@@ -21,7 +29,11 @@ export function HomeButton() {
   }, []);
 
   // Keep hidden on desktop home and chat page; show on mobile home
-  if (pathname === '/chat' || (pathname === '/' && !isMobileViewport)) {
+  if (
+    pathname === '/chat' ||
+    (pathname === '/' && !isMobileViewport) ||
+    (DESKTOP_CUSTOM_NAV_ROUTES.has(pathname) && !isMobileViewport)
+  ) {
     return null;
   }
 
