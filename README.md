@@ -42,15 +42,15 @@ Live site: [jordanhymas.com](https://jordanhymas.com)
 
 ## Screenshots
 
-![Home](public/GithubPhotos/home_page.webp)
+![Home](public/ModernPortfolio/home_page.webp)
 
-![Me](public/GithubPhotos/me_page.webp)
+![Me](public/ModernPortfolio/me_page.webp)
 
-![Projects](public/GithubPhotos/projects_page.webp)
+![Projects](public/ModernPortfolio/projects_page.webp)
 
-![Skills](public/GithubPhotos/skills_page.webp)
+![Skills](public/ModernPortfolio/skills_page.webp)
 
-![Contact](public/GithubPhotos/contact_page.webp)
+![Contact](public/ModernPortfolio/contact_page.webp)
 
 ---
 
