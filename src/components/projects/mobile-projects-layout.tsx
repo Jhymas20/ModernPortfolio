@@ -31,8 +31,8 @@ const SUMMARY_BY_SRC: Record<string, string> = {
     'A full home-lab infrastructure with virtualization, networking, Linux servers, and AI experiments designed like a small enterprise environment.',
   '/projects/BGCLCV/teenCenterPc.webp':
     'Enterprise-grade server room and esports network deployment with UniFi, firewall segmentation, structured cabling, and centralized management.',
-  '/transcendancepreview.webp':
-    'A multiplayer 3D Pong project with authentication, real-time gameplay, and full-stack systems built from scratch during my 42 curriculum.',
+  '/Projects/Ubiquiti/unifi_main.webp':
+    'A collection of real-world UniFi networks I designed and deployed with performance, segmentation, security, and scalability across multiple environments.',
   '/Projects/ModernPortfolio/home_page.webp':
     'My current portfolio website with modern UI, responsive layouts, smooth motion, and a polished production-ready frontend architecture.',
   '/Projects/Snake/snake.webp':
@@ -52,6 +52,7 @@ const MOBILE_PROJECT_ORDER = [
   '/Projects/Cybercodex.io/courses.webp', // cybercodex.io
   '/Projects/ModernPortfolio/home_page.webp', // Modern Portfolio
   '/Projects/HomeLab/Main.webp', // homelab
+  '/Projects/Ubiquiti/unifi_main.webp', // ubiquiti unifi
   '/Projects/OldPortfolio/home.webp', // first portfolio
   '/Projects/Proxmox/mainProxmox.webp', // proxmox
   '/Projects/Snake/snake.webp', // retro snake

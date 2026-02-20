@@ -256,43 +256,52 @@ const PROJECT_CONTENT = [
     ],
   },
   {
-    title: '3d Pong Game',
+    title: 'Ubiquiti UniFi',
     description:
-      "Transcendance is the final project of my 42 cursus. It's a 3D pong game with multiplayer capabilities, user authentication, and real-time gameplay. We had to do everything from scratch, so it was pretty challenging and we learned a lot.",
-    techStack: ['Django', 'Python', 'JavaScript', 'Websockets', 'PostgreSQL', 'Docker', 'Nginx', 'Web3', 'Solidity'],
-    date: '2023',
-    links: [
-      {
-        name: 'GitHub',
-        url: 'https://github.com/toukoum/Transcendance',
-      },
+      'This project represents multiple production networks I built from the ground up using UniFi hardware. My work covered network design, hardware deployment, IP addressing, VLAN segmentation, and SonicWall edge firewall configuration. I also handled rack installs, switch provisioning, access point placement, camera infrastructure, and NVR storage, with segmented traffic for staff devices, security systems, phones, and infrastructure. Alongside UniFi, I integrated RFID access control and IP security systems, reinforcing a full-stack infrastructure approach from cabling through firewall policy.',
+    typeLabel: 'Network Infrastructure > UniFi',
+    techStack: [
+      'UniFi CloudKey',
+      'UniFi Switch 24-Port',
+      'UniFi Switch 48-Port',
+      'UniFi Access Points',
+      'UniFi Protect',
+      'UniFi NVR (Video Storage)',
+      'UniFi G4 Dome Cameras',
+      'UniFi Cameras',
+      'SonicWall Firewalls',
+      'VLAN Segmentation',
+      'RFID Readers',
+      'IP Security Systems',
     ],
+    date: '2024-2026',
+    features: [
+      'Full UniFi network deployment',
+      'VLAN design and segmentation',
+      'SonicWall firewall configuration',
+      'Camera systems with NVR storage',
+      'Access point planning and tuning',
+      'Desktop hardwiring and phone lines',
+      'RFID and external security integrations',
+    ],
+    links: [],
     images: [
       {
-        src: '/trans1.webp',
-        alt: 'Transcendance landing page',
+        src: '/Projects/Ubiquiti/s_dashboard.webp',
+        alt: 'UniFi dashboard overview',
       },
       {
-        src: '/trans2.webp',
-        alt: 'Transcendance game',
+        src: '/Projects/Ubiquiti/s_network.webp',
+        alt: 'UniFi network topology view',
       },
       {
-        src: '/trans3.webp',
-        alt: 'Transcendance game',
+        src: '/Projects/Ubiquiti/o_dashboard.webp',
+        alt: 'Operational dashboard analytics',
       },
       {
-        src: '/trans4.webp',
-        alt: 'Transcendance game',
-      },
-      {
-        src: '/trans5.webp',
-        alt: 'Transcendance game',
-      },
-      {
-        src: '/trans6.webp',
-        alt: 'Transcendance game',
+        src: '/Projects/Ubiquiti/o_network.webp',
+        alt: 'Operational network and device status',
       }
-
     ],
   },
   {
@@ -705,10 +714,10 @@ export const data = [
     content: <ProjectContent project={{ title: 'Server Room (NPCE)', category: 'Infrastructure & Networking', thumbnail: '/projects/BGCLCV/teenCenterPc.webp' }} />,
   },
   {
-    category: '42 Project',
-    title: '3d Pong Game',
-    src: '/transcendancepreview.webp',
-    content: <ProjectContent project={{ title: '3d Pong Game', category: '42 Project', thumbnail: '/transcendancepreview.webp' }} />,
+    category: 'Infrastructure & Networking',
+    title: 'Ubiquiti UniFi',
+    src: '/Projects/Ubiquiti/unifi_main.webp',
+    content: <ProjectContent project={{ title: 'Ubiquiti UniFi', category: 'Infrastructure & Networking', thumbnail: '/Projects/Ubiquiti/unifi_main.webp' }} />,
   },
   {
     category: 'Web Development',

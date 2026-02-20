@@ -97,10 +97,10 @@ export const ICON_CONFIGS: IconConfig[] = [
   },
   // RIGHT SIDE - Column 2 (Row 1)
   {
-    id: '3dpong',
-    title: '3D Pong',
+    id: 'ubiquitiunifi',
+    title: 'Ubiquiti UniFi',
     projectIndex: 5,
-    icon: '/transcendancepreview.webp',
+    icon: '/Projects/Ubiquiti/unifi_main.webp',
     size: { width: 80, height: 80 },
     positions: {
       mobile: { x: 78, y: 20 },
