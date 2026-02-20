@@ -69,7 +69,7 @@ const PROJECT_CONTENT = [
   {
     title: 'CyberCodex.io',
     description:
-      "CyberCodex.io is a comprehensive cybersecurity learning platform featuring interactive courses, hands-on labs, and a vibrant community. Master security skills from beginner to advanced with structured pathways and real-world scenarios.",
+      'CyberCodex.io is a hands-on cybersecurity learning platform designed to help students and aspiring professionals build real-world security skills. The platform combines structured learning paths, interactive courses, and practical labs focused on networking, system security, ethical hacking, and defensive techniques. Learners progress from fundamentals to advanced concepts through guided scenarios, real infrastructure simulations, and project-based challenges, all supported by a growing community focused on practical, job-ready experience.',
     techStack: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     date: '2025',
     links: [
@@ -116,10 +116,6 @@ const PROJECT_CONTENT = [
     ],
     date: '2023',
     links: [
-      {
-        name: 'Website',
-        url: 'https://toukoum.github.io/oldPortfolio/',
-      },
       {
         name: 'GitHub',
         url: 'https://github.com/toukoum/portfolio',
@@ -188,7 +184,7 @@ const PROJECT_CONTENT = [
     details: {
       equipment: [
         { name: 'Raspberry Pi 5', description: 'Touchscreen-enabled device with an attached camera and microphone, used for hand-tracking experiments and running a local AI chatbot interface.' },
-        { name: 'Three Mini Phone Servers (Portable Linux Nodes)', description: 'Mobile devices running lightweight Linux server environments, used as deployable remote-access nodes. These act as drop-in access points on any network they\'re connected to, providing secure wireless access to my systems — functionally similar to portable VPN endpoints.' },
+        { name: 'Three Mini Phone Servers (Portable Linux Nodes)', description: 'Mobile devices running lightweight Linux server environments, used as deployable remote-access nodes. These act as drop-in access points on any network they\'re connected to, providing secure wireless access to my systems, functionally similar to portable VPN endpoints.' },
         { name: 'Raspberry Pi 3', description: 'Runs Pi-hole for network-wide ad blocking, along with several lightweight supporting services.' },
         { name: 'UniFi Cloud Key (Central Network Controller)', description: 'Acts as the main management hub for the home lab, controlling and monitoring all UniFi devices, including: UniFi Access Point (AP), UniFi Camera, UniFi Display, UniFi 8-Port Switch, and UniFi 16-Port Switch.' },
         { name: 'Network-Attached Storage (NAS)', description: 'Storage array containing three SSDs and one HDD, providing a total of 3 TB of storage, connected directly to the Proxmox cluster for VM and container storage.' },
@@ -212,9 +208,9 @@ const PROJECT_CONTENT = [
     },
   },
   {
-    title: 'Server Room (NPCE)',
+    title: 'Infrastructure Deployment (NPCE)',
     description:
-      "I recently built a complete enterprise-grade server room and esports network for the Boys & Girls Clubs of the Lewis-Clark Valley. Starting from an empty space, I deployed a full UniFi infrastructure including PoE switches, structured cabling, UniFi Protect cameras, and a CloudKey Gen2 Plus for centralized network and video management. I also assisted in configuring a SonicWall next-generation firewall to deliver secure, segmented networking throughout the facility. MXnet was implemented to control and distribute content across all building displays, ensuring synchronized and flexible media routing. The project included setting up multiple low-latency esports stations with optimized networking and workstation layouts. The final result is a scalable, secure, and high-performance infrastructure that supports daily operations, youth programs, and future expansion.",
+      'Designed and deployed a full enterprise-grade server room and esports network for the Boys & Girls Clubs of the Lewis-Clark Valley, transforming an empty space into a secure, high-performance infrastructure supporting daily operations and youth programs.',
     techStack: [
       'MXnet Video Ecosystem',
       'SonicWall',
@@ -223,6 +219,15 @@ const PROJECT_CONTENT = [
       'Ubiquiti UniFi Switches',
     ],
     date: '2024',
+    featuresTitle: 'Key Contributions:',
+    features: [
+      'Built complete UniFi network (PoE switches, structured cabling, CloudKey Gen2 Plus)',
+      'Deployed UniFi Protect cameras with centralized video management',
+      'Assisted with SonicWall firewall configuration for secure, segmented networking',
+      'Implemented MXnet for building-wide display content control',
+      'Designed low-latency esports stations with optimized network layouts',
+      'Delivered scalable infrastructure supporting future expansion',
+    ],
     links: [],
     images: [
       {
@@ -555,7 +560,14 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
 
         {/* Features Section */}
         {'features' in projectData && Array.isArray(projectData.features) && projectData.features.length > 0 && (
-          <CollapsibleSection title="Features:" defaultOpen={true}>
+          <CollapsibleSection
+            title={
+              'featuresTitle' in projectData && projectData.featuresTitle
+                ? projectData.featuresTitle
+                : 'Features:'
+            }
+            defaultOpen={true}
+          >
             <div className="space-y-2 text-sm">
               {projectData.features.map((feature: string, index: number) => (
                 <div key={index} className="flex items-start gap-2">
@@ -708,10 +720,10 @@ export const data = [
     content: <ProjectContent project={{ title: 'Home-Lab', category: 'Infrastructure & Homelab', thumbnail: '/Projects/HomeLab/Main.webp' }} />,
   },
   {
-    category: 'Infrastructure & Networking',
-    title: 'Server Room (NPCE)',
+    category: 'Enterprise Networking',
+    title: 'Infrastructure Deployment (NPCE)',
     src: '/projects/BGCLCV/teenCenterPc.webp',
-    content: <ProjectContent project={{ title: 'Server Room (NPCE)', category: 'Infrastructure & Networking', thumbnail: '/projects/BGCLCV/teenCenterPc.webp' }} />,
+    content: <ProjectContent project={{ title: 'Infrastructure Deployment (NPCE)', category: 'Enterprise Networking', thumbnail: '/projects/BGCLCV/teenCenterPc.webp' }} />,
   },
   {
     category: 'Infrastructure & Networking',

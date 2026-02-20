@@ -30,7 +30,7 @@ const SUMMARY_BY_SRC: Record<string, string> = {
   '/Projects/HomeLab/Main.webp':
     'A full home-lab infrastructure with virtualization, networking, Linux servers, and AI experiments designed like a small enterprise environment.',
   '/projects/BGCLCV/teenCenterPc.webp':
-    'Enterprise-grade server room and esports network deployment with UniFi, firewall segmentation, structured cabling, and centralized management.',
+    'Designed and deployed a full enterprise-grade server room and esports network for the Boys & Girls Clubs of the Lewis-Clark Valley, transforming an empty space into a secure, high-performance infrastructure supporting daily operations and youth programs.',
   '/Projects/Ubiquiti/unifi_main.webp':
     'A collection of real-world UniFi networks I designed and deployed with performance, segmentation, security, and scalability across multiple environments.',
   '/Projects/ModernPortfolio/home_page.webp':
@@ -47,7 +47,7 @@ const TITLE_BY_SRC: Record<string, string> = {
 };
 
 const MOBILE_PROJECT_ORDER = [
-  '/projects/BGCLCV/teenCenterPc.webp', // Server Room (NPCE)
+  '/projects/BGCLCV/teenCenterPc.webp', // Infrastructure Deployment (NPCE)
   '/Projects/LiquidPortfolio/projects.webp', // Liquid Portfolio
   '/Projects/Cybercodex.io/courses.webp', // cybercodex.io
   '/Projects/ModernPortfolio/home_page.webp', // Modern Portfolio

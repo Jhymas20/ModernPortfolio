@@ -114,7 +114,7 @@ export function MobileMeLayout({ addHomeScrollGap = false }: MobileMeLayoutProps
 
           <p className="mt-3 font-mono text-[12px] leading-[1.45] text-black/84 dark:text-white/84">
             I build real systems from interface to infrastructure. I combine software engineering,
-            cybersecurity, and hands-on IT to deliver secure, practical, production-ready solutions.
+            cybersecurity, and hands-on IT to design and deploy secure, production-ready systems.
           </p>
 
           <a
@@ -153,9 +153,9 @@ export function MobileMeLayout({ addHomeScrollGap = false }: MobileMeLayoutProps
             </p>
           </div>
           <div className="rounded-[16px] border border-black/65 bg-[#f5f4f0] px-2 py-3 text-center shadow-[0_5px_0_rgba(0,0,0,0.2)] dark:border-white/30 dark:bg-[#17191d] dark:shadow-[0_5px_0_rgba(0,0,0,0.4)]">
-            <p className={`${menuTitleFont.className} text-[30px] leading-[0.9]`}>24/7</p>
+            <p className={`${menuTitleFont.className} text-[30px] leading-[0.9]`}>+4</p>
             <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.11em] text-black/75 dark:text-white/74">
-              Builder
+              Managed Sites
             </p>
           </div>
         </section>

@@ -143,7 +143,7 @@ export const ICON_CONFIGS: IconConfig[] = [
   // RIGHT SIDE - Column 2 (Row 2)
   {
     id: 'serverRoom',
-    title: 'Server Room (NPCE)',
+    title: 'Infrastructure Deployment (NPCE)',
     projectIndex: 4,
     icon: '/projects/BGCLCV/teenCenterPc.webp',
     size: { width: 80, height: 80 },

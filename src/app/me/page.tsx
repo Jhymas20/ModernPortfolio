@@ -206,7 +206,7 @@ export default function MePage() {
 
             <p className="mt-4 font-mono text-[13px] leading-[1.5] text-black/82 dark:text-white/84">
               I build real systems from interface to infrastructure. I combine software engineering,
-              cybersecurity, and hands-on IT to deliver secure, practical, production-ready solutions.
+              cybersecurity, and hands-on IT to design and deploy secure, production-ready systems.
             </p>
 
             <div className="mt-4 rounded-[18px] border border-black/22 bg-black/6 p-3 dark:border-white/20 dark:bg-black/26">
@@ -264,7 +264,7 @@ export default function MePage() {
         <section className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
           <div className="rounded-[16px] border border-black/65 bg-[#f5f4f0] px-3 py-4 text-center shadow-[0_5px_0_rgba(0,0,0,0.2)] dark:border-white/28 dark:bg-[#17191d] dark:shadow-[0_5px_0_rgba(0,0,0,0.42)]">
             <p className={`${titleFont.className} text-[42px] leading-[0.9]`}>+3</p>
-            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.11em] text-black/76 dark:text-white/76">Years</p>
+            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.11em] text-black/76 dark:text-white/76">Years Experience</p>
           </div>
           <div className="rounded-[16px] border border-black/65 bg-[#f5f4f0] px-3 py-4 text-center shadow-[0_5px_0_rgba(0,0,0,0.2)] dark:border-white/28 dark:bg-[#17191d] dark:shadow-[0_5px_0_rgba(0,0,0,0.42)]">
             <p className={`${titleFont.className} text-[42px] leading-[0.9]`}>+10</p>
@@ -275,8 +275,8 @@ export default function MePage() {
             <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.11em] text-black/76 dark:text-white/76">Community Followers</p>
           </div>
           <div className="rounded-[16px] border border-black/65 bg-[#f5f4f0] px-3 py-4 text-center shadow-[0_5px_0_rgba(0,0,0,0.2)] dark:border-white/28 dark:bg-[#17191d] dark:shadow-[0_5px_0_rgba(0,0,0,0.42)]">
-            <p className={`${titleFont.className} text-[42px] leading-[0.9]`}>24/7</p>
-            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.11em] text-black/76 dark:text-white/76">Builder</p>
+            <p className={`${titleFont.className} text-[42px] leading-[0.9]`}>+4</p>
+            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.11em] text-black/76 dark:text-white/76">Managed Sites</p>
           </div>
         </section>
 
